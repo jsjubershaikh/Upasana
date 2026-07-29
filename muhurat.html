@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Today's Shubh Muhurat | Auspicious Timings – Upasana</title>
+  <meta name="description" content="Find today's shubh muhurat, Choghadiya, Tithi, Nakshatra, Yoga for marriage, griha pravesh, business using real-time Vedic astrology."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Live Banner ── */
+    .live-banner{background:linear-gradient(135deg,var(--dark) 0%,#7a2e2c 100%);color:var(--cream);padding:14px 0;text-align:center;border-bottom:3px solid var(--gold2)}
+    .live-banner-inner{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
+    .live-dot{width:10px;height:10px;border-radius:50%;background:#4cff72;box-shadow:0 0 8px #4cff72;animation:pulse-green 1.4s ease-in-out infinite}
+    @keyframes pulse-green{0%,100%{box-shadow:0 0 8px #4cff72}50%{box-shadow:0 0 20px #4cff72}}
+    .live-time{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--gold3);letter-spacing:2px}
+    .live-date-str{font-size:.9rem;font-weight:600;color:rgba(253,246,228,.8)}
+    .live-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(253,246,228,.5);display:block;margin-bottom:1px}
+
+    /* ── Date Selector ── */
+    .date-selector{background:var(--white);border-radius:var(--rl);padding:20px 24px;border:1px solid var(--border);display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:30px;box-shadow:var(--sh-sm)}
+    .date-selector label{font-size:.875rem;font-weight:700;color:var(--dark)}
+    .date-selector input[type=date]{padding:10px 14px;border-radius:10px;border:2px solid var(--border);font-size:.9rem;font-family:inherit;color:var(--text);background:var(--cream);outline:none;transition:border-color .25s}
+    .date-selector input[type=date]:focus{border-color:var(--gold2)}
+    .today-badge{background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--cream);padding:10px 20px;border-radius:var(--pill);font-size:.85rem;font-weight:700;border:none;cursor:pointer;transition:var(--trans)}
+    .today-badge:hover{transform:translateY(-2px);box-shadow:var(--sh-sm)}
+    .selected-day-info{margin-left:auto;text-align:right}
+    .selected-day-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--dark)}
+    .selected-day-full{font-size:.78rem;color:var(--text3);margin-top:2px}
+
+    /* ── Panchang Cards ── */
+    .panchang-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:30px}
+    .pnc-card{background:var(--white);border-radius:14px;padding:18px 16px;border:1.5px solid var(--border);text-align:center;transition:var(--trans);position:relative;overflow:hidden}
+    .pnc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(200,146,42,.05));pointer-events:none}
+    .pnc-card.active-card{background:linear-gradient(135deg,var(--dark),var(--dark2));border-color:var(--dark)}
+    .pnc-label{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:6px}
+    .pnc-card.active-card .pnc-label{color:rgba(253,246,228,.55)}
+    .pnc-value{font-size:1rem;font-weight:800;color:var(--dark);font-family:'Playfair Display',serif;line-height:1.2}
+    .pnc-card.active-card .pnc-value{color:var(--gold3)}
+    .pnc-sub{font-size:.72rem;color:var(--text3);margin-top:4px}
+    .pnc-card.active-card .pnc-sub{color:rgba(253,246,228,.45)}
+
+    /* ── Choghadiya Tables ── */
+    .chog-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px}
+    .chog-section-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:800;color:var(--dark);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .choghadiya-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--border)}
+    .choghadiya-table thead{background:linear-gradient(135deg,var(--dark),var(--dark2))}
+    .choghadiya-table thead th{padding:12px 14px;text-align:left;font-size:.76rem;font-weight:700;color:var(--gold3);letter-spacing:.05em;text-transform:uppercase}
+    .choghadiya-table tbody tr{border-bottom:1px solid var(--border);transition:background .18s}
+    .choghadiya-table tbody tr:hover{background:rgba(70,26,25,.04)}
+    .choghadiya-table tbody tr:last-child{border-bottom:none}
+    .choghadiya-table tbody tr.current-slot{background:rgba(200,146,42,.12)!important;border-left:3px solid var(--gold2)}
+    .choghadiya-table td{padding:11px 14px;font-size:.82rem;color:var(--text)}
+    .chog-name{font-weight:700;color:var(--dark)}
+    .badge-best{background:rgba(46,125,50,.12);color:#1b5e20;padding:3px 9px;border-radius:20px;font-size:.7rem;font-weight:800}
+    .badge-good{background:rgba(25,118,210,.1);color:#0d47a1;padding:3px 9px;border-radius:20px;font-size:.7rem;font-weight:800}
+    .badge-neutral{background:rgba(237,108,2,.1);color:#bf360c;padding:3px 9px;border-radius:20px;font-size:.7rem;font-weight:800}
+    .badge-avoid{background:rgba(198,40,40,.1);color:#b71c1c;padding:3px 9px;border-radius:20px;font-size:.7rem;font-weight:800}
+    .current-indicator{display:inline-block;width:8px;height:8px;border-radius:50%;background:#f59e0b;margin-right:5px;animation:pulse-green 1s infinite}
+
+    /* ── Rahu Kaal ── */
+    .special-timings{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px}
+    .st-card{background:var(--white);border-radius:14px;padding:18px;border:1.5px solid var(--border);text-align:center}
+    .st-card.danger{border-color:#f44336;background:rgba(244,67,54,.04)}
+    .st-card.caution{border-color:#ff9800;background:rgba(255,152,0,.04)}
+    .st-card.auspicious{border-color:#4caf50;background:rgba(76,175,80,.04)}
+    .st-icon{font-size:1.8rem;margin-bottom:8px}
+    .st-name{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--dark);margin-bottom:6px}
+    .st-time{font-family:'Playfair Display',serif;font-size:1rem;font-weight:800;color:var(--dark)}
+    .st-desc{font-size:.72rem;color:var(--text3);margin-top:4px}
+
+    /* ── Muhurat Event Cards ── */
+    .muhurat-types-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .mt-card{background:var(--white);border-radius:var(--rl);padding:24px;border:1.5px solid var(--border);transition:var(--trans);cursor:pointer}
+    .mt-card:hover{transform:translateY(-5px);box-shadow:var(--sh-md);border-color:var(--gold2)}
+    .mt-icon{font-size:2rem;margin-bottom:12px}
+    .mt-card h3{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:6px}
+    .mt-card p{font-size:.82rem;color:var(--text2);line-height:1.55;margin-bottom:12px}
+    .mt-date{font-size:.78rem;font-weight:700;color:var(--gold);background:rgba(200,146,42,.1);padding:5px 12px;border-radius:20px;display:inline-block}
+
+    @media(max-width:991px){.panchang-grid{grid-template-columns:1fr 1fr}.chog-grid{grid-template-columns:1fr}.special-timings{grid-template-columns:1fr 1fr}.muhurat-types-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.panchang-grid{grid-template-columns:1fr 1fr}.special-timings{grid-template-columns:1fr}.muhurat-types-grid{grid-template-columns:1fr}.choghadiya-table thead th:nth-child(3),.choghadiya-table td:nth-child(3){display:none}.live-banner-inner{gap:14px}}
+  </style>
+</head>
+<body>
+<div id="header-root"></div>
+
+<!-- Live Banner -->
+<div class="live-banner">
+  <div class="live-banner-inner container">
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="live-dot"></div>
+      <span style="font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase">LIVE</span>
+    </div>
+    <div style="text-align:center">
+      <span class="live-label">Current IST Time</span>
+      <div class="live-time" id="banner-clock">--:--:-- --</div>
+    </div>
+    <div style="text-align:center">
+      <span class="live-label">Today's Date</span>
+      <div class="live-date-str" id="banner-date">---</div>
+    </div>
+    <div style="text-align:center">
+      <span class="live-label">Current Choghadiya</span>
+      <div class="live-date-str" id="banner-chog">---</div>
+    </div>
+    <div style="text-align:center">
+      <span class="live-label">Vara (Day)</span>
+      <div class="live-date-str" id="banner-vara">---</div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> › <span style="color:var(--cream)">Muhurat</span></div>
+      <h1 class="page-hero-title" style="margin-top:12px">Aaj Ka Shubh Muhurat</h1>
+      <p class="page-hero-sub">Real-time Vedic Panchang — Choghadiya, Tithi, Nakshatra & Yoga for today</p>
+    </div>
+  </section>
+
+  <section style="padding:56px 0;background:var(--cream)">
+    <div class="container">
+
+      <!-- Date Selector -->
+      <div class="date-selector reveal">
+        <label for="muhurat-date">📅 Select Date:</label>
+        <input type="date" id="muhurat-date" onchange="renderMuhurat()"/>
+        <button class="today-badge" onclick="goToday()">Today</button>
+        <div class="selected-day-info">
+          <div class="selected-day-name" id="sel-day-name">---</div>
+          <div class="selected-day-full" id="sel-day-full">---</div>
+        </div>
+      </div>
+
+      <!-- Panchang Overview -->
+      <div class="panchang-grid reveal">
+        <div class="pnc-card active-card">
+          <div class="pnc-label">Tithi</div>
+          <div class="pnc-value" id="pnc-tithi">---</div>
+          <div class="pnc-sub" id="pnc-tithi-sub">Lunar Day</div>
+        </div>
+        <div class="pnc-card">
+          <div class="pnc-label">Vara (Weekday)</div>
+          <div class="pnc-value" id="pnc-vara">---</div>
+          <div class="pnc-sub" id="pnc-vara-en">---</div>
+        </div>
+        <div class="pnc-card">
+          <div class="pnc-label">Nakshatra</div>
+          <div class="pnc-value" id="pnc-nakshatra">---</div>
+          <div class="pnc-sub">Lunar Mansion</div>
+        </div>
+        <div class="pnc-card">
+          <div class="pnc-label">Yoga</div>
+          <div class="pnc-value" id="pnc-yoga">---</div>
+          <div class="pnc-sub" id="pnc-yoga-type">---</div>
+        </div>
+      </div>
+
+      <!-- Special Timings: Rahu Kaal, Yamaganda, Abhijit -->
+      <div class="special-timings reveal">
+        <div class="st-card danger">
+          <div class="st-icon">⚠️</div>
+          <div class="st-name">Rahu Kaal</div>
+          <div class="st-time" id="rahu-time">---</div>
+          <div class="st-desc">Avoid new beginnings</div>
+        </div>
+        <div class="st-card caution">
+          <div class="st-icon">🌑</div>
+          <div class="st-name">Yamaganda</div>
+          <div class="st-time" id="yama-time">---</div>
+          <div class="st-desc">Inauspicious period</div>
+        </div>
+        <div class="st-card auspicious">
+          <div class="st-icon">✨</div>
+          <div class="st-name">Abhijit Muhurat</div>
+          <div class="st-time" id="abhijit-time">---</div>
+          <div class="st-desc">Best time of the day</div>
+        </div>
+      </div>
+
+      <!-- Choghadiya Tables -->
+      <div class="chog-grid">
+        <!-- Day -->
+        <div class="reveal">
+          <div class="chog-section-title">☀️ Din Choghadiya (Day)</div>
+          <table class="choghadiya-table">
+            <thead><tr><th>Time</th><th>Choghadiya</th><th>Best For</th><th>Nature</th></tr></thead>
+            <tbody id="day-chog-body"></tbody>
+          </table>
+        </div>
+        <!-- Night -->
+        <div class="reveal">
+          <div class="chog-section-title">🌙 Ratri Choghadiya (Night)</div>
+          <table class="choghadiya-table">
+            <thead><tr><th>Time</th><th>Choghadiya</th><th>Best For</th><th>Nature</th></tr></thead>
+            <tbody id="night-chog-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Muhurat by Event -->
+  <section style="padding:64px 0;background:var(--white)">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag">📅 Upcoming Muhurat</p>
+        <h2 class="s-title">Auspicious Timings by Event</h2>
+        <p class="s-sub">Find the best muhurat for every important occasion in your life</p>
+      </div>
+      <div class="muhurat-types-grid">
+        <div class="mt-card reveal d1"><div class="mt-icon">💍</div><h3>Vivah Muhurat</h3><p>Best dates and times for Hindu wedding ceremonies.</p><div class="mt-date" id="vivah-next">---</div></div>
+        <div class="mt-card reveal d2"><div class="mt-icon">🏠</div><h3>Griha Pravesh</h3><p>Auspicious timings for housewarming and new home entry.</p><div class="mt-date" id="griha-next">---</div></div>
+        <div class="mt-card reveal d3"><div class="mt-icon">🏪</div><h3>Shop / Business Opening</h3><p>Best muhurat for inaugurating a new business or shop.</p><div class="mt-date" id="shop-next">---</div></div>
+        <div class="mt-card reveal d1"><div class="mt-icon">🚗</div><h3>Vehicle Purchase</h3><p>Lucky timings to buy a new vehicle for prosperity and safety.</p><div class="mt-date" id="vehicle-next">---</div></div>
+        <div class="mt-card reveal d2"><div class="mt-icon">📚</div><h3>Vidyarambh</h3><p>Auspicious time for starting education or a new learning journey.</p><div class="mt-date" id="vidya-next">---</div></div>
+        <div class="mt-card reveal d3"><div class="mt-icon">✈️</div><h3>Travel Muhurat</h3><p>Best days and times for starting a long journey or travel.</p><div class="mt-date" id="travel-next">---</div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="footer-root"></div>
+<script src="components.js"></script>
+<script>
+/* ═══════════════════════════════════════════════
+   REAL-TIME MUHURAT ENGINE
+   ═══════════════════════════════════════════════ */
+
+/* Choghadiya sequence for each weekday (0=Sun..6=Sat)
+   Day starts at sunrise (6:00 AM), 8 slots × 1.5h each
+   Night starts at sunset (6:00 PM), 8 slots × 1.5h each */
+const DAY_CHOG = {
+  0: ['Udveg','Char','Labh','Amrit','Kaal','Shubh','Rog','Udveg'],
+  1: ['Amrit','Kaal','Shubh','Rog','Udveg','Char','Labh','Amrit'],
+  2: ['Kaal','Shubh','Rog','Udveg','Char','Labh','Amrit','Kaal'],
+  3: ['Labh','Amrit','Kaal','Shubh','Rog','Udveg','Char','Labh'],
+  4: ['Shubh','Rog','Udveg','Char','Labh','Amrit','Kaal','Shubh'],
+  5: ['Rog','Udveg','Char','Labh','Amrit','Kaal','Shubh','Rog'],
+  6: ['Char','Labh','Amrit','Kaal','Shubh','Rog','Udveg','Char']
+};
+const NIGHT_CHOG = {
+  0: ['Shubh','Amrit','Char','Rog','Kaal','Labh','Udveg','Shubh'],
+  1: ['Labh','Udveg','Shubh','Amrit','Char','Rog','Kaal','Labh'],
+  2: ['Char','Rog','Kaal','Labh','Udveg','Shubh','Amrit','Char'],
+  3: ['Udveg','Shubh','Amrit','Char','Rog','Kaal','Labh','Udveg'],
+  4: ['Amrit','Char','Rog','Kaal','Labh','Udveg','Shubh','Amrit'],
+  5: ['Kaal','Labh','Udveg','Shubh','Amrit','Char','Rog','Kaal'],
+  6: ['Rog','Kaal','Labh','Udveg','Shubh','Amrit','Char','Rog']
+};
+
+const CHOG_META = {
+  Amrit:  { activity:'All auspicious work', nature:'Best',    badge:'badge-best',    color:'#1b5e20' },
+  Shubh:  { activity:'Religious, spiritual', nature:'Good',   badge:'badge-good',    color:'#0d47a1' },
+  Labh:   { activity:'Business, new work',  nature:'Good',    badge:'badge-good',    color:'#0d47a1' },
+  Char:   { activity:'Travel, movement',    nature:'Neutral', badge:'badge-neutral',  color:'#bf360c' },
+  Udveg:  { activity:'Govt. work only',     nature:'Caution', badge:'badge-neutral',  color:'#bf360c' },
+  Kaal:   { activity:'Avoid new starts',    nature:'Avoid',   badge:'badge-avoid',    color:'#b71c1c' },
+  Rog:    { activity:'Avoid major work',    nature:'Avoid',   badge:'badge-avoid',    color:'#b71c1c' }
+};
+
+// Rahu Kaal by weekday (slot index out of 8, starting 6 AM, 1.5h each)
+const RAHU_SLOT  = { 0:7, 1:1, 2:6, 3:4, 4:5, 5:3, 6:2 }; // Sun=7th slot
+const YAMA_SLOT  = { 0:4, 1:5, 2:3, 3:6, 4:2, 5:7, 6:1 };
+
+const VARA_NAMES    = ['Ravivar (Sunday)','Somvar (Monday)','Mangalvar (Tuesday)','Budhvar (Wednesday)','Guruvar (Thursday)','Shukravar (Friday)','Shanivar (Saturday)'];
+const VARA_SHORT    = ['Ravivar','Somvar','Mangalvar','Budhvar','Guruvar','Shukravar','Shanivar'];
+const MONTH_NAMES   = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const TITHI_NAMES   = ['Pratipada','Dwitiya','Tritiya','Chaturthi','Panchami','Shashthi','Saptami','Ashtami','Navami','Dashami','Ekadashi','Dwadashi','Trayodashi','Chaturdashi','Purnima/Amavasya'];
+const NAKSHATRA_NAMES = ['Ashwini','Bharani','Krittika','Rohini','Mrigashira','Ardra','Punarvasu','Pushya','Ashlesha','Magha','Purva Phalguni','Uttara Phalguni','Hasta','Chitra','Swati','Vishakha','Anuradha','Jyeshtha','Mula','Purva Ashadha','Uttara Ashadha','Shravana','Dhanishtha','Shatabhisha','Purva Bhadrapada','Uttara Bhadrapada','Revati'];
+const YOGA_NAMES    = ['Vishkambha','Priti','Ayushman','Saubhagya','Shobhana','Atiganda','Sukarman','Dhriti','Shula','Ganda','Vriddhi','Dhruva','Vyaghata','Harshana','Vajra','Siddhi','Vyatipata','Variyan','Parigha','Shiva','Siddha','Sadhya','Shubha','Shukla','Brahma','Indra','Vaidhriti'];
+const AUSPICIOUS_YOGA = ['Priti','Ayushman','Saubhagya','Shobhana','Sukarman','Dhriti','Vriddhi','Dhruva','Harshana','Siddhi','Shiva','Siddha','Sadhya','Shubha','Shukla','Brahma','Indra'];
+
+function fmtTime(h, m) {
+  const ampm = h < 12 ? 'AM' : 'PM';
+  const hh = h % 12 === 0 ? 12 : h % 12;
+  return `${hh}:${String(m).padStart(2,'0')} ${ampm}`;
+}
+
+function slotTimeRange(startH, startM, slotIdx, slotDurMin) {
+  const fromMin = startH * 60 + startM + slotIdx * slotDurMin;
+  const toMin   = fromMin + slotDurMin;
+  const fH = Math.floor(fromMin / 60) % 24, fM = fromMin % 60;
+  const tH = Math.floor(toMin   / 60) % 24, tM = toMin   % 60;
+  return `${fmtTime(fH,fM)} – ${fmtTime(tH,tM)}`;
+}
+
+function getSelectedDate() {
+  const inp = document.getElementById('muhurat-date');
+  if (!inp.value) return new Date();
+  const [y,m,d] = inp.value.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}
+
+/* Simple Julian Day based Tithi & Nakshatra approximation */
+function getVedicData(date) {
+  const jd = julianDay(date);
+  const sunLon  = sunLongitude(jd);
+  const moonLon = moonLongitude(jd);
+  let diff = (moonLon - sunLon + 360) % 360;
+
+  const tithiIdx = Math.floor(diff / 12) % 15;
+  const nakshatraIdx = Math.floor(moonLon / (360/27)) % 27;
+  const yogaVal = (sunLon + moonLon) % 360;
+  const yogaIdx = Math.floor(yogaVal / (360/27)) % 27;
+
+  return {
+    tithi:     TITHI_NAMES[tithiIdx],
+    nakshatra: NAKSHATRA_NAMES[nakshatraIdx],
+    yoga:      YOGA_NAMES[yogaIdx],
+    yogaGood:  AUSPICIOUS_YOGA.includes(YOGA_NAMES[yogaIdx])
+  };
+}
+
+function julianDay(date) {
+  const y = date.getFullYear(), m = date.getMonth()+1, d = date.getDate();
+  const A = Math.floor((14-m)/12), Y = y+4800-A, M = m+12*A-3;
+  return d + Math.floor((153*M+2)/5) + 365*Y + Math.floor(Y/4) - Math.floor(Y/100) + Math.floor(Y/400) - 32045;
+}
+
+function sunLongitude(jd) {
+  const n = jd - 2451545.0;
+  const L = (280.460 + 0.9856474 * n) % 360;
+  const g = ((357.528 + 0.9856003 * n) % 360) * Math.PI / 180;
+  return (L + 1.915 * Math.sin(g) + 0.020 * Math.sin(2*g) + 360) % 360;
+}
+
+function moonLongitude(jd) {
+  const n = jd - 2451545.0;
+  const L = (218.316 + 13.176396 * n) % 360;
+  const M = ((134.963 + 13.064993 * n) % 360) * Math.PI / 180;
+  const F = ((93.272  + 13.229350 * n) % 360) * Math.PI / 180;
+  return (L + 6.289 * Math.sin(M) - 1.274 * Math.sin(2*F - M) + 0.658 * Math.sin(2*F) + 360) % 360;
+}
+
+function renderMuhurat() {
+  const date = getSelectedDate();
+  const dow  = date.getDay(); // 0=Sun
+  const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months   = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // Header
+  document.getElementById('sel-day-name').textContent = VARA_SHORT[dow];
+  document.getElementById('sel-day-full').textContent  =
+    `${dayNames[dow]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+
+  // Panchang
+  const vd = getVedicData(date);
+  document.getElementById('pnc-tithi').textContent     = vd.tithi;
+  document.getElementById('pnc-vara').textContent      = VARA_SHORT[dow];
+  document.getElementById('pnc-vara-en').textContent   = dayNames[dow];
+  document.getElementById('pnc-nakshatra').textContent = vd.nakshatra;
+  document.getElementById('pnc-yoga').textContent      = vd.yoga;
+  document.getElementById('pnc-yoga-type').textContent = vd.yogaGood ? '✅ Auspicious' : '⚠️ Caution';
+
+  // Current time (for today only)
+  const now = new Date();
+  const isToday = date.toDateString() === now.toDateString();
+  const nowMin  = now.getHours() * 60 + now.getMinutes();
+
+  // Day Choghadiya: 6:00 AM start, 8 slots × 90 min
+  const dayCh   = DAY_CHOG[dow];
+  const dayBody = document.getElementById('day-chog-body');
+  dayBody.innerHTML = '';
+  dayCh.forEach((name, i) => {
+    const slotStart = 6 * 60 + i * 90;
+    const slotEnd   = slotStart + 90;
+    const isCurrent = isToday && nowMin >= slotStart && nowMin < slotEnd;
+    const meta = CHOG_META[name];
+    const timeStr = slotTimeRange(6, 0, i, 90);
+    const tr = document.createElement('tr');
+    if (isCurrent) tr.classList.add('current-slot');
+    tr.innerHTML = `
+      <td style="font-weight:600">${isCurrent ? '<span class="current-indicator"></span>' : ''}${timeStr}</td>
+      <td><span class="chog-name" style="color:${meta.color}">${name}</span></td>
+      <td style="color:var(--text2);font-size:.78rem">${meta.activity}</td>
+      <td><span class="${meta.badge}">${meta.nature}</span></td>`;
+    dayBody.appendChild(tr);
+  });
+
+  // Night Choghadiya: 6:00 PM start, 8 slots × 90 min
+  const nightCh   = NIGHT_CHOG[dow];
+  const nightBody = document.getElementById('night-chog-body');
+  nightBody.innerHTML = '';
+  nightCh.forEach((name, i) => {
+    const slotStart = 18 * 60 + i * 90;
+    const slotEnd   = slotStart + 90;
+    const isCurrent = isToday && nowMin >= slotStart && nowMin < slotEnd;
+    const meta = CHOG_META[name];
+    const timeStr = slotTimeRange(18, 0, i, 90);
+    const tr = document.createElement('tr');
+    if (isCurrent) tr.classList.add('current-slot');
+    tr.innerHTML = `
+      <td style="font-weight:600">${isCurrent ? '<span class="current-indicator"></span>' : ''}${timeStr}</td>
+      <td><span class="chog-name" style="color:${meta.color}">${name}</span></td>
+      <td style="color:var(--text2);font-size:.78rem">${meta.activity}</td>
+      <td><span class="${meta.badge}">${meta.nature}</span></td>`;
+    nightBody.appendChild(tr);
+  });
+
+  // Rahu Kaal & Yamaganda (day slots 6AM based)
+  const rahuSlot = RAHU_SLOT[dow];
+  const yamaSlot = YAMA_SLOT[dow];
+  document.getElementById('rahu-time').textContent  = slotTimeRange(6, 0, rahuSlot, 90);
+  document.getElementById('yama-time').textContent  = slotTimeRange(6, 0, yamaSlot, 90);
+
+  // Abhijit Muhurat = ~12 noon ± 24 min
+  document.getElementById('abhijit-time').textContent = '11:36 AM – 12:24 PM';
+
+  // Upcoming event muhurats (simple forward calculation)
+  renderUpcomingMuhurats(date);
+}
+
+function renderUpcomingMuhurats(fromDate) {
+  // Auspicious days: Mon, Wed, Thu, Fri (1,3,4,5) for most events
+  // Sat (6), Sun (0) less preferred; Tue (2) avoid for marriage
+  const auspDays = [1,3,4,5,0]; // priority order
+  const events = [
+    { id:'vivah-next',   good:[1,5,3],  label:'Vivah Muhurat' },
+    { id:'griha-next',   good:[1,3,5,4],label:'Griha Pravesh' },
+    { id:'shop-next',    good:[4,3,1,5],label:'Shop Opening' },
+    { id:'vehicle-next', good:[5,3,1,4],label:'Vehicle Purchase' },
+    { id:'vidya-next',   good:[4,3,1,5],label:'Vidyarambh' },
+    { id:'travel-next',  good:[1,3,5],  label:'Travel' }
+  ];
+  const M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  events.forEach(ev => {
+    let d = new Date(fromDate);
+    d.setDate(d.getDate() + 1);
+    let found = null;
+    for(let i = 0; i < 60; i++) {
+      if(ev.good.includes(d.getDay())) { found = d; break; }
+      d.setDate(d.getDate()+1);
+    }
+    const el = document.getElementById(ev.id);
+    if(found && el) {
+      const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      el.textContent = `Next: ${days[found.getDay()]}, ${found.getDate()} ${M[found.getMonth()]} ${found.getFullYear()}`;
+    }
+  });
+}
+
+function goToday() {
+  const inp = document.getElementById('muhurat-date');
+  inp.value = new Date().toISOString().split('T')[0];
+  renderMuhurat();
+  showToast("Showing today's Choghadiya & Panchang", 'success');
+}
+
+/* ── Live clock & banner update ── */
+function updateBannerClock() {
+  const now = new Date();
+  const h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+  const ampm = h < 12 ? 'AM' : 'PM';
+  const hh = h % 12 === 0 ? 12 : h % 12;
+  const timeStr = `${String(hh).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm}`;
+  const dow = now.getDay();
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const dateStr = `${days[dow]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+
+  const el = document.getElementById('banner-clock');
+  const de = document.getElementById('banner-date');
+  const ce = document.getElementById('banner-chog');
+  const ve = document.getElementById('banner-vara');
+  if(el) el.textContent = timeStr;
+  if(de) de.textContent = dateStr;
+  if(ve) ve.textContent = VARA_SHORT[dow];
+
+  // Current choghadiya
+  const nowMin = h * 60 + m;
+  let curChog = '---';
+  const dayCh = DAY_CHOG[dow];
+  const nightCh = NIGHT_CHOG[dow];
+  for(let i=0;i<8;i++){
+    const s1 = 6*60 + i*90, e1 = s1+90;
+    if(nowMin >= s1 && nowMin < e1){ curChog = dayCh[i]; break; }
+    const s2 = 18*60 + i*90, e2 = s2+90;
+    if(nowMin >= s2 && nowMin < e2){ curChog = nightCh[i]; break; }
+  }
+  if(ce) ce.textContent = curChog !== '---' ? curChog + ' (' + (CHOG_META[curChog]?.nature||'') + ')' : '---';
+}
+
+/* ── Init ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const inp = document.getElementById('muhurat-date');
+  if(inp) inp.value = new Date().toISOString().split('T')[0];
+  renderMuhurat();
+  updateBannerClock();
+  setInterval(updateBannerClock, 1000);
+});
+</script>
+</body>
+</html>

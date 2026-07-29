@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Upasana – Book Pandit Online for Puja, Havan, Rituals & Festivals</title>
+  <meta name="description" content="Book experienced pandits online for Puja, Weddings, Havan, Griha Pravesh, Rudrabhishek and more. Authentic Vedic ceremonies at your doorstep."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="header-root"></div>
+
+<main>
+  <!-- ══ HERO SLIDER ══ -->
+  <section class="hero" id="hero">
+    <div class="slides-wrap">
+      <div class="slide s1 active">
+        <div class="slide-overlay"></div>
+        <div class="slide-pattern"></div>
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Rudrabhishek Puja Online</h1>
+            <p class="hero-sub">Participate in a spiritually enriching live Rudrabhishek Puja and receive Lord Shiva's divine blessings from the comfort of your home.</p>
+            <div class="hero-btns">
+              <a href="rudrabhishek.html" class="btn-gold">Book Now</a>
+              <a href="book-a-pandit.html" class="btn-outline-light">All Services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide s2">
+        <div class="slide-overlay"></div>
+        <div class="slide-pattern"></div>
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Griha Pravesh Puja</h1>
+            <p class="hero-sub">Begin your new chapter with sacred Vedic rituals — bless your new home with divine energy and prosperity.</p>
+            <div class="hero-btns">
+              <a href="griha-pravesh.html" class="btn-gold">Book Now</a>
+              <a href="book-a-pandit.html" class="btn-outline-light">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide s3">
+        <div class="slide-overlay"></div>
+        <div class="slide-pattern"></div>
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Vivah Sanskar – Sacred Wedding</h1>
+            <p class="hero-sub">Celebrate your union with authentic Vedic wedding rituals performed by our certified pandits with complete devotion.</p>
+            <div class="hero-btns">
+              <a href="vivah.html" class="btn-gold">Book Now</a>
+              <a href="book-a-pandit.html" class="btn-outline-light">View Details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="slide-prev" id="slide-prev">❮</button>
+    <button class="slide-next" id="slide-next">❯</button>
+    <div class="slide-dots">
+      <button class="dot active" data-index="0"></button>
+      <button class="dot" data-index="1"></button>
+      <button class="dot" data-index="2"></button>
+    </div>
+    <!-- Search Bar -->
+    <div class="hero-search-bar">
+      <div class="search-box">
+        <form onsubmit="event.preventDefault(); window.routeSearch(document.getElementById('puja-search').value);" style="margin:0;padding:0;width:100%">
+          <div class="search-input-wrap">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input type="text" id="puja-search" class="search-input" placeholder="Search for Puja, Rituals, Ceremonies... (e.g. Griha Pravesh)" data-i18n="hero.search.placeholder" data-i18n-attr="placeholder" aria-label="Search puja" autocomplete="off"/>
+            <button type="submit" class="btn-search-go" id="btn-search-go" data-i18n="hero.search.btn">Search</button>
+          </div>
+        </form>
+        <div class="quick-links">
+          <a href="astrology.html" class="ql-item"><div class="ql-icon">🔮</div><span data-i18n="hero.ql.astrology">Astrology</span></a>
+          <a href="muhurat.html"   class="ql-item"><div class="ql-icon">📅</div><span data-i18n="hero.ql.muhurat">Muhurat</span></a>
+          <a href="kundali.html"   class="ql-item"><div class="ql-icon">🪐</div><span data-i18n="hero.ql.kundali">Kundali</span></a>
+          <a href="book-a-pandit.html" class="ql-item"><div class="ql-icon">🙏</div><span data-i18n="hero.ql.book">Book Pandit</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MARQUEE ══ -->
+  <div class="marquee-wrap">
+    <div class="marquee-content">
+      <span class="marquee-item">✅ 100% Authentic Vedic Rituals</span>
+      <span class="marquee-item">🌟 Trusted by Lakhs of Devotees</span>
+      <span class="marquee-item">🔒 Secure & Private Bookings</span>
+      <span class="marquee-item">📞 24×7 Expert Support</span>
+      <span class="marquee-item">🎓 Certified Vedic Pandits</span>
+      <span class="marquee-item">🚚 Samagri Doorstep Delivery</span>
+      <span class="marquee-item">🔄 Easy Reschedule Policy</span>
+      <span class="marquee-item">✅ 100% Authentic Vedic Rituals</span>
+      <span class="marquee-item">🌟 Trusted by Lakhs of Devotees</span>
+      <span class="marquee-item">🔒 Secure & Private Bookings</span>
+      <span class="marquee-item">📞 24×7 Expert Support</span>
+      <span class="marquee-item">🎓 Certified Vedic Pandits</span>
+      <span class="marquee-item">🚚 Samagri Doorstep Delivery</span>
+      <span class="marquee-item">🔄 Easy Reschedule Policy</span>
+    </div>
+  </div>
+
+  <!-- ══ STATS ══ -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-card"><div class="stat-num" data-target="50000">0+</div><div class="stat-label" data-i18n="stat.pujas">Pujas Performed</div></div>
+        <div class="stat-card"><div class="stat-num" data-target="2000">0+</div><div class="stat-label" data-i18n="stat.pandits">Certified Pandits</div></div>
+        <div class="stat-card"><div class="stat-num" data-target="200">0+</div><div class="stat-label" data-i18n="stat.cities">Cities Covered</div></div>
+        <div class="stat-card"><div class="stat-num" data-target="100000">0+</div><div class="stat-label" data-i18n="stat.rating">Happy Devotees</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FREE KUNDALI BANNER ══ -->
+  <section class="kundali-section" id="kundali">
+    <div class="container">
+      <div class="kundali-wrap reveal">
+        <div class="kundali-left">
+          <div>
+            <h2 class="kundali-heading">Get Your <span class="free-word">FREE</span><br/>Janam Kundali</h2>
+            <p class="kundali-desc">Personalized Horoscope, Dosha &amp; Yoga Analysis, Planetary Insights and Life Predictions tailored just for you.</p>
+            <a href="kundali.html" class="btn-gold" style="display:inline-block;animation:pglow 2s ease-in-out infinite">Get Free Kundali ✨</a>
+          </div>
+        </div>
+        <div class="kundali-right">
+          <div class="kundali-features">
+            <div class="kf-item">🪐 Planetary Positions</div>
+            <div class="kf-item">🔮 Dosha Analysis</div>
+            <div class="kf-item">⭐ Yoga Report</div>
+            <div class="kf-item">🌙 Life Predictions</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BOOKING FORM ══ -->
+  <section class="booking-section" id="book-pandit">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag">🙏 Quick Booking</p>
+        <h2 class="s-title" data-i18n="book.title">Book a Pandit for Your Ceremony</h2>
+        <p class="s-sub" data-i18n="book.sub">Fill in the details and our team will connect you with a verified pandit</p>
+      </div>
+      <div class="booking-card reveal">
+        <div class="booking-form-side">
+          <form class="form-grid" id="booking-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="puja-type" data-i18n="book.puja.label">Select Puja / Ceremony</label>
+                <select id="puja-type" class="form-control">
+                  <option value="">-- Choose Puja Type --</option>
+                  <option>Rudrabhishek Puja</option>
+                  <option>Griha Pravesh Puja</option>
+                  <option>Satyanarayan Katha</option>
+                  <option>Vivah Sanskar</option>
+                  <option>Ganesh Puja</option>
+                  <option>Navgraha Puja</option>
+                  <option>Havan / Homa</option>
+                  <option>Namkaran Sanskar</option>
+                  <option>Lakshmi Puja</option>
+                  <option>Shradh / Pitru Puja</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="puja-date">Select Date</label>
+                <input type="date" id="puja-date" class="form-control"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="puja-time">Preferred Time</label>
+                <select id="puja-time" class="form-control">
+                  <option value="">-- Select Time Slot --</option>
+                  <option>Early Morning (5–7 AM)</option>
+                  <option>Morning (7–10 AM)</option>
+                  <option>Late Morning (10 AM–12 PM)</option>
+                  <option>Afternoon (12–3 PM)</option>
+                  <option>Evening (3–6 PM)</option>
+                  <option>As per Muhurat</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="city">City / Location</label>
+                <input type="text" id="city" class="form-control" placeholder="e.g. Mumbai, Delhi, Surat…"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Puja Mode</label>
+              <div class="radio-group">
+                <label class="radio-opt checked"><input type="radio" name="mode" value="offline" checked/><div class="radio-dot"><div class="radio-inner"></div></div>Offline (Home)</label>
+                <label class="radio-opt"><input type="radio" name="mode" value="online"/><div class="radio-dot"><div class="radio-inner"></div></div>Online (Live Stream)</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" class="form-control" placeholder="Your full name"/>
+              </div>
+              <div class="form-group">
+                <label for="phone">Mobile Number</label>
+                <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXX XXXXX"/>
+              </div>
+            </div>
+            <button type="submit" class="btn-submit">Book Pandit Now 🙏</button>
+          </form>
+        </div>
+        <div class="booking-info-side">
+          <h3>Why Book With Us?</h3>
+          <ul class="benefits-list">
+            <li class="benefit-item"><span class="benefit-icon">🎓</span><div><strong>Verified Pandits</strong><p>Thoroughly screened, certified Vedic scholars</p></div></li>
+            <li class="benefit-item"><span class="benefit-icon">📞</span><div><strong>Free Consultation</strong><p>Talk to our pandit before confirming your booking</p></div></li>
+            <li class="benefit-item"><span class="benefit-icon">🚚</span><div><strong>Samagri Delivery</strong><p>All puja materials delivered to your doorstep</p></div></li>
+            <li class="benefit-item"><span class="benefit-icon">🔄</span><div><strong>Easy Reschedule</strong><p>Reschedule up to 24 hours before at no cost</p></div></li>
+            <li class="benefit-item"><span class="benefit-icon">💰</span><div><strong>Transparent Pricing</strong><p>No hidden charges — complete price clarity</p></div></li>
+          </ul>
+          <div class="contact-btns">
+            <a href="https://wa.me/919511792924?text=Hello,%20I%20Want%20To%20Book%20A%20Pandit" class="wa-btn" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Chat on WhatsApp
+            </a>
+            <a href="tel:+919511792924" class="call-btn-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.79 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              +91 95117 92924
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ALL SERVICES ══ -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag">🪔 Our Services</p>
+        <h2 class="s-title">Sacred Ceremonies for Every Occasion</h2>
+        <p class="s-sub">From daily pujas to grand celebrations — we have the perfect pandit for every ceremony</p>
+      </div>
+      <div class="services-grid">
+        <a href="rudrabhishek.html"  class="service-card reveal d1"><div class="sc-icon">🔱</div><h3>Rudrabhishek Puja</h3><p>Sacred bathing ritual of Shivalinga with divine chants for blessings, health and prosperity.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="griha-pravesh.html" class="service-card reveal d2"><div class="sc-icon">🏠</div><h3>Griha Pravesh</h3><p>Auspicious housewarming ceremony to bless your new home with divine positive energy.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="vivah.html"         class="service-card reveal d3"><div class="sc-icon">💍</div><h3>Vivah Sanskar</h3><p>Traditional Hindu wedding rituals with Vedic mantras and sacred fire ceremony.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="satyanarayan.html"  class="service-card reveal d4"><div class="sc-icon">📖</div><h3>Satyanarayan Katha</h3><p>Holy discourse dedicated to Lord Vishnu for prosperity and family happiness.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="havan.html"         class="service-card reveal d1"><div class="sc-icon">🔥</div><h3>Havan / Homa</h3><p>Sacred fire ceremony to purify the environment and attract divine cosmic energies.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="ganesh-puja.html"   class="service-card reveal d2"><div class="sc-icon">🐘</div><h3>Ganesh Puja</h3><p>Remove obstacles and invite Lord Ganesha's blessings for new beginnings.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="navgraha.html"      class="service-card reveal d3"><div class="sc-icon">🌟</div><h3>Navgraha Puja</h3><p>Propitiate the nine planets to harmonize cosmic energies in your life.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="namkaran.html"      class="service-card reveal d4"><div class="sc-icon">👶</div><h3>Namkaran Sanskar</h3><p>Sacred naming ceremony for your newborn following authentic Vedic traditions.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="lakshmi-puja.html"  class="service-card reveal d1"><div class="sc-icon">🪔</div><h3>Lakshmi Puja</h3><p>Invoke Goddess Lakshmi's blessings for wealth, prosperity and abundance.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="shradh-puja.html"   class="service-card reveal d2"><div class="sc-icon">🙏</div><h3>Shradh / Pitru Puja</h3><p>Pay reverence to ancestors and seek their blessings with authentic Shradh rituals.</p><span class="sc-cta">Book Now →</span></a>
+        <a href="astrology.html"     class="service-card reveal d3"><div class="sc-icon">🔮</div><h3>Astrology Consultation</h3><p>Expert Vedic astrology readings, birth chart analysis and life guidance.</p><span class="sc-cta">Consult Now →</span></a>
+        <a href="kundali.html"       class="service-card reveal d4"><div class="sc-icon">🪐</div><h3>Free Kundali</h3><p>Get your personalized Janam Kundali with detailed analysis absolutely free.</p><span class="sc-cta">Get Free →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HOW IT WORKS ══ -->
+  <section class="how-section" id="how">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag">⚡ Simple Process</p>
+        <h2 class="s-title">Book a Pandit in 4 Easy Steps</h2>
+        <p class="s-sub">A seamless, transparent and hassle-free booking experience</p>
+      </div>
+      <div class="steps-row">
+        <div class="step-card reveal d1"><div class="step-num">01</div><span class="step-icon">🔍</span><h3>Choose Ceremony</h3><p>Browse our list of pujas and rituals. Select what fits your occasion.</p></div>
+        <div class="step-connector"></div>
+        <div class="step-card reveal d2"><div class="step-num">02</div><span class="step-icon">📅</span><h3>Pick Date & Time</h3><p>Choose an auspicious date or let us suggest the perfect muhurat.</p></div>
+        <div class="step-connector"></div>
+        <div class="step-card reveal d3"><div class="step-num">03</div><span class="step-icon">👨‍🏫</span><h3>Get Pandit Assigned</h3><p>We match you with a verified, experienced pandit for your ceremony.</p></div>
+        <div class="step-connector"></div>
+        <div class="step-card reveal d4"><div class="step-num">04</div><span class="step-icon">🙏</span><h3>Perform the Puja</h3><p>Enjoy an authentic ceremony at home or online via live stream.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ REAL-TIME CALENDAR & MUHURAT WIDGET ══ -->
+  <section class="rt-calendar-section" id="realtime-calendar">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag">📅 Live Panchang &amp; Calendar</p>
+        <h2 class="s-title">Real-Time Shubh Muhurat &amp; Calendar</h2>
+        <p class="s-sub">Check active Choghadiya, live Rahu Kaal, and pick auspicious dates for your ceremony</p>
+      </div>
+
+      <div class="rt-calendar-wrap">
+        <!-- Interactive Month Calendar -->
+        <div class="cal-box reveal d1">
+          <div class="cal-header">
+            <button class="cal-nav-btn" id="cal-prev" aria-label="Previous Month">❮</button>
+            <div class="cal-month-title" id="cal-month-title">August 2025</div>
+            <button class="cal-nav-btn" id="cal-next" aria-label="Next Month">❯</button>
+          </div>
+          <div class="cal-weekdays">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="cal-days-grid" id="cal-days-grid"></div>
+          <p style="font-size:.78rem;color:var(--text3);text-align:center;margin-top:16px">✨ Gold dots indicate highly auspicious puja &amp; marriage dates</p>
+        </div>
+
+        <!-- Real-Time Status & Clock Panel -->
+        <div class="rt-status-box reveal d2">
+          <div class="live-clock-banner">
+            <div>
+              <div class="clock-time" id="live-clock-time">--:--:-- --</div>
+              <div class="clock-date-text" id="live-clock-date">--</div>
+            </div>
+            <div class="live-badge">● LIVE IST</div>
+          </div>
+
+          <div class="muhurat-now-card">
+            <div class="mn-head">⚡ Active Choghadiya Right Now</div>
+            <div class="mn-title" id="chog-current-title">Amrit (Most Auspicious)</div>
+            <div class="mn-time" id="chog-current-time">Active Slot: 03:00 PM – 06:00 PM</div>
+          </div>
+
+          <div class="muhurat-pills-grid">
+            <div class="mp-pill">
+              <span class="mp-label">🚫 Rahu Kaal Today</span>
+              <span class="mp-val" style="color:#f87171">12:00 PM – 01:30 PM</span>
+            </div>
+            <div class="mp-pill">
+              <span class="mp-label">✨ Abhijit Muhurat</span>
+              <span class="mp-val" style="color:#4ade80">12:05 PM – 12:55 PM</span>
+            </div>
+            <div class="mp-pill">
+              <span class="mp-label">📜 Today Tithi</span>
+              <span class="mp-val">Panchami (Shukla)</span>
+            </div>
+            <div class="mp-pill">
+              <span class="mp-label">⭐ Nakshatra</span>
+              <span class="mp-val">Rohini</span>
+            </div>
+          </div>
+
+          <a href="muhurat.html" class="btn-gold" style="display:block;text-align:center;padding:12px;margin-top:4px">View Full Choghadiya Table →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ASTROLOGY ══ -->
+  <section class="astro-section" id="astrology">
+    <div class="container">
+      <div class="astro-inner">
+        <div class="astro-left reveal-l">
+          <p class="s-tag">🔮 Astrology</p>
+          <h2 class="s-title light">Unlock the Secrets of the Stars</h2>
+          <p class="astro-desc">Our expert Vedic astrologers analyze your birth chart to provide personalized insights about your life, relationships, career, health and spiritual path.</p>
+          <div class="astro-features">
+            <div class="af-item">🪐 Birth Chart Analysis</div>
+            <div class="af-item">💫 Yearly Horoscope</div>
+            <div class="af-item">💑 Kundali Milan</div>
+            <div class="af-item">💼 Career Guidance</div>
+            <div class="af-item">🌙 Gemstone Advice</div>
+            <div class="af-item">🏠 Vastu Shastra</div>
+          </div>
+          <a href="astrology.html" class="btn-gold" style="display:inline-block">Consult an Astrologer →</a>
+        </div>
+        <div class="zodiac-grid reveal">
+          <div class="zodiac-card">♈ Aries</div>
+          <div class="zodiac-card">♉ Taurus</div>
+          <div class="zodiac-card">♊ Gemini</div>
+          <div class="zodiac-card">♋ Cancer</div>
+          <div class="zodiac-card">♌ Leo</div>
+          <div class="zodiac-card">♍ Virgo</div>
+          <div class="zodiac-card">♎ Libra</div>
+          <div class="zodiac-card">♏ Scorpio</div>
+          <div class="zodiac-card">♐ Sagittarius</div>
+          <div class="zodiac-card">♑ Capricorn</div>
+          <div class="zodiac-card">♒ Aquarius</div>
+          <div class="zodiac-card">♓ Pisces</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIALS ══ -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag">💬 Testimonials</p>
+        <h2 class="s-title">What Devotees Say About Us</h2>
+        <p class="s-sub">Real stories from real devotees across India</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="tc reveal d1"><div class="tc-stars">⭐⭐⭐⭐⭐</div><p class="tc-text">"The pandit arrived on time and performed the Griha Pravesh Puja beautifully. Every mantra was chanted correctly and the ceremony was very peaceful and divine."</p><div class="tc-author"><div class="tc-av">RG</div><div><strong>Rahul Gupta</strong><span>Griha Pravesh · Mumbai</span></div></div></div>
+        <div class="tc featured reveal d2"><div class="tc-stars">⭐⭐⭐⭐⭐</div><p class="tc-text">"Excellent service! We booked for Satyanarayan Katha and were amazed by how well-organized everything was. The pandit explained every step so clearly. Will definitely book again!"</p><div class="tc-author"><div class="tc-av">PS</div><div><strong>Priya Sharma</strong><span>Satyanarayan Katha · Delhi</span></div></div></div>
+        <div class="tc reveal d3"><div class="tc-stars">⭐⭐⭐⭐⭐</div><p class="tc-text">"The Rudrabhishek online puja was a transcendent experience. Despite being conducted virtually, we felt deeply connected. Highly recommend Upasana!"</p><div class="tc-author"><div class="tc-av">AM</div><div><strong>Anjali Mehta</strong><span>Rudrabhishek · Surat</span></div></div></div>
+        <div class="tc reveal d4"><div class="tc-stars">⭐⭐⭐⭐⭐</div><p class="tc-text">"Our wedding ceremony was absolutely perfect. The pandit was knowledgeable and calm, making sure everyone understood each ritual. A truly sacred experience!"</p><div class="tc-author"><div class="tc-av">NK</div><div><strong>Nikhil & Kavita</strong><span>Vivah Sanskar · Ahmedabad</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag">❓ FAQs</p>
+        <h2 class="s-title">Frequently Asked Questions</h2>
+        <p class="s-sub">Everything you need to know about booking with Upasana</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal"><button class="faq-q">How do I book a pandit for a puja?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>You can book a pandit through our website by choosing the type of puja, date, time, and location. After submitting, our team confirms your booking and assigns a certified Vedic pandit.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">What does the booking process include?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Your booking includes pandit allocation, a complete puja procedure plan, samagri list guidance, and a free consultation. For many rituals, we also provide doorstep puja samagri delivery.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Can I reschedule my puja after booking?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Yes, you can reschedule your puja up to 24 hours before the ceremony without any extra charges, subject to pandit availability.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">What is the cancellation and refund policy?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Partial refunds are given on cancellations made at least 24 hours in advance. Refunds are processed within 3–7 business days to your original payment method.</p></div></div>
+        <div class="faq-item reveal"><button class="faq-q">Do you offer online puja services?<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-a"><p>Yes! We offer fully live online puja services via video stream. You can participate in sacred ceremonies from anywhere in the world with the same authentic spiritual experience.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BLOG ══ -->
+  <section class="blog-section" id="blog">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag">📰 Vedic Wisdom</p>
+        <h2 class="s-title">Spiritual Insights & Articles</h2>
+        <p class="s-sub">Explore articles on Hindu rituals, festivals, astrology, and spiritual practices</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card featured-blog reveal d1">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#461a19,#c8922a)">🔱</div></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Rituals</span><h3>The Significance of Rudrabhishek and How to Perform It</h3><p>Discover the deep spiritual meaning behind Rudrabhishek puja and the correct Vedic procedure for this sacred ritual...</p><a href="blog.html" class="blog-read">Read Article →</a></div>
+        </article>
+        <article class="blog-card reveal d2">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#5c2322,#461a19)">🏠</div></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Ceremonies</span><h3>Griha Pravesh: Traditions and Auspicious Timings</h3><p>A complete guide to the Griha Pravesh ceremony and choosing the right muhurat for your new home...</p><a href="blog.html" class="blog-read">Read Article →</a></div>
+        </article>
+        <article class="blog-card reveal d3">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#c8922a,#461a19)">🪐</div></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Astrology</span><h3>Understanding Navgraha in Vedic Astrology</h3><p>Learn how the nine planets influence your life and remedies to harmonize their energies...</p><a href="blog.html" class="blog-read">Read Article →</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+<script src="components.js"></script>
+</body>
+</html>

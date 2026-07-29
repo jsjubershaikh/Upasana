@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Vedic Insights Blog | Upasana – Rituals, Astrology & Spirituality</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .blog-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;justify-content:center}
+    .bf-btn{padding:8px 20px;border-radius:var(--pill);font-size:.83rem;font-weight:700;background:var(--white);color:var(--text);border:1.5px solid var(--border);cursor:pointer;transition:var(--trans)}
+    .bf-btn:hover,.bf-btn.active{background:var(--dark);color:var(--cream);border-color:var(--dark)}
+    .blog-full-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .blog-card .blog-img-ph{min-height:180px}
+    .blog-card .blog-meta{padding:22px}
+    .blog-card h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4}
+    .blog-date{font-size:.74rem;color:var(--text3);margin-top:auto}
+    @media(max-width:991px){.blog-full-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:640px){.blog-full-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<div id="header-root"></div>
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> › <span style="color:var(--cream)">Blog</span></div>
+      <h1 class="page-hero-title" style="margin-top:12px">Vedic Wisdom & Insights</h1>
+      <p class="page-hero-sub">Explore authentic articles on Hindu rituals, astrology, festivals, and Vedic spirituality</p>
+    </div>
+  </section>
+
+  <section style="padding:72px 0;background:var(--cream)">
+    <div class="container">
+      <!-- Filter -->
+      <div class="blog-filter reveal">
+        <button class="bf-btn active" data-cat="all">All Articles</button>
+        <button class="bf-btn" data-cat="rituals">Rituals</button>
+        <button class="bf-btn" data-cat="astrology">Astrology</button>
+        <button class="bf-btn" data-cat="festivals">Festivals</button>
+        <button class="bf-btn" data-cat="ceremonies">Ceremonies</button>
+        <button class="bf-btn" data-cat="spirituality">Spirituality</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="blog-full-grid">
+        <article class="blog-card reveal d1" data-cat="rituals">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#461a19,#c8922a)">🔱</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Rituals</span>
+            <h3>The Significance of Rudrabhishek and How to Perform It Correctly</h3>
+            <p>Discover the deep spiritual meaning behind Rudrabhishek puja and the correct Vedic procedure for this sacred Lord Shiva ritual...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">July 15, 2025</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card reveal d2" data-cat="ceremonies">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#5c2322,#461a19)">🏠</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Ceremonies</span>
+            <h3>Griha Pravesh: Traditions, Rituals and Choosing Auspicious Timings</h3>
+            <p>A complete guide to the Griha Pravesh ceremony — understanding each step and choosing the right muhurat for your new home...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">July 10, 2025</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card reveal d3" data-cat="astrology">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#c8922a,#461a19)">🪐</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Astrology</span>
+            <h3>Understanding Navgraha in Vedic Astrology: Complete Guide</h3>
+            <p>Learn how the nine planets influence every aspect of your life and discover powerful remedies to harmonize their energies...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">July 5, 2025</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card reveal d1" data-cat="festivals">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#461a19,#8a3d3b)">🪔</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Festivals</span>
+            <h3>Shravan Maas 2025: Fasts, Rituals and Their Spiritual Benefits</h3>
+            <p>Everything you need to know about observing Shravan Maas — the most sacred month for Lord Shiva devotees...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">June 28, 2025</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card reveal d2" data-cat="spirituality">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#3d1514,#c8922a)">🕉️</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Spirituality</span>
+            <h3>The Science of Mantras: Why Vedic Chants Create Positive Energy</h3>
+            <p>Modern science is now confirming what ancient Vedic sages always knew — the vibrational power of Sanskrit mantras...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">June 20, 2025</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card reveal d3" data-cat="rituals">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#5c2322,#c8922a)">🔥</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Rituals</span>
+            <h3>Havan Kund: The Sacred Fire Ritual and Its Purifying Benefits</h3>
+            <p>Learn about the different types of Havans, the sacred Samidhas used and how fire ceremonies purify the environment...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">June 14, 2025</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card reveal d1" data-cat="astrology">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#461a19,#6b3a20)">🌙</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Astrology</span>
+            <h3>Kaal Sarp Dosha: Causes, Effects and Powerful Remedies</h3>
+            <p>A comprehensive guide to understanding Kaal Sarp Dosha in your birth chart and the most effective Vedic remedies...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">June 8, 2025</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card reveal d2" data-cat="ceremonies">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#7a3130,#461a19)">💍</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Ceremonies</span>
+            <h3>Saptapadi: The Seven Sacred Vows of Hindu Marriage</h3>
+            <p>Understand the profound spiritual meaning behind each of the seven sacred steps taken during a Hindu Vivah ceremony...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">June 2, 2025</span>
+            </div>
+          </div>
+        </article>
+        <article class="blog-card reveal d3" data-cat="festivals">
+          <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#c8922a,#8a3d3b)">🐘</div></div>
+          <div class="blog-meta">
+            <span class="blog-tag-badge">Festivals</span>
+            <h3>Ganesh Chaturthi 2025: Celebration Guide & Puja Vidhi</h3>
+            <p>Complete guide to celebrating Ganesh Chaturthi — from day of idol installation to immersion and all rituals in between...</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+              <a href="#" class="blog-read">Read More →</a>
+              <span class="blog-date">May 25, 2025</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Load More -->
+      <div style="text-align:center;margin-top:40px" class="reveal">
+        <button class="btn-outline" onclick="showToast('More articles coming soon!','info')">Load More Articles</button>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="footer-root"></div>
+<script src="components.js"></script>
+<script>
+  document.querySelectorAll('.bf-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.bf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      document.querySelectorAll('.blog-card').forEach(card => {
+        card.style.display = (cat==='all' || card.dataset.cat===cat) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>
