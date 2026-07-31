@@ -35,18 +35,20 @@ const TRANSLATIONS = {
     'hero.ql.kundali':   'Kundali',
     'hero.ql.book':      'Book Pandit',
     /* Section headings */
-    'sec.services.tag':   '🙏 Our Services',
+    'sec.services.tag':   '🙏 PUJA SERVICES',
     'sec.services.title': 'Sacred Services for Every Occasion',
     'sec.services.sub':   'From daily pujas to grand ceremonies — we have verified pandits for every ritual',
     'sec.hiw.tag':        '✨ Simple Process',
     'sec.hiw.title':      'How It Works',
-    'sec.hiw.sub':        'Book a pandit in just 3 easy steps',
-    'sec.hiw.1.title':    'Search & Select',
+    'sec.hiw.sub':        'Book a pandit in just 4 easy steps',
+    'sec.hiw.1.title':    'Select Puja',
     'sec.hiw.1.desc':     'Search for your puja or ceremony and select from verified pandits in your area.',
-    'sec.hiw.2.title':    'Book & Confirm',
+    'sec.hiw.2.title':    'Pick Date & Time',
     'sec.hiw.2.desc':     'Choose your date, time and location. Pay securely online or cash on the day.',
-    'sec.hiw.3.title':    'Pandit Arrives',
-    'sec.hiw.3.desc':     'Your verified pandit arrives on time with all required samagri for the puja.',
+    'sec.hiw.3.title':    'Get Pandit Assigned',
+    'sec.hiw.3.desc':     'We match you with a verified, experienced pandit for your ceremony.',
+    'sec.hiw.4.title':    'Perform Puja',
+    'sec.hiw.4.desc':     'Enjoy an authentic ceremony at home or online via live stream.',
     'sec.testimonials.tag':   '💬 Testimonials',
     'sec.testimonials.title': 'What Our Devotees Say',
     'sec.faq.tag':        '❓ FAQs',
@@ -64,7 +66,7 @@ const TRANSLATIONS = {
     'btn.call':      'Call Us',
     /* Footer */
     'footer.tagline': 'Connecting devotees with authentic Vedic pandits for every sacred occasion.',
-    'footer.services':'Our Services',
+    'footer.services':'PUJA SERVICES',
     'footer.quick':   'Quick Links',
     'footer.contact': 'Contact Us',
     'footer.rights':  '© 2025 Upasana. All rights reserved.',
@@ -560,7 +562,7 @@ function renderFooter() {
               </div>
             </div>
             <div>
-              <h4 class="footer-heading">Our Services</h4>
+              <h4 class="footer-heading">PUJA SERVICES</h4>
               <ul class="footer-links">${svcLinks}</ul>
             </div>
             <div>
@@ -762,14 +764,25 @@ function initReveal() {
 
 /* ── Stat Counters ── */
 function initCounters() {
-  const fmt = n => n>=1000 ? (n/1000).toFixed(0)+'K' : n.toString();
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if(!e.isIntersecting) return;
-      const el = e.target, target = parseInt(el.dataset.target,10);
-      let cur=0; const step=target/(2000/16);
-      const tick=()=>{ cur=Math.min(cur+step,target); el.textContent=fmt(Math.floor(cur))+'+'; if(cur<target) requestAnimationFrame(tick); };
-      tick(); obs.unobserve(el);
+      const el = e.target;
+      const targetStr = el.dataset.target || '0';
+      const isFloat = targetStr.includes('.');
+      const target = parseFloat(targetStr);
+      let cur = 0;
+      const duration = 1200;
+      const startTime = performance.now();
+      const tick = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        cur = progress * target;
+        el.textContent = isFloat ? cur.toFixed(1) + '+' : Math.floor(cur) + '+';
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      obs.unobserve(el);
     });
   }, { threshold:.5 });
   document.querySelectorAll('.stat-num[data-target]').forEach(el => obs.observe(el));
@@ -1088,7 +1101,7 @@ function initRealtimeCalendar() {
     else if (hrs >= 13.5 && hrs < 15) currentChog = { name: 'Shubh (Religious Work)', time: '01:30 PM – 03:00 PM' };
     else if (hrs >= 15 && hrs < 16.5) currentChog = { name: 'Rog (Avoid Major Work)', time: '03:00 PM – 04:30 PM' };
     else if (hrs >= 16.5 && hrs < 18) currentChog = { name: 'Udveg (Govt Work)', time: '04:30 PM – 06:00 PM' };
-    else currentChog = { name: 'Shubh / Amrit (Evening Choghadiya)', time: '06:00 PM – 09:00 PM' };
+    else currentChog = { name: 'Shubh / Amrit (Evening Shubh Muhurat)', time: '06:00 PM – 09:00 PM' };
 
     if (chogTitle) chogTitle.textContent = currentChog.name;
     if (chogTime) chogTime.textContent = currentChog.time;

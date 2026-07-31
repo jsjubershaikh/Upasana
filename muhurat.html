@@ -101,7 +101,7 @@
       <div class="live-date-str" id="banner-date">---</div>
     </div>
     <div style="text-align:center">
-      <span class="live-label">Current Choghadiya</span>
+      <span class="live-label">Current Shubh Muhurat</span>
       <div class="live-date-str" id="banner-chog">---</div>
     </div>
     <div style="text-align:center">
@@ -116,7 +116,7 @@
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> › <span style="color:var(--cream)">Muhurat</span></div>
       <h1 class="page-hero-title" style="margin-top:12px">Aaj Ka Shubh Muhurat</h1>
-      <p class="page-hero-sub">Real-time Vedic Panchang — Choghadiya, Tithi, Nakshatra & Yoga for today</p>
+      <p class="page-hero-sub">Real-time Vedic Panchang — Shubh Muhurat, Tithi, Nakshatra &amp; Yoga for today</p>
     </div>
   </section>
 
@@ -180,21 +180,21 @@
         </div>
       </div>
 
-      <!-- Choghadiya Tables -->
+      <!-- Shubh Muhurat Tables -->
       <div class="chog-grid">
         <!-- Day -->
         <div class="reveal">
-          <div class="chog-section-title">☀️ Din Choghadiya (Day)</div>
+          <div class="chog-section-title">☀️ Din Shubh Muhurat (Day)</div>
           <table class="choghadiya-table">
-            <thead><tr><th>Time</th><th>Choghadiya</th><th>Best For</th><th>Nature</th></tr></thead>
+            <thead><tr><th>Time</th><th>Shubh Muhurat</th><th>Best For</th><th>Nature</th></tr></thead>
             <tbody id="day-chog-body"></tbody>
           </table>
         </div>
         <!-- Night -->
         <div class="reveal">
-          <div class="chog-section-title">🌙 Ratri Choghadiya (Night)</div>
+          <div class="chog-section-title">🌙 Ratri Shubh Muhurat (Night)</div>
           <table class="choghadiya-table">
-            <thead><tr><th>Time</th><th>Choghadiya</th><th>Best For</th><th>Nature</th></tr></thead>
+            <thead><tr><th>Time</th><th>Shubh Muhurat</th><th>Best For</th><th>Nature</th></tr></thead>
             <tbody id="night-chog-body"></tbody>
           </table>
         </div>
@@ -447,7 +447,7 @@ function goToday() {
   const inp = document.getElementById('muhurat-date');
   inp.value = new Date().toISOString().split('T')[0];
   renderMuhurat();
-  showToast("Showing today's Choghadiya & Panchang", 'success');
+  showToast("Showing today's Shubh Muhurat & Panchang", 'success');
 }
 
 /* ── Live clock & banner update ── */
