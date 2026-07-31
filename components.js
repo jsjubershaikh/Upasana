@@ -806,6 +806,18 @@ const SEARCH_MAP = [
   { keywords: ['muhurat', 'choghadiya', 'auspicious', 'panchang'], url: 'muhurat.html' }
 ];
 
+/* ── Sync Hero Search Inputs Across Slides ── */
+document.addEventListener('input', (e) => {
+  if (e.target && e.target.classList.contains('puja-search-input')) {
+    const val = e.target.value;
+    document.querySelectorAll('.puja-search-input').forEach(input => {
+      if (input !== e.target) {
+        input.value = val;
+      }
+    });
+  }
+});
+
 window.routeSearch = function(term) {
   if(!term) {
     window.location.href = 'book-a-pandit.html';
