@@ -139,7 +139,13 @@ img{display:block;max-width:100%}
 .mob-nav li{border-bottom:1px solid #f5f0ea}
 .mob-nav a,.mob-nav button{display:block;width:100%;text-align:left;padding:13px 20px;font-size:.9rem;font-weight:600;color:var(--text);transition:var(--trans);background:transparent}
 .mob-nav a:hover,.mob-nav button:hover{background:rgba(70,26,25,.05);color:var(--dark);padding-left:28px}
-.mob-sub{/* ══════════════════════════════════════════════════
+.mob-sub{display:none;background:#faf6ee;padding:4px 0}
+.mob-sub.open{display:block}
+.mob-sub a{padding:10px 20px 10px 36px;font-size:.845rem;font-weight:500}
+.mob-footer{padding:16px 20px 24px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--border)}
+.mob-footer .btn-primary,.mob-footer .btn-gold{width:100%;text-align:center}
+
+/* ══════════════════════════════════════════════════
    HOME HERO SLIDER
  ══════════════════════════════════════════════════ */
 .hero{position:relative;width:100%;height:auto;min-height:580px;margin-top:82px;padding:12px 2px 20px;background:var(--cream2);overflow:hidden;box-sizing:border-box}
