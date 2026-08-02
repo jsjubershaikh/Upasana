@@ -139,17 +139,11 @@ img{display:block;max-width:100%}
 .mob-nav li{border-bottom:1px solid #f5f0ea}
 .mob-nav a,.mob-nav button{display:block;width:100%;text-align:left;padding:13px 20px;font-size:.9rem;font-weight:600;color:var(--text);transition:var(--trans);background:transparent}
 .mob-nav a:hover,.mob-nav button:hover{background:rgba(70,26,25,.05);color:var(--dark);padding-left:28px}
-.mob-sub{display:none;background:#faf6ee;padding:4px 0}
-.mob-sub.open{display:block}
-.mob-sub a{padding:10px 20px 10px 36px;font-size:.845rem;font-weight:500}
-.mob-footer{padding:16px 20px 24px;display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--border)}
-.mob-footer .btn-primary,.mob-footer .btn-gold{width:100%;text-align:center}
-
-/* ══════════════════════════════════════════════════
+.mob-sub{/* ══════════════════════════════════════════════════
    HOME HERO SLIDER
-══════════════════════════════════════════════════ */
-.hero{position:relative;width:100%;height:auto;min-height:580px;margin-top:82px;padding:20px 24px 28px;background:var(--cream2);overflow:hidden}
-.slides-wrap{position:relative;width:100%;max-width:1380px;margin:0 auto;min-height:580px;height:100%;overflow:hidden;border-radius:28px;border:2px solid var(--gold2);box-shadow:0 16px 48px rgba(70,26,25,.18)}
+ ══════════════════════════════════════════════════ */
+.hero{position:relative;width:100%;height:auto;min-height:580px;margin-top:82px;padding:12px 2px 20px;background:var(--cream2);overflow:hidden;box-sizing:border-box}
+.slides-wrap{position:relative;width:calc(100% - 4px);max-width:100%;margin:0 auto;min-height:580px;height:100%;overflow:hidden;border-radius:24px;border:2.5px solid var(--gold2);box-shadow:0 16px 48px rgba(70,26,25,.18)}
 .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease;display:flex;align-items:flex-start;padding-top:44px;padding-bottom:50px;box-sizing:border-box}
 .slide.s1{background:url('assets/Rudrabhishekpuja.jpg') center/cover no-repeat}
 .slide.s2{background:url('assets/grihapraveshpuja.jpg') center/cover no-repeat}
@@ -189,7 +183,7 @@ img{display:block;max-width:100%}
 
 /* ══════════════════════════════════════════════════
    MARQUEE
-══════════════════════════════════════════════════ */
+ ══════════════════════════════════════════════════ */
 .marquee-wrap{background:var(--cream2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:11px 0;overflow:hidden}
 .marquee-content{display:flex;width:max-content;animation:marq 38s linear infinite;gap:0}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -197,7 +191,7 @@ img{display:block;max-width:100%}
 
 /* ══════════════════════════════════════════════════
    STATS
-══════════════════════════════════════════════════ */
+ ══════════════════════════════════════════════════ */
 .stats-section{padding:56px 0;background:var(--white)}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-md)}
 .stat-card{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:36px 20px;text-align:center;position:relative;transition:var(--trans)}
@@ -208,7 +202,7 @@ img{display:block;max-width:100%}
 
 /* ══════════════════════════════════════════════════
    KUNDALI BANNER
-══════════════════════════════════════════════════ */
+ ══════════════════════════════════════════════════ */
 .kundali-section{padding:64px 0;background:var(--cream)}
 .kundali-wrap{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-radius:var(--rx);box-shadow:var(--sh-md);border:1px solid var(--border);overflow:hidden}
 .kundali-left{padding:44px;display:flex;align-items:center;background:linear-gradient(135deg,rgba(253,246,228,.7) 0%,rgba(249,239,208,.3) 100%)}
@@ -233,7 +227,7 @@ img{display:block;max-width:100%}
 
 /* ══════════════════════════════════════════════════
    BOOKING SECTION
-══════════════════════════════════════════════════ */
+ ══════════════════════════════════════════════════ */
 .booking-section{padding:80px 0;background:linear-gradient(160deg,var(--cream2) 0%,var(--cream) 100%)}
 .booking-card{display:grid;grid-template-columns:1.4fr 1fr;background:var(--white);border-radius:var(--rx);box-shadow:var(--sh-lg);overflow:hidden;border:1px solid var(--border)}
 .booking-form-side{padding:44px}
@@ -271,16 +265,16 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
 
 /* ══════════════════════════════════════════════════
    SERVICES
-══════════════════════════════════════════════════ */
+ ══════════════════════════════════════════════════ */
 .services-section{padding:80px 0;background:var(--white);overflow:hidden}
 /* ── 3D Coverflow Service Carousel ── */
 .svc-3d-section{position:relative;width:100%;padding:10px 0 40px;overflow:hidden}
 .svc-3d-stage{position:relative;width:100%;max-width:100%;height:580px;margin:0 auto;perspective:1400px;display:flex;align-items:center;justify-content:center;user-select:none;overflow:hidden}
-.svc-card-3d{position:absolute;width:340px;height:480px;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.4);transition:transform .6s cubic-bezier(.25,1,.5,1),opacity .6s ease,z-index .6s ease,box-shadow .6s ease;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,var(--dark),var(--dark2));will-change:transform,opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform-style:preserve-3d;-webkit-mask-image:-webkit-radial-gradient(white,black);isolation:isolate}
-.svc-card-3d img{width:100%;height:100%;object-fit:cover;display:block;border-radius:28px;transition:transform .5s ease;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.svc-card-3d,.svc-card-3d:visited,.svc-card-3d:hover,.svc-card-3d:focus,.svc-card-3d:active{position:absolute;width:340px;height:480px;border-radius:28px !important;overflow:hidden !important;box-shadow:0 20px 50px rgba(0,0,0,.4);transition:transform .6s cubic-bezier(.25,1,.5,1),opacity .6s ease,z-index .6s ease,box-shadow .6s ease,border-color .6s ease;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,var(--dark),var(--dark2));will-change:transform,opacity;-webkit-backface-visibility:hidden;backface-visibility:hidden;transform-style:preserve-3d;-webkit-mask-image:-webkit-radial-gradient(white,black);isolation:isolate;border:2.5px solid rgba(200,146,42,0.3)}
+.svc-card-3d img{width:100%;height:100%;object-fit:cover;display:block;border-radius:26px !important;overflow:hidden !important;transition:transform .5s ease;-webkit-backface-visibility:hidden;backface-visibility:hidden}
 .svc-card-3d:hover img{transform:scale(1.06)}
 .svc-card-3d .svc-card-emoji{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6.5rem}
-.svc-card-3d .svc-card-label{position:absolute;bottom:0;left:0;right:0;padding:36px 20px 24px;background:linear-gradient(0deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.68) 65%,transparent 100%);color:#fff;font-size:1.3rem;font-weight:800;font-family:'Playfair Display',serif;text-align:center;letter-spacing:.02em;text-shadow:0 2px 8px rgba(0,0,0,.9);border-bottom-left-radius:28px;border-bottom-right-radius:28px}
+.svc-card-3d .svc-card-label{position:absolute;bottom:0;left:0;right:0;padding:36px 20px 24px;background:linear-gradient(0deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.68) 65%,transparent 100%);color:#fff;font-size:1.3rem;font-weight:800;font-family:'Playfair Display',serif;text-align:center;letter-spacing:.02em;text-shadow:0 2px 8px rgba(0,0,0,.9);border-bottom-left-radius:26px;border-bottom-right-radius:26px}
 
 /* 3D Nav Buttons */
 .svc-3d-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:60;width:56px;height:56px;border-radius:50%;background:var(--dark);color:var(--gold3);border:2px solid var(--gold2);cursor:pointer;font-size:1.3rem;display:flex;align-items:center;justify-content:center;transition:var(--trans);box-shadow:0 6px 20px rgba(0,0,0,.35)}

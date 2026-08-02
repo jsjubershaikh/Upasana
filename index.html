@@ -322,7 +322,8 @@
               card.style.transform = 'translateX(0px) translateZ(140px) scale(1.22) rotateY(0deg)';
               card.style.zIndex = 30;
               card.style.opacity = '1';
-              card.style.boxShadow = '0 28px 70px rgba(0,0,0,0.55), 0 0 0 3px rgba(200,146,42,0.7)';
+              card.style.borderColor = 'rgba(200,146,42,0.9)';
+              card.style.boxShadow = '0 28px 70px rgba(0,0,0,0.6)';
               card.style.pointerEvents = 'auto';
             } else if (absDiff === 1) {
               // Immediate Left / Right neighbour
@@ -331,6 +332,7 @@
               card.style.transform = `translateX(${tx}px) translateZ(-40px) scale(0.92) rotateY(${rotY}deg)`;
               card.style.zIndex = 20;
               card.style.opacity = '0.92';
+              card.style.borderColor = 'rgba(200,146,42,0.3)';
               card.style.boxShadow = '0 16px 40px rgba(0,0,0,0.35)';
               card.style.pointerEvents = 'auto';
             } else if (absDiff === 2) {
@@ -340,6 +342,7 @@
               card.style.transform = `translateX(${tx}px) translateZ(-130px) scale(0.76) rotateY(${rotY}deg)`;
               card.style.zIndex = 10;
               card.style.opacity = '0.75';
+              card.style.borderColor = 'rgba(200,146,42,0.2)';
               card.style.boxShadow = '0 10px 24px rgba(0,0,0,0.22)';
               card.style.pointerEvents = 'auto';
             } else if (absDiff === 3) {
@@ -349,6 +352,7 @@
               card.style.transform = `translateX(${tx}px) translateZ(-220px) scale(0.62) rotateY(${rotY}deg)`;
               card.style.zIndex = 5;
               card.style.opacity = '0.45';
+              card.style.borderColor = 'rgba(200,146,42,0.1)';
               card.style.boxShadow = 'none';
               card.style.pointerEvents = 'auto';
             } else {
@@ -402,13 +406,9 @@
         prevBtn.addEventListener('click', () => { prevCard(); startTimer(); });
         nextBtn.addEventListener('click', () => { nextCard(); startTimer(); });
 
-        // Hover pause
-        stage.addEventListener('mouseenter', stopTimer);
-        stage.addEventListener('mouseleave', startTimer);
-
         // Touch Swipe
         let startX = 0;
-        stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopTimer(); });
+        stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
         stage.addEventListener('touchend', e => {
           const diffX = e.changedTouches[0].clientX - startX;
           if (diffX < -40) nextCard();
