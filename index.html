@@ -270,71 +270,156 @@
         <p class="s-sub">From daily pujas to grand celebrations — we have the perfect pandit for every ceremony</p>
       </div>
     </div>
-    <!-- Full-width carousel (outside container for edge-to-edge) -->
-    <div class="svc-carousel-outer">
-      <button class="svc-nav svc-prev" id="svcPrev" aria-label="Previous">❮</button>
-      <div class="svc-carousel-viewport">
-        <div class="svc-carousel-track" id="svcTrack">
-          <!-- Original set -->
-          <a href="rudrabhishek.html"  class="svc-card"><img src="assets/Rudrabhishekpuja.jpg"  alt="Rudrabhishek Puja"/><div class="svc-card-label">Rudrabhishek Puja</div></a>
-          <a href="griha-pravesh.html" class="svc-card"><img src="assets/grihapraveshpuja.jpg" alt="Griha Pravesh Puja"/><div class="svc-card-label">Griha Pravesh</div></a>
-          <a href="vivah.html"         class="svc-card"><img src="assets/vivahpuja.jpg"         alt="Vivah Sanskar"/><div class="svc-card-label">Vivah Sanskar</div></a>
-          <a href="satyanarayan.html"  class="svc-card"><img src="assets/satyanarayanpuja.jpg"  alt="Satyanarayan Katha"/><div class="svc-card-label">Satyanarayan Katha</div></a>
-          <a href="havan.html"         class="svc-card"><img src="assets/hanumanpuja.png"       alt="Havan / Homa"/><div class="svc-card-label">Havan / Homa</div></a>
-          <a href="namkaran.html"      class="svc-card"><img src="assets/namkaranpuja.png"      alt="Namkaran Sanskar"/><div class="svc-card-label">Namkaran Sanskar</div></a>
-          <a href="lakshmi-puja.html"  class="svc-card"><img src="assets/mahalamipuja.jpg"      alt="Lakshmi Puja"/><div class="svc-card-label">Lakshmi Puja</div></a>
-          <a href="ganesh-puja.html"   class="svc-card"><div class="svc-card-emoji">🐘</div><div class="svc-card-label">Ganesh Puja</div></a>
-          <a href="navgraha.html"      class="svc-card"><div class="svc-card-emoji">🌟</div><div class="svc-card-label">Navgraha Puja</div></a>
-          <a href="shradh-puja.html"   class="svc-card"><div class="svc-card-emoji">🙏</div><div class="svc-card-label">Shradh / Pitru Puja</div></a>
-          <a href="astrology.html"     class="svc-card"><div class="svc-card-emoji">🔮</div><div class="svc-card-label">Astrology Consultation</div></a>
-          <a href="kundali.html"       class="svc-card"><div class="svc-card-emoji">🪐</div><div class="svc-card-label">Free Kundali</div></a>
-          <!-- Duplicate set for seamless infinite loop -->
-          <a href="rudrabhishek.html"  class="svc-card"><img src="assets/Rudrabhishekpuja.jpg"  alt="Rudrabhishek Puja"/><div class="svc-card-label">Rudrabhishek Puja</div></a>
-          <a href="griha-pravesh.html" class="svc-card"><img src="assets/grihapraveshpuja.jpg" alt="Griha Pravesh Puja"/><div class="svc-card-label">Griha Pravesh</div></a>
-          <a href="vivah.html"         class="svc-card"><img src="assets/vivahpuja.jpg"         alt="Vivah Sanskar"/><div class="svc-card-label">Vivah Sanskar</div></a>
-          <a href="satyanarayan.html"  class="svc-card"><img src="assets/satyanarayanpuja.jpg"  alt="Satyanarayan Katha"/><div class="svc-card-label">Satyanarayan Katha</div></a>
-          <a href="havan.html"         class="svc-card"><img src="assets/hanumanpuja.png"       alt="Havan / Homa"/><div class="svc-card-label">Havan / Homa</div></a>
-          <a href="namkaran.html"      class="svc-card"><img src="assets/namkaranpuja.png"      alt="Namkaran Sanskar"/><div class="svc-card-label">Namkaran Sanskar</div></a>
-          <a href="lakshmi-puja.html"  class="svc-card"><img src="assets/mahalamipuja.jpg"      alt="Lakshmi Puja"/><div class="svc-card-label">Lakshmi Puja</div></a>
-          <a href="ganesh-puja.html"   class="svc-card"><div class="svc-card-emoji">🐘</div><div class="svc-card-label">Ganesh Puja</div></a>
-          <a href="navgraha.html"      class="svc-card"><div class="svc-card-emoji">🌟</div><div class="svc-card-label">Navgraha Puja</div></a>
-          <a href="shradh-puja.html"   class="svc-card"><div class="svc-card-emoji">🙏</div><div class="svc-card-label">Shradh / Pitru Puja</div></a>
-          <a href="astrology.html"     class="svc-card"><div class="svc-card-emoji">🔮</div><div class="svc-card-label">Astrology Consultation</div></a>
-          <a href="kundali.html"       class="svc-card"><div class="svc-card-emoji">🪐</div><div class="svc-card-label">Free Kundali</div></a>
-        </div>
+  <!-- ══ ALL SERVICES (3D COVERFLOW CAROUSEL) ══ -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="s-tag"><img src="assets/poojaavailable.gif" alt="Pooja Available" class="gif-inline-badge"/> PUJA SERVICES</p>
+        <h2 class="s-title">Sacred Ceremonies for Every Occasion</h2>
+        <p class="s-sub">From daily pujas to grand celebrations — we have the perfect pandit for every ceremony</p>
       </div>
-      <button class="svc-nav svc-next" id="svcNext" aria-label="Next">❯</button>
     </div>
+    
+    <div class="svc-3d-section">
+      <div class="svc-3d-stage" id="svcStage">
+        <button class="svc-3d-nav svc-3d-prev" id="svc3dPrev" aria-label="Previous">❮</button>
+        
+        <a href="rudrabhishek.html"  class="svc-card-3d"><img src="assets/Rudrabhishekpuja.jpg"  alt="Rudrabhishek Puja"/><div class="svc-card-label">Rudrabhishek Puja</div></a>
+        <a href="griha-pravesh.html" class="svc-card-3d"><img src="assets/grihapraveshpuja.jpg" alt="Griha Pravesh Puja"/><div class="svc-card-label">Griha Pravesh</div></a>
+        <a href="vivah.html"         class="svc-card-3d"><img src="assets/vivahpuja.jpg"         alt="Vivah Sanskar"/><div class="svc-card-label">Vivah Sanskar</div></a>
+        <a href="satyanarayan.html"  class="svc-card-3d"><img src="assets/satyanarayanpuja.jpg"  alt="Satyanarayan Katha"/><div class="svc-card-label">Satyanarayan Katha</div></a>
+        <a href="havan.html"         class="svc-card-3d"><img src="assets/hanumanpuja.png"       alt="Havan / Homa"/><div class="svc-card-label">Havan / Homa</div></a>
+        <a href="namkaran.html"      class="svc-card-3d"><img src="assets/namkaranpuja.png"      alt="Namkaran Sanskar"/><div class="svc-card-label">Namkaran Sanskar</div></a>
+        <a href="lakshmi-puja.html"  class="svc-card-3d"><img src="assets/mahalamipuja.jpg"      alt="Lakshmi Puja"/><div class="svc-card-label">Lakshmi Puja</div></a>
+        <a href="ganesh-puja.html"   class="svc-card-3d"><div class="svc-card-emoji">🐘</div><div class="svc-card-label">Ganesh Puja</div></a>
+        <a href="navgraha.html"      class="svc-card-3d"><div class="svc-card-emoji">🌟</div><div class="svc-card-label">Navgraha Puja</div></a>
+        <a href="shradh-puja.html"   class="svc-card-3d"><div class="svc-card-emoji">🙏</div><div class="svc-card-label">Shradh / Pitru Puja</div></a>
+        <a href="astrology.html"     class="svc-card-3d"><div class="svc-card-emoji">🔮</div><div class="svc-card-label">Astrology Consultation</div></a>
+        <a href="kundali.html"       class="svc-card-3d"><div class="svc-card-emoji">🪐</div><div class="svc-card-label">Free Kundali</div></a>
+
+        <button class="svc-3d-nav svc-3d-next" id="svc3dNext" aria-label="Next">❯</button>
+      </div>
+    </div>
+
     <script>
       (function(){
-        const track = document.getElementById('svcTrack');
-        const prev  = document.getElementById('svcPrev');
-        const next  = document.getElementById('svcNext');
-        if (!track) return;
-        let manualOffset = 0;
-        const STEP = 240;
-        // Pause auto-scroll on manual click, resume after 3s
-        function shiftBy(px){
-          track.classList.add('paused');
-          // Get current translateX from animation + manual
-          const cur = new WebKitCSSMatrix(getComputedStyle(track).transform).m41;
-          manualOffset = cur - px;
-          track.style.transform = `translateX(${manualOffset}px)`;
-          track.style.animation = 'none';
-          clearTimeout(track._resume);
-          track._resume = setTimeout(()=>{
-            track.style.animation = '';
-            track.style.transform = '';
-            track.classList.remove('paused');
-          }, 3000);
+        const stage = document.getElementById('svcStage');
+        const cards = Array.from(stage.querySelectorAll('.svc-card-3d'));
+        const prevBtn = document.getElementById('svc3dPrev');
+        const nextBtn = document.getElementById('svc3dNext');
+        const N = cards.length;
+        let activeIdx = 0;
+        let autoTimer = null;
+
+        function update3D() {
+          cards.forEach((card, i) => {
+            // Compute circular difference relative to activeIdx
+            let diff = i - activeIdx;
+            if (diff > N / 2)  diff -= N;
+            if (diff < -N / 2) diff += N;
+
+            const absDiff = Math.abs(diff);
+
+            if (diff === 0) {
+              // Active Center Card: Big & Front
+              card.style.transform = 'translateX(0px) translateZ(80px) scale(1.16) rotateY(0deg)';
+              card.style.zIndex = 30;
+              card.style.opacity = '1';
+              card.style.boxShadow = '0 20px 50px rgba(0,0,0,0.45), 0 0 0 2px rgba(200,146,42,0.5)';
+              card.style.pointerEvents = 'auto';
+            } else if (absDiff === 1) {
+              // Immediate Left / Right neighbour
+              const tx = diff * 210;
+              const rotY = diff > 0 ? -18 : 18;
+              card.style.transform = `translateX(${tx}px) translateZ(-40px) scale(0.88) rotateY(${rotY}deg)`;
+              card.style.zIndex = 20;
+              card.style.opacity = '0.9';
+              card.style.boxShadow = '0 12px 30px rgba(0,0,0,0.3)';
+              card.style.pointerEvents = 'auto';
+            } else if (absDiff === 2) {
+              // 2nd level outer cards
+              const tx = diff * 180;
+              const rotY = diff > 0 ? -28 : 28;
+              card.style.transform = `translateX(${tx}px) translateZ(-120px) scale(0.72) rotateY(${rotY}deg)`;
+              card.style.zIndex = 10;
+              card.style.opacity = '0.65';
+              card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+              card.style.pointerEvents = 'auto';
+            } else if (absDiff === 3) {
+              // 3rd level outer cards
+              const tx = diff * 155;
+              const rotY = diff > 0 ? -35 : 35;
+              card.style.transform = `translateX(${tx}px) translateZ(-200px) scale(0.58) rotateY(${rotY}deg)`;
+              card.style.zIndex = 5;
+              card.style.opacity = '0.35';
+              card.style.boxShadow = 'none';
+              card.style.pointerEvents = 'auto';
+            } else {
+              // Hidden cards far off
+              const tx = diff > 0 ? 550 : -550;
+              card.style.transform = `translateX(${tx}px) translateZ(-300px) scale(0.4)`;
+              card.style.zIndex = 1;
+              card.style.opacity = '0';
+              card.style.pointerEvents = 'none';
+            }
+          });
         }
-        prev.addEventListener('click', ()=> shiftBy(-STEP));
-        next.addEventListener('click', ()=> shiftBy(STEP));
-        // Drag-to-scroll
-        let startX = 0, dragging = false;
-        track.addEventListener('mousedown', e=>{ dragging=true; startX=e.clientX; });
-        window.addEventListener('mousemove', e=>{ if(!dragging) return; shiftBy(e.clientX - startX); startX=e.clientX; });
-        window.addEventListener('mouseup', ()=>{ dragging=false; });
+
+        function nextCard() {
+          activeIdx = (activeIdx + 1) % N;
+          update3D();
+        }
+
+        function prevCard() {
+          activeIdx = (activeIdx - 1 + N) % N;
+          update3D();
+        }
+
+        function startTimer() {
+          stopTimer();
+          autoTimer = setInterval(nextCard, 5000);
+        }
+
+        function stopTimer() {
+          if (autoTimer) clearInterval(autoTimer);
+        }
+
+        // Card clicks: If not active center, make it center; if center, navigate
+        cards.forEach((card, i) => {
+          card.addEventListener('click', (e) => {
+            let diff = i - activeIdx;
+            if (diff > N / 2)  diff -= N;
+            if (diff < -N / 2) diff += N;
+
+            if (diff !== 0) {
+              e.preventDefault();
+              activeIdx = i;
+              update3D();
+              startTimer(); // reset 5s timer on manual click
+            }
+          });
+        });
+
+        prevBtn.addEventListener('click', () => { prevCard(); startTimer(); });
+        nextBtn.addEventListener('click', () => { nextCard(); startTimer(); });
+
+        // Hover pause
+        stage.addEventListener('mouseenter', stopTimer);
+        stage.addEventListener('mouseleave', startTimer);
+
+        // Touch Swipe
+        let startX = 0;
+        stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; stopTimer(); });
+        stage.addEventListener('touchend', e => {
+          const diffX = e.changedTouches[0].clientX - startX;
+          if (diffX < -40) nextCard();
+          else if (diffX > 40) prevCard();
+          startTimer();
+        });
+
+        // Initialize 3D positions & start 5-second timer
+        update3D();
+        startTimer();
       })();
     </script>
   </section>

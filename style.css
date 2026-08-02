@@ -273,22 +273,19 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
    SERVICES
 ══════════════════════════════════════════════════ */
 .services-section{padding:80px 0;background:var(--white);overflow:hidden}
-/* ── Service Carousel ── */
-.svc-carousel-outer{position:relative;padding:0 56px}
-.svc-carousel-viewport{overflow:hidden;border-radius:0}
-.svc-carousel-track{display:flex;gap:20px;animation:svcScroll 40s linear infinite;width:max-content;cursor:grab;user-select:none}
-.svc-carousel-track:hover{animation-play-state:paused}
-.svc-carousel-track.paused{animation-play-state:paused}
-@keyframes svcScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.svc-card{flex-shrink:0;width:220px;height:310px;border-radius:20px;overflow:hidden;position:relative;text-decoration:none;display:block;box-shadow:0 6px 24px rgba(0,0,0,.14);transition:transform .35s,box-shadow .35s;background:linear-gradient(135deg,var(--dark),var(--dark2))}
-.svc-card:hover{transform:translateY(-10px) scale(1.04);box-shadow:0 20px 48px rgba(0,0,0,.28)}
-.svc-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.svc-card:hover img{transform:scale(1.08)}
-.svc-card-emoji{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4.5rem}
-.svc-card-label{position:absolute;bottom:0;left:0;right:0;padding:22px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.88));color:#fff;font-size:.95rem;font-weight:700;font-family:'Playfair Display',serif;letter-spacing:.02em}
-.svc-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;background:var(--dark);color:var(--gold3);border:2px solid var(--gold2);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:var(--trans);box-shadow:0 4px 16px rgba(0,0,0,.2)}
-.svc-nav:hover{background:var(--gold);color:var(--dark);transform:translateY(-50%) scale(1.08)}
-.svc-prev{left:4px}.svc-next{right:4px}
+/* ── 3D Coverflow Service Carousel ── */
+.svc-3d-section{position:relative;width:100%;padding:10px 0 30px;overflow:hidden}
+.svc-3d-stage{position:relative;width:100%;max-width:1200px;height:440px;margin:0 auto;perspective:1200px;display:flex;align-items:center;justify-content:center;user-select:none}
+.svc-card-3d{position:absolute;width:250px;height:360px;border-radius:24px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.3);transition:transform .6s cubic-bezier(.25,1,.5,1),opacity .6s ease,z-index .6s ease,box-shadow .6s ease;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,var(--dark),var(--dark2));will-change:transform,opacity}
+.svc-card-3d img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.svc-card-3d:hover img{transform:scale(1.06)}
+.svc-card-3d .svc-card-emoji{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem}
+.svc-card-3d .svc-card-label{position:absolute;bottom:0;left:0;right:0;padding:28px 16px 18px;background:linear-gradient(0deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.65) 65%,transparent 100%);color:#fff;font-size:1.1rem;font-weight:800;font-family:'Playfair Display',serif;text-align:center;letter-spacing:.02em;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+
+/* 3D Nav Buttons */
+.svc-3d-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:50;width:50px;height:50px;border-radius:50%;background:var(--dark);color:var(--gold3);border:2px solid var(--gold2);cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:var(--trans);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.svc-3d-nav:hover{background:var(--gold);color:var(--dark);transform:translateY(-50%) scale(1.1)}
+.svc-3d-prev{left:20px}.svc-3d-next{right:20px}
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .service-card{background:var(--cream);border-radius:var(--rl);padding:20px;display:flex;flex-direction:column;gap:10px;border:1.5px solid var(--border);transition:var(--trans);cursor:pointer;position:relative;overflow:hidden}
 .service-card:hover{transform:translateY(-6px);box-shadow:var(--sh-md);border-color:var(--gold2)}
