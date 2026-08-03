@@ -318,9 +318,9 @@
             const absDiff = Math.abs(diff);
 
             if (diff === 0) {
-              // Active Center Card: Massive & Elevated Front (~580px tall)
+              // Active Center Card — scale just enough to feel big, never overflow stage
               card.classList.add('active-center');
-              card.style.transform = 'translateX(0px) translateZ(140px) scale(1.22) rotateY(0deg)';
+              card.style.transform = 'translateX(0px) translateZ(60px) scale(1.08) rotateY(0deg)';
               card.style.zIndex = 30;
               card.style.opacity = '1';
               card.style.pointerEvents = 'auto';
