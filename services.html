@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>All Puja Services | Sacred Ceremonies by Upasana</title>
+  <meta name="description" content="Browse all sacred puja services by Upasana — Rudrabhishek, Griha Pravesh, Vivah Sanskar, Lakshmi Puja, Navgraha and more. Book a verified pandit today."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── Services Page Specific ── */
+    .svc-page-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px;margin-top:0}
+    .svc-page-card{background:var(--white);border-radius:20px;overflow:hidden;border:1.5px solid var(--border);box-shadow:0 4px 20px rgba(70,26,25,.08);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+    .svc-page-card:hover{transform:translateY(-8px);box-shadow:0 18px 48px rgba(70,26,25,.18);border-color:var(--gold2)}
+    .svc-page-card-img{position:relative;height:200px;overflow:hidden;background:var(--dark2)}
+    .svc-page-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease}
+    .svc-page-card:hover .svc-page-card-img img{transform:scale(1.06)}
+    .svc-page-card-img-emoji{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(135deg,var(--dark),var(--dark2))}
+    .svc-page-card-badge{position:absolute;top:12px;left:12px;background:rgba(200,146,42,.9);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:.05em;backdrop-filter:blur(8px)}
+    .svc-page-card-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+    .svc-page-card-icon{font-size:1.5rem}
+    .svc-page-card-title{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:800;color:var(--text);line-height:1.25}
+    .svc-page-card-sub{font-size:.875rem;color:var(--text2);line-height:1.5}
+    .svc-page-card-footer{margin-top:auto;padding-top:14px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .svc-page-card-cta{font-size:.82rem;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:5px;transition:gap .2s ease}
+    .svc-page-card:hover .svc-page-card-cta{gap:10px;color:var(--gold)}
+    .svc-page-card-duration{font-size:.78rem;color:var(--text3);font-weight:500}
+
+    /* Hero badge */
+    .hero-stat-strip{display:flex;align-items:center;justify-content:center;gap:32px;margin-top:28px;flex-wrap:wrap}
+    .hero-stat{display:flex;flex-direction:column;align-items:center;gap:2px}
+    .hero-stat-num{font-size:1.5rem;font-weight:900;color:var(--gold3);font-family:'Playfair Display',serif}
+    .hero-stat-lbl{font-size:.75rem;color:rgba(253,246,228,.65);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+
+    /* Filter tabs */
+    .svc-filter-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+    .svc-filter-btn{padding:8px 20px;border-radius:100px;border:1.5px solid var(--border);background:var(--white);color:var(--text2);font-size:.85rem;font-weight:600;cursor:pointer;transition:all .25s ease;font-family:inherit}
+    .svc-filter-btn.active,.svc-filter-btn:hover{background:var(--dark);color:var(--cream);border-color:var(--dark)}
+
+    @media(max-width:600px){
+      .svc-page-grid{grid-template-columns:1fr 1fr;gap:16px}
+      .svc-page-card-img{height:140px}
+      .svc-page-card-body{padding:14px 14px 16px}
+      .hero-stat-strip{gap:20px}
+    }
+    @media(max-width:400px){
+      .svc-page-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<div id="header-root"></div>
+<main>
+
+  <!-- ══ HERO ══ -->
+  <section class="page-hero has-img" style="--hero-img:url('assets/Rudrabhishekpuja.jpg')">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> › <span style="color:var(--gold3)">All Services</span></div>
+      <h1 class="page-hero-title">Sacred Puja Services<br/>for Every Occasion</h1>
+      <p class="page-hero-sub">From daily pujas to grand ceremonies — expert Vedic pandits available for every ritual, performed with authenticity and devotion.</p>
+      <div class="hero-btns">
+        <a href="book-a-pandit.html" class="btn-gold">Book A Pandit 🙏</a>
+        <a href="index.html#services" class="btn-outline-light">View on Home</a>
+      </div>
+      <div class="hero-stat-strip">
+        <div class="hero-stat"><span class="hero-stat-num">500+</span><span class="hero-stat-lbl">Verified Pandits</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">50K+</span><span class="hero-stat-lbl">Pujas Completed</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">120+</span><span class="hero-stat-lbl">Cities Covered</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">4.9★</span><span class="hero-stat-lbl">Average Rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SERVICES GRID ══ -->
+  <section style="padding:72px 0;background:var(--cream)">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:left;margin-bottom:32px">
+        <p class="s-tag">🙏 ALL SERVICES</p>
+        <h2 class="s-title">Choose Your Sacred Ceremony</h2>
+        <p class="s-sub" style="margin:0">All pujas performed by certified, experienced Vedic pandits at your home or online.</p>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="svc-filter-bar">
+        <button class="svc-filter-btn active" onclick="filterCards('all',this)">All Services</button>
+        <button class="svc-filter-btn" onclick="filterCards('puja',this)">Puja Rituals</button>
+        <button class="svc-filter-btn" onclick="filterCards('sanskar',this)">Sanskars</button>
+        <button class="svc-filter-btn" onclick="filterCards('astrology',this)">Astrology</button>
+      </div>
+
+      <div class="svc-page-grid" id="svcGrid">
+
+        <a href="rudrabhishek.html" class="svc-page-card reveal" data-cat="puja">
+          <div class="svc-page-card-img">
+            <img src="assets/Rudrabhishekpuja.jpg" alt="Rudrabhishek Puja"/>
+            <span class="svc-page-card-badge">Most Popular</span>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🔱</div>
+            <h3 class="svc-page-card-title">Rudrabhishek Puja</h3>
+            <p class="svc-page-card-sub">Sacred Shiva worship with Panchamrut Abhishek, Sri Rudram chanting and complete Vedic rituals for health and prosperity.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 2–2.5 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="griha-pravesh.html" class="svc-page-card reveal" data-cat="sanskar">
+          <div class="svc-page-card-img">
+            <img src="assets/grihapraveshpuja.jpg" alt="Griha Pravesh Puja"/>
+            <span class="svc-page-card-badge">Popular</span>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🏠</div>
+            <h3 class="svc-page-card-title">Griha Pravesh Puja</h3>
+            <p class="svc-page-card-sub">Bless your new home with sacred rituals to purify the space, invite divine energy and bring lasting prosperity to your family.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 3–4 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="vivah.html" class="svc-page-card reveal" data-cat="sanskar">
+          <div class="svc-page-card-img">
+            <img src="assets/vivahpuja.jpg" alt="Vivah Sanskar"/>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">💍</div>
+            <h3 class="svc-page-card-title">Vivah Sanskar</h3>
+            <p class="svc-page-card-sub">Complete Vedic wedding ceremony with Saptapadi, Kanyadaan, and all sacred rituals for a divine and blessed marriage.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 5–6 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="satyanarayan.html" class="svc-page-card reveal" data-cat="puja">
+          <div class="svc-page-card-img">
+            <img src="assets/satyanarayanpuja.jpg" alt="Satyanarayan Katha"/>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">📖</div>
+            <h3 class="svc-page-card-title">Satyanarayan Katha</h3>
+            <p class="svc-page-card-sub">Sacred Vishnu Katha puja performed for blessings, fulfillment of wishes and gratitude on special occasions.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 2–3 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="havan.html" class="svc-page-card reveal" data-cat="puja">
+          <div class="svc-page-card-img">
+            <img src="assets/hanumanpuja.png" alt="Havan Homa"/>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🔥</div>
+            <h3 class="svc-page-card-title">Havan / Homa</h3>
+            <p class="svc-page-card-sub">Sacred fire ritual to purify the environment, remove negative energy and invoke divine blessings for any occasion.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 1.5–2 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="ganesh-puja.html" class="svc-page-card reveal" data-cat="puja">
+          <div class="svc-page-card-img">
+            <div class="svc-page-card-img-emoji">🐘</div>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🐘</div>
+            <h3 class="svc-page-card-title">Ganesh Puja</h3>
+            <p class="svc-page-card-sub">Worship Lord Ganesha to remove obstacles, invite new beginnings and ensure success in all your endeavors.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 1–1.5 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="navgraha.html" class="svc-page-card reveal" data-cat="puja">
+          <div class="svc-page-card-img">
+            <div class="svc-page-card-img-emoji">🌟</div>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🌟</div>
+            <h3 class="svc-page-card-title">Navgraha Puja</h3>
+            <p class="svc-page-card-sub">Propitiate all nine planets to reduce doshas, balance energies and bring harmony and fortune in your life.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 2–3 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="namkaran.html" class="svc-page-card reveal" data-cat="sanskar">
+          <div class="svc-page-card-img">
+            <img src="assets/namkaranpuja.png" alt="Namkaran Sanskar"/>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">👶</div>
+            <h3 class="svc-page-card-title">Namkaran Sanskar</h3>
+            <p class="svc-page-card-sub">Sacred baby naming ceremony performed on the 11th or 12th day with Vedic rituals for a blessed, auspicious start.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 1.5–2 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="lakshmi-puja.html" class="svc-page-card reveal" data-cat="puja">
+          <div class="svc-page-card-img">
+            <img src="assets/mahalamipuja.jpg" alt="Lakshmi Puja"/>
+            <span class="svc-page-card-badge">Diwali Special</span>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🪔</div>
+            <h3 class="svc-page-card-title">Lakshmi Puja</h3>
+            <p class="svc-page-card-sub">Invoke Goddess Lakshmi for wealth, abundance and prosperity. Ideal for Diwali, business launches and Fridays.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 1.5–2 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="shradh-puja.html" class="svc-page-card reveal" data-cat="puja">
+          <div class="svc-page-card-img">
+            <div class="svc-page-card-img-emoji">🙏</div>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🙏</div>
+            <h3 class="svc-page-card-title">Shradh / Pitru Puja</h3>
+            <p class="svc-page-card-sub">Perform ancestral rituals to honor departed souls, gain Pitru blessings and remove Pitru Dosha from your family.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 2–3 hrs</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="astrology.html" class="svc-page-card reveal" data-cat="astrology">
+          <div class="svc-page-card-img">
+            <div class="svc-page-card-img-emoji">🔮</div>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🔮</div>
+            <h3 class="svc-page-card-title">Astrology Consultation</h3>
+            <p class="svc-page-card-sub">Expert Jyotish readings — birth chart analysis, career, marriage, health and dosha predictions by experienced astrologers.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Book Now <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ 45–60 min</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="kundali.html" class="svc-page-card reveal" data-cat="astrology">
+          <div class="svc-page-card-img">
+            <div class="svc-page-card-img-emoji">🪐</div>
+            <span class="svc-page-card-badge">Free</span>
+          </div>
+          <div class="svc-page-card-body">
+            <div class="svc-page-card-icon">🪐</div>
+            <h3 class="svc-page-card-title">Free Kundali</h3>
+            <p class="svc-page-card-sub">Generate your complete Vedic birth chart instantly. Get detailed planetary positions, dashas and a personalised reading.</p>
+            <div class="svc-page-card-footer">
+              <span class="svc-page-card-cta">Get Free <span>→</span></span>
+              <span class="svc-page-card-duration">⏱ Instant</span>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- /grid -->
+    </div>
+  </section>
+
+  <!-- ══ CTA BAND ══ -->
+  <section style="background:linear-gradient(135deg,var(--dark),var(--dark2));padding:72px 0;text-align:center">
+    <div class="container">
+      <p class="s-tag" style="background:rgba(253,246,228,.1);border-color:rgba(253,246,228,.2);color:var(--cream)">📞 BOOK NOW</p>
+      <h2 class="s-title light" style="margin-bottom:12px">Ready to Book Your Pandit?</h2>
+      <p style="color:rgba(253,246,228,.75);max-width:500px;margin:0 auto 28px;font-size:1rem">Our team is available Mon–Sun 9AM–7PM. Book online or call us directly.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="book-a-pandit.html" class="btn-gold">Book A Pandit 🙏</a>
+        <a href="tel:+919511792924" class="btn-outline-light">📞 +91 95117 92924</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<div id="footer-root"></div>
+<script src="components.js"></script>
+<script>
+  // Filter functionality
+  function filterCards(cat, btn) {
+    document.querySelectorAll('.svc-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.svc-page-card').forEach(card => {
+      if (cat === 'all' || card.dataset.cat === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>

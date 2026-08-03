@@ -379,24 +379,31 @@ function logoHTML(lightClass = '') {
 
 /* ── Service mega-menu items ── */
 const SERVICES = [
-  { icon:'🔱', label:'Rudrabhishek Puja',  href:'rudrabhishek.html' },
-  { icon:'🏠', label:'Griha Pravesh',        href:'griha-pravesh.html' },
-  { icon:'💍', label:'Vivah Sanskar',        href:'vivah.html' },
-  { icon:'📖', label:'Satyanarayan Katha',   href:'satyanarayan.html' },
-  { icon:'🔥', label:'Havan / Homa',         href:'havan.html' },
-  { icon:'🐘', label:'Ganesh Puja',           href:'ganesh-puja.html' },
-  { icon:'🌟', label:'Navgraha Puja',         href:'navgraha.html' },
-  { icon:'👶', label:'Namkaran Sanskar',      href:'namkaran.html' },
-  { icon:'🪔', label:'Lakshmi Puja',          href:'lakshmi-puja.html' },
-  { icon:'🙏', label:'Shradh / Pitru Puja',  href:'shradh-puja.html' },
+  { icon:'🔱', label:'Rudrabhishek Puja',   href:'rudrabhishek.html',  img:'assets/Rudrabhishekpuja.jpg',  sub:'Lord Shiva Worship' },
+  { icon:'🏠', label:'Griha Pravesh',         href:'griha-pravesh.html', img:'assets/grihapraveshpuja.jpg',  sub:'Home Entering Ritual' },
+  { icon:'💍', label:'Vivah Sanskar',         href:'vivah.html',         img:'assets/vivahpuja.jpg',         sub:'Sacred Wedding Rituals' },
+  { icon:'📖', label:'Satyanarayan Katha',    href:'satyanarayan.html',  img:'assets/satyanarayanpuja.jpg',  sub:'Vishnu Devotion Katha' },
+  { icon:'🔥', label:'Havan / Homa',          href:'havan.html',         img:'assets/hanumanpuja.png',        sub:'Sacred Fire Ritual' },
+  { icon:'🐘', label:'Ganesh Puja',            href:'ganesh-puja.html',   img:'assets/grihapraveshpuja.jpg',  sub:'Obstacle Remover Puja' },
+  { icon:'🌟', label:'Navgraha Puja',          href:'navgraha.html',      img:'assets/satyanarayanpuja.jpg',  sub:'Nine Planets Ritual' },
+  { icon:'👶', label:'Namkaran Sanskar',       href:'namkaran.html',      img:'assets/namkaranpuja.png',       sub:'Baby Naming Ceremony' },
+  { icon:'🪔', label:'Lakshmi Puja',           href:'lakshmi-puja.html',  img:'assets/mahalamipuja.jpg',      sub:'Wealth & Prosperity' },
+  { icon:'🙏', label:'Shradh / Pitru Puja',   href:'shradh-puja.html',   img:'assets/Rudrabhishekpuja.jpg',  sub:'Ancestral Rituals' },
+  { icon:'🔮', label:'Astrology Consultation', href:'astrology.html',     img:'assets/satyanarayanpuja.jpg',  sub:'Expert Jyotish Reading' },
+  { icon:'🪐', label:'Free Kundali',           href:'kundali.html',       img:'assets/grihapraveshpuja.jpg',  sub:'Birth Chart Analysis' },
 ];
 
 /* ── Build Header ── */
 function renderHeader() {
   const ddItems = SERVICES.map(s => `
     <a href="${s.href}" class="dd-item">
-      <div class="dd-icon">${s.icon}</div>
-      <span>${s.label}</span>
+      <div class="dd-icon" style="background:none;padding:0;width:40px;height:40px;border-radius:10px;overflow:hidden;flex-shrink:0">
+        <img src="${s.img}" alt="${s.label}" style="width:100%;height:100%;object-fit:cover;border-radius:10px;display:block"/>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px">
+        <span style="font-weight:700;font-size:.84rem;color:var(--text)">${s.label}</span>
+        <span style="font-size:.74rem;color:var(--text3);font-weight:400">${s.sub}</span>
+      </div>
     </a>`).join('');
 
   const navLinks = [
@@ -423,12 +430,15 @@ function renderHeader() {
           <nav class="desktop-nav">
             <ul class="nav-list">
               <li class="nav-item has-dropdown">
-                <button class="nav-btn">
+                <a href="services.html" class="nav-btn ${currentPage==='services.html'?'active':''}" style="text-decoration:none">
                   <span data-i18n="nav.services">Services</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                </button>
-                <div class="dropdown">
+                </a>
+                <div class="dropdown" style="width:480px">
                   <div class="dd-grid" style="grid-template-columns:1fr 1fr">${ddItems}</div>
+                  <div style="border-top:1px solid var(--border);margin-top:10px;padding-top:10px;text-align:center">
+                    <a href="services.html" style="font-size:.82rem;font-weight:700;color:var(--dark);background:rgba(70,26,25,.07);padding:7px 20px;border-radius:100px;display:inline-block;transition:all .2s">View All Services &rarr;</a>
+                  </div>
                 </div>
               </li>
               ${navItems}
