@@ -389,8 +389,8 @@ const SERVICES = [
   { icon:'👶', label:'Namkaran Sanskar',       href:'namkaran.html',      img:'assets/namkaranpuja.png',       sub:'Baby Naming Ceremony' },
   { icon:'🪔', label:'Lakshmi Puja',           href:'lakshmi-puja.html',  img:'assets/mahalamipuja.jpg',      sub:'Wealth & Prosperity' },
   { icon:'🙏', label:'Shradh / Pitru Puja',   href:'shradh-puja.html',   img:'assets/Rudrabhishekpuja.jpg',  sub:'Ancestral Rituals' },
-  { icon:'🔮', label:'Astrology Consultation', href:'astrology.html',     img:'assets/Astrology.png',        sub:'Expert Jyotish Reading' },
-  { icon:'🪐', label:'Free Kundali',           href:'kundali.html',       img:'assets/Kundali.png',          sub:'Birth Chart Analysis' },
+  { icon:'🔮', label:'Astrology Consultation', href:'astrology.html',     img:'assets/astrology-icon.png',    sub:'Expert Jyotish Reading' },
+  { icon:'🪐', label:'Free Kundali',           href:'kundali.html',       img:'assets/kundali-icon.png',      sub:'Birth Chart Analysis' },
 ];
 
 /* ── Build Header ── */

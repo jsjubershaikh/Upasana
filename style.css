@@ -232,6 +232,8 @@ img{display:block;max-width:100%}
 .kundali-right{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:40px 32px;display:flex;flex-direction:column;gap:20px}
 .kundali-features{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .kf-item{display:flex;align-items:center;gap:10px;background:rgba(253,246,228,.1);padding:11px 14px;border-radius:var(--r);font-size:.835rem;font-weight:600;color:var(--cream);border:1px solid rgba(253,246,228,.1);transition:var(--trans)}
+.kf-icon-img{width:22px;height:22px;object-fit:contain;flex-shrink:0}
+.benefit-icon-img{width:36px;height:36px;object-fit:contain;flex-shrink:0;padding:6px;background:rgba(70,26,25,.08);border-radius:10px;display:block}
 .kf-item:hover{background:rgba(253,246,228,.15);border-color:var(--gold3)}
 .app-block{background:rgba(253,246,228,.08);border-radius:var(--rl);padding:18px;border:1px solid rgba(253,246,228,.12)}
 .app-title-text{font-size:.9rem;font-weight:700;color:var(--gold3);text-align:center;margin-bottom:12px}
