@@ -373,7 +373,7 @@ const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 function logoHTML(lightClass = '') {
   return `
     <a href="index.html" class="logo-link" aria-label="Upasana Home">
-      <img src="assets/Head Logo.PNG" alt="Upasana" class="logo-img logo-head" onerror="this.src='assets/logo.png';this.onerror=null;">
+      <img src="assets/head-logo.png" alt="Upasana" class="logo-img logo-head" onerror="this.src='assets/Head Logo.png';this.onerror=null;">
     </a>`;
 }
 
@@ -381,7 +381,7 @@ function logoHTML(lightClass = '') {
 function logoHTMLFooter() {
   return `
     <a href="index.html" class="logo-link" aria-label="Upasana Home">
-      <img src="assets/Bottom Logo.PNG" alt="Upasana" class="logo-img logo-footer" onerror="this.src='assets/logo.png';this.onerror=null;">
+      <img src="assets/bottom-logo.png" alt="Upasana" class="logo-img logo-footer" onerror="this.src='assets/Bottom Logo.png';this.onerror=null;">
     </a>`;
 }
 
