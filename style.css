@@ -154,9 +154,8 @@ img{display:block;max-width:100%}
 .hero{position:relative;width:100%;height:auto;min-height:580px;margin-top:82px;padding:12px 2px 20px;background:var(--cream2);overflow:hidden;box-sizing:border-box}
 .slides-wrap{position:relative;width:calc(100% - 4px);max-width:100%;margin:0 auto;min-height:580px;height:100%;overflow:hidden;border-radius:24px;border:2.5px solid var(--gold2);box-shadow:0 16px 48px rgba(70,26,25,.18)}
 .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease;display:flex;align-items:flex-start;padding-top:44px;padding-bottom:50px;box-sizing:border-box}
-.slide.s1{background:url('assets/Rudrabhishekpuja.jpg') center/cover no-repeat}
-.slide.s2{background:url('assets/grihapraveshpuja.jpg') center/cover no-repeat}
-.slide.s3{background:url('assets/vivahpuja.jpg') center/cover no-repeat}
+/* ALL 3 SLIDES use Final Poster as the static hero background */
+.slide.s1,.slide.s2,.slide.s3{background:url('assets/final-poster.png') center/cover no-repeat}
 .slide.active{opacity:1;z-index:1}
 .slide-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 45%,rgba(0,0,0,.60) 100%)}
 .slide-pattern{display:none}
@@ -174,33 +173,10 @@ img{display:block;max-width:100%}
 
 /* ── Hero Search Bar ── */
 .hero-search-bar{position:relative;z-index:30;width:100%;max-width:900px;margin:0 auto;padding:0;overflow:visible}
-/* Final Poster image as search-box background — no border, rounded corners only */
-.search-box{
-  max-width:920px;
-  margin:0 auto;
-  background:url('assets/final-poster.png') center/cover no-repeat;
-  border-radius:24px;
-  padding:20px 20px 16px;
-  box-shadow:0 16px 48px rgba(0,0,0,.45);
-  position:relative;
-  z-index:300;
-  overflow:hidden;
-  border:none;
-}
-/* Subtle dark veil so search inputs remain readable */
-.search-box::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(0,0,0,.38) 0%,rgba(70,26,25,.30) 100%);
-  border-radius:24px;
-  z-index:0;
-  pointer-events:none;
-}
-.search-box > *{position:relative;z-index:2}
+.search-box{max-width:920px;margin:0 auto;background:rgba(70,26,25,.75);border-radius:20px;padding:14px;box-shadow:0 10px 40px rgba(0,0,0,.4);position:relative;z-index:300;overflow:visible;backdrop-filter:blur(8px);border:none}
 .search-input-wrap{position:relative;margin-bottom:14px;z-index:400;overflow:visible;display:flex;align-items:center}
 .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--dark);z-index:402}
-.search-input{width:100%;padding:12px 110px 12px 44px;border-radius:var(--pill);border:2px solid transparent;font-size:.95rem;font-weight:500;color:var(--text);background:rgba(253,246,228,.97);outline:none;transition:border-color .25s;font-family:inherit}
+.search-input{width:100%;padding:12px 110px 12px 44px;border-radius:var(--pill);border:2px solid transparent;font-size:.95rem;font-weight:500;color:var(--text);background:var(--cream);outline:none;transition:border-color .25s;font-family:inherit}
 .search-input:focus{border-color:var(--gold2);background:#fff}
 .search-input::placeholder{color:var(--text3);font-weight:400}
 .btn-search-go{position:absolute;right:5px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--cream);font-weight:700;font-size:.85rem;padding:8px 18px;border-radius:var(--pill);border:none;cursor:pointer;transition:var(--trans);z-index:403}
