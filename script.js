@@ -317,14 +317,14 @@ function initBookingForm() {
 
     // Simulate success
     const btn = form.querySelector('.btn-submit-booking');
-    btn.textContent = 'Booking Confirmed! ✅';
+    btn.textContent = 'Booking Confirmed!';
     btn.style.background = 'linear-gradient(135deg, #2e7d32, #43a047)';
     btn.disabled = true;
 
-    showToast('🙏 Your booking request has been submitted! Our team will call you within 30 minutes.', 'success');
+    showToast('Your booking request has been submitted! Our team will call you within 30 minutes.', 'success');
 
     setTimeout(() => {
-      btn.textContent = 'Book Pandit Now 🙏';
+      btn.textContent = 'Book Pandit Now';
       btn.style.background = '';
       btn.disabled = false;
       form.reset();
@@ -369,7 +369,7 @@ function initSearchSuggestions() {
       <div class="suggestion-item" style="padding:12px 18px; cursor:pointer; font-size:.9rem; font-weight:500; color:#1a1a2e; transition: background .2s;" 
            onmouseover="this.style.background='rgba(128,9,9,.06)'" 
            onmouseout="this.style.background=''"
-           data-val="${s}">🔍 ${s}</div>
+           data-val="${s}">${s}</div>
     `).join('');
     dropdown.style.display = 'block';
 
@@ -405,9 +405,9 @@ function showToast(message, type = 'info') {
   document.querySelectorAll('.upasana-toast').forEach(t => t.remove());
 
   const colors = {
-    success: { bg: '#2e7d32', icon: '✅' },
-    error:   { bg: '#c62828', icon: '❌' },
-    info:    { bg: '#800909', icon: '🙏' }
+    success: { bg: '#2e7d32', icon: '' },
+    error:   { bg: '#c62828', icon: '' },
+    info:    { bg: '#800909', icon: '' }
   };
   const { bg, icon } = colors[type] || colors.info;
 

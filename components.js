@@ -4,11 +4,11 @@
 
 const SITE = {
   name: 'Upasana',
-  phone: '+91 95117 92924',
+  phone: '+91 80875 90902',
   email: 'support@upasana.in',
   address: 'Surat, Gujarat, India – 395009',
   hours: 'Mon – Sun: 9:00 AM – 7:00 PM',
-  whatsapp: 'https://wa.me/919511792924?text=Hello,%20I%20Want%20To%20Book%20A%20Pandit',
+  whatsapp: 'https://wa.me/918087590902?text=Hello,%20I%20Want%20To%20Book%20A%20Pandit',
 };
 
 /* ═══════════════════════════════════════════════════════
@@ -35,10 +35,10 @@ const TRANSLATIONS = {
     'hero.ql.kundali':   'Kundali',
     'hero.ql.book':      'Book Pandit',
     /* Section headings */
-    'sec.services.tag':   '🙏 PUJA SERVICES',
+    'sec.services.tag':   'PUJA SERVICES',
     'sec.services.title': 'Sacred Services for Every Occasion',
     'sec.services.sub':   'From daily pujas to grand ceremonies — we have verified pandits for every ritual',
-    'sec.hiw.tag':        '✨ Simple Process',
+    'sec.hiw.tag':        'Simple Process',
     'sec.hiw.title':      'How It Works',
     'sec.hiw.sub':        'Book a pandit in just 4 easy steps',
     'sec.hiw.1.title':    'Select Puja',
@@ -49,9 +49,9 @@ const TRANSLATIONS = {
     'sec.hiw.3.desc':     'We match you with a verified, experienced pandit for your ceremony.',
     'sec.hiw.4.title':    'Perform Puja',
     'sec.hiw.4.desc':     'Enjoy an authentic ceremony at home or online via live stream.',
-    'sec.testimonials.tag':   '💬 Testimonials',
+    'sec.testimonials.tag':   'Testimonials',
     'sec.testimonials.title': 'What Our Devotees Say',
-    'sec.faq.tag':        '❓ FAQs',
+    'sec.faq.tag':        'FAQs',
     'sec.faq.title':      'Frequently Asked Questions',
     /* Stats */
     'stat.pandits':  'Verified Pandits',
@@ -79,7 +79,7 @@ const TRANSLATIONS = {
     'book.name.label':'Your Full Name',
     'book.phone.label':'Mobile Number',
     'book.city.label': 'City / Location',
-    'book.submit':    'Book My Pandit Now 🙏',
+    'book.submit':    'Book My Pandit Now',
   },
 
   hi: {
@@ -102,10 +102,10 @@ const TRANSLATIONS = {
     'hero.ql.kundali':   'कुंडली',
     'hero.ql.book':      'पंडित बुक करें',
     /* Section headings */
-    'sec.services.tag':   '🙏 हमारी सेवाएं',
+    'sec.services.tag':   'हमारी सेवाएं',
     'sec.services.title': 'हर अवसर के लिए पवित्र सेवाएं',
     'sec.services.sub':   'दैनिक पूजा से लेकर भव्य समारोह तक — हर अनुष्ठान के लिए सत्यापित पंडित',
-    'sec.hiw.tag':        '✨ सरल प्रक्रिया',
+    'sec.hiw.tag':        'सरल प्रक्रिया',
     'sec.hiw.title':      'यह कैसे काम करता है',
     'sec.hiw.sub':        'केवल 3 आसान चरणों में पंडित बुक करें',
     'sec.hiw.1.title':    'खोजें और चुनें',
@@ -114,9 +114,9 @@ const TRANSLATIONS = {
     'sec.hiw.2.desc':     'अपनी तिथि, समय और स्थान चुनें। ऑनलाइन या दिन पर नकद सुरक्षित रूप से भुगतान करें।',
     'sec.hiw.3.title':    'पंडित आते हैं',
     'sec.hiw.3.desc':     'आपके सत्यापित पंडित पूजा के लिए आवश्यक सामग्री के साथ समय पर आते हैं।',
-    'sec.testimonials.tag':   '💬 प्रशंसापत्र',
+    'sec.testimonials.tag':   'प्रशंसापत्र',
     'sec.testimonials.title': 'हमारे भक्त क्या कहते हैं',
-    'sec.faq.tag':        '❓ सामान्य प्रश्न',
+    'sec.faq.tag':        'सामान्य प्रश्न',
     'sec.faq.title':      'अक्सर पूछे जाने वाले प्रश्न',
     /* Stats */
     'stat.pandits':  'सत्यापित पंडित',
@@ -144,7 +144,7 @@ const TRANSLATIONS = {
     'book.name.label':'आपका पूरा नाम',
     'book.phone.label':'मोबाइल नंबर',
     'book.city.label': 'शहर / स्थान',
-    'book.submit':    'अभी पंडित बुक करें 🙏',
+    'book.submit':    'अभी पंडित बुक करें',
   },
 
   mr: {
@@ -167,10 +167,10 @@ const TRANSLATIONS = {
     'hero.ql.kundali':   'कुंडली',
     'hero.ql.book':      'पंडित बुक करा',
     /* Section headings */
-    'sec.services.tag':   '🙏 आमच्या सेवा',
+    'sec.services.tag':   'आमच्या सेवा',
     'sec.services.title': 'प्रत्येक प्रसंगासाठी पवित्र सेवा',
     'sec.services.sub':   'दैनंदिन पूजेपासून भव्य समारंभापर्यंत — प्रत्येक विधीसाठी प्रमाणित पंडित',
-    'sec.hiw.tag':        '✨ सोपी प्रक्रिया',
+    'sec.hiw.tag':        'सोपी प्रक्रिया',
     'sec.hiw.title':      'हे कसे कार्य करते',
     'sec.hiw.sub':        'फक्त ३ सोप्या चरणांमध्ये पंडित बुक करा',
     'sec.hiw.1.title':    'शोधा आणि निवडा',
@@ -179,9 +179,9 @@ const TRANSLATIONS = {
     'sec.hiw.2.desc':     'तारीख, वेळ आणि ठिकाण निवडा. ऑनलाइन किंवा दिवशी रोखीने पेमेंट करा.',
     'sec.hiw.3.title':    'पंडित येतात',
     'sec.hiw.3.desc':     'तुमचे प्रमाणित पंडित पूजेसाठी आवश्यक सामग्रीसह वेळेवर येतात.',
-    'sec.testimonials.tag':   '💬 अभिप्राय',
+    'sec.testimonials.tag':   'अभिप्राय',
     'sec.testimonials.title': 'आमचे भाविक काय म्हणतात',
-    'sec.faq.tag':        '❓ वारंवार विचारले जाणारे प्रश्न',
+    'sec.faq.tag':        'वारंवार विचारले जाणारे प्रश्न',
     'sec.faq.title':      'सामान्य प्रश्न',
     /* Stats */
     'stat.pandits':  'प्रमाणित पंडित',
@@ -209,7 +209,7 @@ const TRANSLATIONS = {
     'book.name.label':'तुमचे पूर्ण नाव',
     'book.phone.label':'मोबाइल नंबर',
     'book.city.label': 'शहर / स्थान',
-    'book.submit':    'आत्ता पंडित बुक करा 🙏',
+    'book.submit':    'आत्ता पंडित बुक करा',
   },
 
   gu: {
@@ -232,10 +232,10 @@ const TRANSLATIONS = {
     'hero.ql.kundali':   'કુંડળી',
     'hero.ql.book':      'પંડિત બુક કરો',
     /* Section headings */
-    'sec.services.tag':   '🙏 અમારી સેવાઓ',
+    'sec.services.tag':   'અમારી સેવાઓ',
     'sec.services.title': 'દરેક પ્રસંગ માટે પવિત્ર સેવાઓ',
     'sec.services.sub':   'રોજિંદી પૂજાથી ભવ્ય સમારોહ સુધી — દરેક વિધિ માટે ચકાસેલ પંડિત',
-    'sec.hiw.tag':        '✨ સરળ પ્રક્રિયા',
+    'sec.hiw.tag':        'સરળ પ્રક્રિયા',
     'sec.hiw.title':      'તે કેવી રીતે કાર્ય કરે છે',
     'sec.hiw.sub':        'ફક્ત ૩ સરળ પગલામાં પંડિત બુક કરો',
     'sec.hiw.1.title':    'શોધો અને પસંદ કરો',
@@ -244,9 +244,9 @@ const TRANSLATIONS = {
     'sec.hiw.2.desc':     'તારીખ, સમય અને સ્થળ પસંદ કરો. ઓનલાઇન અથવા રોકડ ચૂકવો.',
     'sec.hiw.3.title':    'પંડિત આવે છે',
     'sec.hiw.3.desc':     'તમારા ચકાસેલ પંડિત પૂજા માટે જરૂરી સામગ્રી સાથે સમયસર આવે છે.',
-    'sec.testimonials.tag':   '💬 પ્રશંસાપત્ર',
+    'sec.testimonials.tag':   'પ્રશંસાપત્ર',
     'sec.testimonials.title': 'અમારા ભક્તો શું કહે છે',
-    'sec.faq.tag':        '❓ વારંવાર પૂછાતા પ્રશ્નો',
+    'sec.faq.tag':        'વારંવાર પૂછાતા પ્રશ્નો',
     'sec.faq.title':      'સામાન્ય પ્રશ્નો',
     /* Stats */
     'stat.pandits':  'ચકાસેલ પંડિત',
@@ -274,7 +274,7 @@ const TRANSLATIONS = {
     'book.name.label':'તમારું પૂરું નામ',
     'book.phone.label':'મોબાઇल નંબર',
     'book.city.label': 'શહેર / સ્થળ',
-    'book.submit':    'હમણાં પંડિત બુક કરો 🙏',
+    'book.submit':    'હમણાં પંડિત બુક કરો',
   }
 };
 
@@ -369,28 +369,36 @@ window.getCurrentLang = function() {
 /* ── Detect active page ── */
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-/* ── Logo HTML (supports custom logo file) ── */
+/* ── Logo HTML — Navbar (Head Logo: cream background, fits cream navbar) ── */
 function logoHTML(lightClass = '') {
   return `
     <a href="index.html" class="logo-link" aria-label="Upasana Home">
-      <img src="assets/logo.png" alt="Upasana Logo" class="logo-img" onerror="this.src='Logo.jpeg';this.onerror=null;">
+      <img src="assets/Head Logo.PNG" alt="Upasana" class="logo-img logo-head" onerror="this.src='assets/logo.png';this.onerror=null;">
+    </a>`;
+}
+
+/* ── Logo HTML — Footer (Bottom Logo: dark background, fits dark footer) ── */
+function logoHTMLFooter() {
+  return `
+    <a href="index.html" class="logo-link" aria-label="Upasana Home">
+      <img src="assets/Bottom Logo.PNG" alt="Upasana" class="logo-img logo-footer" onerror="this.src='assets/logo.png';this.onerror=null;">
     </a>`;
 }
 
 /* ── Service mega-menu items ── */
 const SERVICES = [
-  { icon:'🔱', label:'Rudrabhishek Puja',   href:'rudrabhishek.html',  img:'assets/Rudrabhishekpuja.jpg',  sub:'Lord Shiva Worship' },
-  { icon:'🏠', label:'Griha Pravesh',         href:'griha-pravesh.html', img:'assets/grihapraveshpuja.jpg',  sub:'Home Entering Ritual' },
-  { icon:'💍', label:'Vivah Sanskar',         href:'vivah.html',         img:'assets/vivahpuja.jpg',         sub:'Sacred Wedding Rituals' },
-  { icon:'📖', label:'Satyanarayan Katha',    href:'satyanarayan.html',  img:'assets/satyanarayanpuja.jpg',  sub:'Vishnu Devotion Katha' },
-  { icon:'🔥', label:'Havan / Homa',          href:'havan.html',         img:'assets/hanumanpuja.png',        sub:'Sacred Fire Ritual' },
-  { icon:'🐘', label:'Ganesh Puja',            href:'ganesh-puja.html',   img:'assets/grihapraveshpuja.jpg',  sub:'Obstacle Remover Puja' },
-  { icon:'🌟', label:'Navgraha Puja',          href:'navgraha.html',      img:'assets/satyanarayanpuja.jpg',  sub:'Nine Planets Ritual' },
-  { icon:'👶', label:'Namkaran Sanskar',       href:'namkaran.html',      img:'assets/namkaranpuja.png',       sub:'Baby Naming Ceremony' },
-  { icon:'🪔', label:'Lakshmi Puja',           href:'lakshmi-puja.html',  img:'assets/mahalamipuja.jpg',      sub:'Wealth & Prosperity' },
-  { icon:'🙏', label:'Shradh / Pitru Puja',   href:'shradh-puja.html',   img:'assets/Rudrabhishekpuja.jpg',  sub:'Ancestral Rituals' },
-  { icon:'🔮', label:'Astrology Consultation', href:'astrology.html',     img:'assets/astrology-icon.png',    sub:'Expert Jyotish Reading' },
-  { icon:'🪐', label:'Free Kundali',           href:'kundali.html',       img:'assets/kundali-icon.png',      sub:'Birth Chart Analysis' },
+  { icon:'RD', label:'Rudrabhishek Puja',   href:'rudrabhishek.html',  img:'assets/Rudrabhishekpuja.jpg',  sub:'Lord Shiva Worship' },
+  { icon:'GP', label:'Griha Pravesh',         href:'griha-pravesh.html', img:'assets/grihapraveshpuja.jpg',  sub:'Home Entering Ritual' },
+  { icon:'VS', label:'Vivah Sanskar',         href:'vivah.html',         img:'assets/vivahpuja.jpg',         sub:'Sacred Wedding Rituals' },
+  { icon:'SK', label:'Satyanarayan Katha',    href:'satyanarayan.html',  img:'assets/satyanarayanpuja.jpg',  sub:'Vishnu Devotion Katha' },
+  { icon:'HV', label:'Havan / Homa',          href:'havan.html',         img:'assets/hanumanpuja.png',        sub:'Sacred Fire Ritual' },
+  { icon:'GN', label:'Ganesh Puja',            href:'ganesh-puja.html',   img:'assets/grihapraveshpuja.jpg',  sub:'Obstacle Remover Puja' },
+  { icon:'NG', label:'Navgraha Puja',          href:'navgraha.html',      img:'assets/satyanarayanpuja.jpg',  sub:'Nine Planets Ritual' },
+  { icon:'NK', label:'Namkaran Sanskar',       href:'namkaran.html',      img:'assets/namkaranpuja.png',       sub:'Baby Naming Ceremony' },
+  { icon:'LP', label:'Lakshmi Puja',           href:'lakshmi-puja.html',  img:'assets/mahalamipuja.jpg',      sub:'Wealth & Prosperity' },
+  { icon:'SP', label:'Shradh / Pitru Puja',   href:'shradh-puja.html',   img:'assets/Rudrabhishekpuja.jpg',  sub:'Ancestral Rituals' },
+  { icon:'AS', label:'Astrology Consultation', href:'astrology.html',     img:'assets/astrology-icon.png',    sub:'Expert Jyotish Reading' },
+  { icon:'KD', label:'Free Kundali',           href:'kundali.html',       img:'assets/kundali-icon.png',      sub:'Birth Chart Analysis' },
 ];
 
 /* ── Build Header ── */
@@ -503,41 +511,46 @@ function renderHeader() {
 
     <!-- Login Modal -->
     <div class="modal-overlay" id="login-modal">
-      <div class="modal-box">
+      <div class="modal-box" style="max-width:400px">
         <button class="modal-close" id="modal-close">✕</button>
-        <h2>Welcome Back 🙏</h2>
-        <p>Sign in to manage your bookings and access premium features</p>
-        <div class="modal-tabs">
-          <div class="modal-tab active" data-tab="login">Login</div>
-          <div class="modal-tab" data-tab="register">Register</div>
+
+        <!-- Header -->
+        <div style="text-align:center;margin-bottom:28px">
+          <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.4rem">🙏</div>
+          <h2 style="margin-bottom:6px">Welcome Back</h2>
+          <p style="margin-bottom:0">Sign in to manage your bookings</p>
         </div>
-        <div id="tab-login">
-          <div class="form-group" style="margin-bottom:14px">
-            <label>Mobile Number</label>
-            <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX">
-          </div>
-          <div class="form-group" style="margin-bottom:14px">
-            <label>Password</label>
-            <input type="password" class="form-control" placeholder="Enter your password">
-          </div>
-          <button class="btn-primary" style="width:100%;padding:13px;margin-top:4px" onclick="showToast('OTP sent to your mobile!','success')">Send OTP & Login</button>
-          <p style="font-size:.8rem;color:var(--text3);text-align:center;margin-top:14px">Don't have an account? <a href="#" style="color:var(--dark);font-weight:700" onclick="switchTab('register')">Register here</a></p>
+
+        <!-- Google Login -->
+        <button id="google-login-btn" onclick="showToast('Redirecting to Google Sign In...','info')" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 20px;background:#fff;border:1.5px solid #dadce0;border-radius:10px;font-size:.93rem;font-weight:600;color:#3c4043;cursor:pointer;transition:all .2s;margin-bottom:20px;font-family:inherit;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+          <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          Continue with Google
+        </button>
+
+        <!-- Divider -->
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <div style="flex:1;height:1px;background:var(--border)"></div>
+          <span style="font-size:.78rem;color:var(--text3);font-weight:600;white-space:nowrap">or sign in with email</span>
+          <div style="flex:1;height:1px;background:var(--border)"></div>
         </div>
-        <div id="tab-register" style="display:none">
-          <div class="form-row" style="margin-bottom:14px">
-            <div class="form-group"><label>First Name</label><input type="text" class="form-control" placeholder="First name"></div>
-            <div class="form-group"><label>Last Name</label><input type="text" class="form-control" placeholder="Last name"></div>
-          </div>
-          <div class="form-group" style="margin-bottom:14px">
-            <label>Mobile Number</label>
-            <input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX">
-          </div>
-          <div class="form-group" style="margin-bottom:14px">
-            <label>Email Address</label>
-            <input type="email" class="form-control" placeholder="your@email.com">
-          </div>
-          <button class="btn-gold" style="width:100%;padding:13px;margin-top:4px" onclick="showToast('Registration successful! OTP sent.','success')">Create Account</button>
+
+        <!-- Email + Password Form -->
+        <div class="form-group" style="margin-bottom:14px">
+          <label style="font-size:.82rem;font-weight:700;color:var(--text);display:block;margin-bottom:6px">Email Address</label>
+          <input type="email" id="login-email" class="form-control" placeholder="your@email.com" style="width:100%">
         </div>
+        <div class="form-group" style="margin-bottom:6px">
+          <label style="font-size:.82rem;font-weight:700;color:var(--text);display:block;margin-bottom:6px">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="Enter your password" style="width:100%">
+        </div>
+        <div style="text-align:right;margin-bottom:20px">
+          <a href="#" style="font-size:.8rem;color:var(--dark);font-weight:600" onclick="showToast('Password reset link sent to your email','info')">Forgot password?</a>
+        </div>
+        <button class="btn-primary" style="width:100%;padding:13px;font-size:.95rem" onclick="showToast('Login successful! Welcome back 🙏','success')">Sign In</button>
+
+        <p style="font-size:.8rem;color:var(--text3);text-align:center;margin-top:18px">
+          By signing in you agree to our <a href="#" style="color:var(--dark);font-weight:600">Terms</a> &amp; <a href="#" style="color:var(--dark);font-weight:600">Privacy Policy</a>
+        </p>
       </div>
     </div>`;
 
@@ -554,7 +567,7 @@ function renderFooter() {
         <div class="container">
           <div class="footer-grid">
             <div>
-              ${logoHTML('logo-text-light')}
+              ${logoHTMLFooter()}
               <p class="footer-tagline">Connecting devotees with authentic Vedic pandits for every sacred occasion — with love, trust, and tradition.</p>
               <div class="social-links">
                 <a href="#" class="soc-link" aria-label="Facebook">
@@ -589,10 +602,10 @@ function renderFooter() {
             <div>
               <h4 class="footer-heading">Contact</h4>
               <div class="footer-contact">
-                <p>📍 ${SITE.address}</p>
-                <p>📞 <a href="tel:${SITE.phone}">${SITE.phone}</a></p>
-                <p>📧 <a href="mailto:${SITE.email}">${SITE.email}</a></p>
-                <p>🕘 ${SITE.hours}</p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7;margin-right:4px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> ${SITE.address}</p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7;margin-right:4px"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> <a href="tel:${SITE.phone}">${SITE.phone}</a></p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7;margin-right:4px"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> <a href="mailto:${SITE.email}">${SITE.email}</a></p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7;margin-right:4px"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg> ${SITE.hours}</p>
               </div>
               <div class="footer-badges">
                 <div class="ftr-badge">▶ Google Play Store</div>
@@ -605,7 +618,7 @@ function renderFooter() {
       <div class="footer-bottom">
         <div class="container">
           <div class="footer-btm-inner">
-            <p>© 2025 Upasana. All rights reserved. 🙏</p>
+            <p>© 2025 Upasana. All rights reserved.</p>
             <div class="legal-links">
               <a href="#">Privacy Policy</a>
               <a href="#">Terms of Service</a>
@@ -741,7 +754,6 @@ window.switchTab = function(tab) {
 window.showToast = function(msg, type='info') {
   document.querySelectorAll('.u-toast').forEach(t => t.remove());
   const colors = { success:'#2e7d32', error:'#c62828', info:'#461a19', warn:'#e65100' };
-  const icons  = { success:'✅', error:'❌', info:'🙏', warn:'⚠️' };
   if(!document.getElementById('toast-kf')) {
     const s = document.createElement('style');
     s.id = 'toast-kf';
@@ -750,8 +762,8 @@ window.showToast = function(msg, type='info') {
   }
   const t = document.createElement('div');
   t.className = 'u-toast';
-  t.style.cssText = `position:fixed;top:96px;right:22px;z-index:99999;background:${colors[type]||colors.info};color:#fff;padding:14px 20px;border-radius:14px;max-width:340px;font-size:.88rem;font-weight:600;line-height:1.5;box-shadow:0 8px 30px rgba(0,0,0,.25);display:flex;align-items:flex-start;gap:10px;font-family:'Inter',sans-serif;animation:tIn .4s ease both`;
-  t.innerHTML = `<span style="font-size:1.1rem;flex-shrink:0">${icons[type]||'🙏'}</span><span>${msg}</span>`;
+  t.style.cssText = `position:fixed;top:96px;right:22px;z-index:99999;background:${colors[type]||colors.info};color:#fff;padding:14px 20px;border-radius:14px;max-width:340px;font-size:.88rem;font-weight:600;line-height:1.5;box-shadow:0 8px 30px rgba(0,0,0,.25);font-family:'Inter',sans-serif;animation:tIn .4s ease both`;
+  t.innerHTML = `<span>${msg}</span>`;
   document.body.appendChild(t);
   setTimeout(() => { t.style.animation='tOut .4s ease both'; setTimeout(()=>t.remove(),400); }, 4200);
 };
@@ -849,19 +861,19 @@ function initSearch(inputId) {
   if(!inp) return;
 
   const suggs = [
-    { label: 'Rudrabhishek Puja', icon: '🔱', category: 'Puja' },
-    { label: 'Griha Pravesh Puja', icon: '🏠', category: 'Puja' },
-    { label: 'Vivah Sanskar (Wedding)', icon: '💍', category: 'Ceremony' },
-    { label: 'Satyanarayan Katha', icon: '📖', category: 'Katha' },
-    { label: 'Havan / Homa', icon: '🔥', category: 'Ritual' },
-    { label: 'Ganesh Puja', icon: '🐘', category: 'Puja' },
-    { label: 'Navgraha Puja', icon: '🌟', category: 'Shanti' },
-    { label: 'Namkaran Sanskar', icon: '👶', category: 'Ceremony' },
-    { label: 'Lakshmi Puja', icon: '🪔', category: 'Puja' },
-    { label: 'Shradh / Pitru Puja', icon: '🙏', category: 'Puja' },
-    { label: 'Astrology Consultation', icon: '🔮', category: 'Service' },
-    { label: 'Free Janam Kundali', icon: '🪐', category: 'Report' },
-    { label: 'Today\'s Shubh Muhurat', icon: '📅', category: 'Timing' }
+    { label: 'Rudrabhishek Puja', icon: '', category: 'Puja' },
+    { label: 'Griha Pravesh Puja', icon: '', category: 'Puja' },
+    { label: 'Vivah Sanskar (Wedding)', icon: '', category: 'Ceremony' },
+    { label: 'Satyanarayan Katha', icon: '', category: 'Katha' },
+    { label: 'Havan / Homa', icon: '', category: 'Ritual' },
+    { label: 'Ganesh Puja', icon: '', category: 'Puja' },
+    { label: 'Navgraha Puja', icon: '', category: 'Shanti' },
+    { label: 'Namkaran Sanskar', icon: '', category: 'Ceremony' },
+    { label: 'Lakshmi Puja', icon: '', category: 'Puja' },
+    { label: 'Shradh / Pitru Puja', icon: '', category: 'Puja' },
+    { label: 'Astrology Consultation', icon: '', category: 'Service' },
+    { label: 'Free Janam Kundali', icon: '', category: 'Report' },
+    { label: 'Today\'s Shubh Muhurat', icon: '', category: 'Timing' }
   ];
 
   let dd = inp.parentElement.querySelector('.search-dd-box');
@@ -905,7 +917,7 @@ function initSearch(inputId) {
           font-weight: 600;
           color: #2a1210;
         ">
-          <span>🔍</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           <span>Search for "<strong>${currentVal}</strong>"</span>
         </div>
       `;
@@ -1047,9 +1059,9 @@ function initBookingForm() {
     if(!name)  { showToast('Please enter your full name.','error'); return; }
     if(!phone||phone.replace(/\D/g,'').length<10) { showToast('Please enter a valid 10-digit mobile number.','error'); return; }
     const btn = form.querySelector('.btn-submit');
-    btn.textContent='Booking Confirmed ✅'; btn.style.background='linear-gradient(135deg,#2e7d32,#43a047)'; btn.disabled=true;
-    showToast('🙏 Booking submitted! Our team will contact you within 30 minutes.','success');
-    setTimeout(()=>{ btn.textContent='Book Pandit Now 🙏'; btn.style.background=''; btn.disabled=false; form.reset(); },4000);
+    btn.textContent='Booking Confirmed'; btn.style.background='linear-gradient(135deg,#2e7d32,#43a047)'; btn.disabled=true;
+    showToast('Booking submitted! Our team will contact you within 30 minutes.','success');
+    setTimeout(()=>{ btn.textContent='Book Pandit Now'; btn.style.background=''; btn.disabled=false; form.reset(); },4000);
   });
   // Radio toggles
   document.querySelectorAll('.radio-opt').forEach(opt=>{
@@ -1067,7 +1079,7 @@ function initContactForm() {
   if(!form) return;
   form.addEventListener('submit', e => {
     e.preventDefault();
-    showToast('🙏 Message sent! We will reply within 24 hours.','success');
+    showToast('Message sent! We will reply within 24 hours.','success');
     form.reset();
   });
 }
@@ -1161,7 +1173,7 @@ function initRealtimeCalendar() {
       cell.addEventListener('click', () => {
         document.querySelectorAll('.cal-day-cell.selected').forEach(c => c.classList.remove('selected'));
         cell.classList.add('selected');
-        showToast(`📅 Selected ${monthNames[month]} ${day}, ${year} for Muhurat check`, 'info');
+        showToast(`Selected ${monthNames[month]} ${day}, ${year} for Muhurat check`, 'info');
       });
       calDays.appendChild(cell);
     }

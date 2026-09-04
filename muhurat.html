@@ -13,7 +13,7 @@
     .live-banner-inner{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
     .live-dot{width:10px;height:10px;border-radius:50%;background:#4cff72;box-shadow:0 0 8px #4cff72;animation:pulse-green 1.4s ease-in-out infinite}
     @keyframes pulse-green{0%,100%{box-shadow:0 0 8px #4cff72}50%{box-shadow:0 0 20px #4cff72}}
-    .live-time{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--gold3);letter-spacing:2px}
+    .live-time{font-family:var(--font-heading);font-size:1.6rem;font-weight:700;color:var(--gold3);letter-spacing:2px}
     .live-date-str{font-size:.9rem;font-weight:600;color:rgba(253,246,228,.8)}
     .live-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(253,246,228,.5);display:block;margin-bottom:1px}
 
@@ -25,7 +25,7 @@
     .today-badge{background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--cream);padding:10px 20px;border-radius:var(--pill);font-size:.85rem;font-weight:700;border:none;cursor:pointer;transition:var(--trans)}
     .today-badge:hover{transform:translateY(-2px);box-shadow:var(--sh-sm)}
     .selected-day-info{margin-left:auto;text-align:right}
-    .selected-day-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--dark)}
+    .selected-day-name{font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--dark)}
     .selected-day-full{font-size:.78rem;color:var(--text3);margin-top:2px}
 
     /* ── Panchang Cards ── */
@@ -35,14 +35,14 @@
     .pnc-card.active-card{background:linear-gradient(135deg,var(--dark),var(--dark2));border-color:var(--dark)}
     .pnc-label{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:6px}
     .pnc-card.active-card .pnc-label{color:rgba(253,246,228,.55)}
-    .pnc-value{font-size:1rem;font-weight:800;color:var(--dark);font-family:'Playfair Display',serif;line-height:1.2}
+    .pnc-value{font-size:1.1rem;font-weight:700;color:var(--dark);font-family:var(--font-heading);line-height:1.2}
     .pnc-card.active-card .pnc-value{color:var(--gold3)}
     .pnc-sub{font-size:.72rem;color:var(--text3);margin-top:4px}
     .pnc-card.active-card .pnc-sub{color:rgba(253,246,228,.45)}
 
     /* ── Choghadiya Tables ── */
     .chog-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:36px}
-    .chog-section-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:800;color:var(--dark);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+    .chog-section-title{font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:14px;display:flex;align-items:center;gap:8px}
     .choghadiya-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--border)}
     .choghadiya-table thead{background:linear-gradient(135deg,var(--dark),var(--dark2))}
     .choghadiya-table thead th{padding:12px 14px;text-align:left;font-size:.76rem;font-weight:700;color:var(--gold3);letter-spacing:.05em;text-transform:uppercase}
@@ -66,7 +66,7 @@
     .st-card.auspicious{border-color:#4caf50;background:rgba(76,175,80,.04)}
     .st-icon{font-size:1.8rem;margin-bottom:8px}
     .st-name{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--dark);margin-bottom:6px}
-    .st-time{font-family:'Playfair Display',serif;font-size:1rem;font-weight:800;color:var(--dark)}
+    .st-time{font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--dark)}
     .st-desc{font-size:.72rem;color:var(--text3);margin-top:4px}
 
     /* ── Muhurat Event Cards ── */
@@ -125,7 +125,7 @@
 
       <!-- Date Selector -->
       <div class="date-selector reveal">
-        <label for="muhurat-date">📅 Select Date:</label>
+        <label for="muhurat-date">Select Date:</label>
         <input type="date" id="muhurat-date" onchange="renderMuhurat()"/>
         <button class="today-badge" onclick="goToday()">Today</button>
         <div class="selected-day-info">
@@ -161,19 +161,16 @@
       <!-- Special Timings: Rahu Kaal, Yamaganda, Abhijit -->
       <div class="special-timings reveal">
         <div class="st-card danger">
-          <div class="st-icon">⚠️</div>
           <div class="st-name">Rahu Kaal</div>
           <div class="st-time" id="rahu-time">---</div>
           <div class="st-desc">Avoid new beginnings</div>
         </div>
         <div class="st-card caution">
-          <div class="st-icon">🌑</div>
           <div class="st-name">Yamaganda</div>
           <div class="st-time" id="yama-time">---</div>
           <div class="st-desc">Inauspicious period</div>
         </div>
         <div class="st-card auspicious">
-          <div class="st-icon">✨</div>
           <div class="st-name">Abhijit Muhurat</div>
           <div class="st-time" id="abhijit-time">---</div>
           <div class="st-desc">Best time of the day</div>
@@ -184,7 +181,7 @@
       <div class="chog-grid">
         <!-- Day -->
         <div class="reveal">
-          <div class="chog-section-title">☀️ Din Shubh Muhurat (Day)</div>
+          <div class="chog-section-title">Din Shubh Muhurat (Day)</div>
           <table class="choghadiya-table">
             <thead><tr><th>Time</th><th>Shubh Muhurat</th><th>Best For</th><th>Nature</th></tr></thead>
             <tbody id="day-chog-body"></tbody>
@@ -192,7 +189,7 @@
         </div>
         <!-- Night -->
         <div class="reveal">
-          <div class="chog-section-title">🌙 Ratri Shubh Muhurat (Night)</div>
+          <div class="chog-section-title">Ratri Shubh Muhurat (Night)</div>
           <table class="choghadiya-table">
             <thead><tr><th>Time</th><th>Shubh Muhurat</th><th>Best For</th><th>Nature</th></tr></thead>
             <tbody id="night-chog-body"></tbody>
@@ -207,17 +204,17 @@
   <section style="padding:64px 0;background:var(--white)">
     <div class="container">
       <div class="section-header reveal">
-        <p class="s-tag">📅 Upcoming Muhurat</p>
+        <p class="s-tag">Upcoming Muhurat</p>
         <h2 class="s-title">Auspicious Timings by Event</h2>
         <p class="s-sub">Find the best muhurat for every important occasion in your life</p>
       </div>
       <div class="muhurat-types-grid">
-        <div class="mt-card reveal d1"><div class="mt-icon">💍</div><h3>Vivah Muhurat</h3><p>Best dates and times for Hindu wedding ceremonies.</p><div class="mt-date" id="vivah-next">---</div></div>
-        <div class="mt-card reveal d2"><div class="mt-icon">🏠</div><h3>Griha Pravesh</h3><p>Auspicious timings for housewarming and new home entry.</p><div class="mt-date" id="griha-next">---</div></div>
-        <div class="mt-card reveal d3"><div class="mt-icon">🏪</div><h3>Shop / Business Opening</h3><p>Best muhurat for inaugurating a new business or shop.</p><div class="mt-date" id="shop-next">---</div></div>
-        <div class="mt-card reveal d1"><div class="mt-icon">🚗</div><h3>Vehicle Purchase</h3><p>Lucky timings to buy a new vehicle for prosperity and safety.</p><div class="mt-date" id="vehicle-next">---</div></div>
-        <div class="mt-card reveal d2"><div class="mt-icon">📚</div><h3>Vidyarambh</h3><p>Auspicious time for starting education or a new learning journey.</p><div class="mt-date" id="vidya-next">---</div></div>
-        <div class="mt-card reveal d3"><div class="mt-icon">✈️</div><h3>Travel Muhurat</h3><p>Best days and times for starting a long journey or travel.</p><div class="mt-date" id="travel-next">---</div></div>
+        <div class="mt-card reveal d1"><div class="mt-icon" style="background:#5c2322;color:#fff;font-weight:700;border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:0.85rem">VM</div><h3>Vivah Muhurat</h3><p>Best dates and times for Hindu wedding ceremonies.</p><div class="mt-date" id="vivah-next">---</div></div>
+        <div class="mt-card reveal d2"><div class="mt-icon" style="background:#5c2322;color:#fff;font-weight:700;border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:0.85rem">GP</div><h3>Griha Pravesh</h3><p>Auspicious timings for housewarming and new home entry.</p><div class="mt-date" id="griha-next">---</div></div>
+        <div class="mt-card reveal d3"><div class="mt-icon" style="background:#5c2322;color:#fff;font-weight:700;border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:0.85rem">BO</div><h3>Shop / Business Opening</h3><p>Best muhurat for inaugurating a new business or shop.</p><div class="mt-date" id="shop-next">---</div></div>
+        <div class="mt-card reveal d1"><div class="mt-icon" style="background:#5c2322;color:#fff;font-weight:700;border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:0.85rem">VP</div><h3>Vehicle Purchase</h3><p>Lucky timings to buy a new vehicle for prosperity and safety.</p><div class="mt-date" id="vehicle-next">---</div></div>
+        <div class="mt-card reveal d2"><div class="mt-icon" style="background:#5c2322;color:#fff;font-weight:700;border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:0.85rem">VA</div><h3>Vidyarambh</h3><p>Auspicious time for starting education or a new learning journey.</p><div class="mt-date" id="vidya-next">---</div></div>
+        <div class="mt-card reveal d3"><div class="mt-icon" style="background:#5c2322;color:#fff;font-weight:700;border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:0.85rem">TM</div><h3>Travel Muhurat</h3><p>Best days and times for starting a long journey or travel.</p><div class="mt-date" id="travel-next">---</div></div>
       </div>
     </div>
   </section>
@@ -354,7 +351,7 @@ function renderMuhurat() {
   document.getElementById('pnc-vara-en').textContent   = dayNames[dow];
   document.getElementById('pnc-nakshatra').textContent = vd.nakshatra;
   document.getElementById('pnc-yoga').textContent      = vd.yoga;
-  document.getElementById('pnc-yoga-type').textContent = vd.yogaGood ? '✅ Auspicious' : '⚠️ Caution';
+  document.getElementById('pnc-yoga-type').textContent = vd.yogaGood ? 'Auspicious' : 'Caution';
 
   // Current time (for today only)
   const now = new Date();
