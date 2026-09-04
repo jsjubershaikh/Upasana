@@ -97,7 +97,8 @@ img{display:block;max-width:100%}
   pointer-events:auto;
   backdrop-filter:blur(12px);
   transition:var(--trans);
-  overflow:hidden;
+  overflow:visible;
+  position:relative;
 }
 .site-header.scrolled .navbar-inner{
   box-shadow:0 12px 36px rgba(70,26,25,.24);
@@ -106,10 +107,10 @@ img{display:block;max-width:100%}
 }
 
 /* Logo */
-.logo-link{flex-shrink:0;display:flex;align-items:center}
+.logo-link{flex-shrink:0;display:flex;align-items:center;height:70px;overflow:hidden;border-radius:35px 0 0 35px}
 .logo-img{height:auto;width:auto;object-fit:contain;transition:transform .2s ease}
 .logo-link:hover .logo-img{transform:scale(1.03)}
-/* Head logo: 130×130px same as footer — navbar overflow:hidden clips it to 70px cut-to-cut */
+/* Head logo: 115px logo clipped by .logo-link container to 70px cut-to-cut */
 .logo-head{height:115px;width:115px;object-fit:contain;mix-blend-mode:multiply;background:transparent;flex-shrink:0;margin-left:0}
 /* Footer logo: large and prominent on the dark footer */
 .logo-footer{height:130px;width:130px;object-fit:contain;border-radius:10px;display:block}
@@ -127,7 +128,7 @@ img{display:block;max-width:100%}
 .nav-link.active{color:var(--dark);font-weight:700}
 
 /* Dropdown */
-.dropdown{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(8px);background:var(--white);border-radius:var(--r);box-shadow:var(--sh-lg);border:1px solid var(--border);padding:14px;width:360px;opacity:0;visibility:hidden;transition:all .25s ease;pointer-events:none}
+.dropdown{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(8px);background:var(--white);border-radius:var(--r);box-shadow:var(--sh-lg);border:1px solid var(--border);padding:14px;width:360px;opacity:0;visibility:hidden;transition:all .25s ease;pointer-events:none;z-index:1000}
 .nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);pointer-events:auto}
 .dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .dd-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;font-size:.835rem;font-weight:500;color:var(--text);transition:var(--trans);cursor:pointer}
