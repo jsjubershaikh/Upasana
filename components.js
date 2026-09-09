@@ -762,7 +762,7 @@ window.showToast = function(msg, type='info') {
   }
   const t = document.createElement('div');
   t.className = 'u-toast';
-  t.style.cssText = `position:fixed;top:96px;right:22px;z-index:99999;background:${colors[type]||colors.info};color:#fff;padding:14px 20px;border-radius:14px;max-width:340px;font-size:.88rem;font-weight:600;line-height:1.5;box-shadow:0 8px 30px rgba(0,0,0,.25);font-family:'Poppins',sans-serif;animation:tIn .4s ease both`;
+  t.style.cssText = `position:fixed;top:96px;right:22px;z-index:99999;background:${colors[type]||colors.info};color:#fff;padding:14px 20px;border-radius:14px;max-width:340px;font-size:.88rem;font-weight:600;line-height:1.5;box-shadow:0 8px 30px rgba(0,0,0,.25);font-family:'Inter',sans-serif;animation:tIn .4s ease both`;
   t.innerHTML = `<span>${msg}</span>`;
   document.body.appendChild(t);
   setTimeout(() => { t.style.animation='tOut .4s ease both'; setTimeout(()=>t.remove(),400); }, 4200);
