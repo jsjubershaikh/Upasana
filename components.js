@@ -461,10 +461,10 @@ function renderHeader() {
                 <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
               </button>
               <div class="lang-dropdown" id="lang-dropdown">
-                <div class="lang-dd-item active" data-lang="en" data-label="EN">🇬🇧 English</div>
-                <div class="lang-dd-item" data-lang="hi" data-label="हि">🇮🇳 हिंदी</div>
-                <div class="lang-dd-item" data-lang="mr" data-label="म">🇮🇳 मराठी</div>
-                <div class="lang-dd-item" data-lang="gu" data-label="ગુ">🇮🇳 ગુજરાતી</div>
+                <div class="lang-dd-item active" data-lang="en" data-label="EN">English</div>
+                <div class="lang-dd-item" data-lang="hi" data-label="हि">हिंदी</div>
+                <div class="lang-dd-item" data-lang="mr" data-label="म">मराठी</div>
+                <div class="lang-dd-item" data-lang="gu" data-label="ગુ">ગુજરાતી</div>
               </div>
             </div>
             <a href="book-a-pandit.html" class="btn-gold" style="padding:9px 20px;font-size:.85rem" data-i18n="nav.book">Book A Pandit</a>
@@ -495,7 +495,7 @@ function renderHeader() {
         ${mobNavItems}
       </ul>
       <div class="mob-lang-strip">
-        <span style="font-size:.78rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em">🌐 Language</span>
+        <span style="font-size:.78rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em">Language</span>
         <div class="mob-lang-options">
           <button class="mob-lang-opt active" data-lang="en" data-label="EN">English</button>
           <button class="mob-lang-opt" data-lang="hi" data-label="हि">हिंदी</button>
@@ -516,7 +516,9 @@ function renderHeader() {
 
         <!-- Header -->
         <div style="text-align:center;margin-bottom:28px">
-          <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.4rem">🙏</div>
+          <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
           <h2 style="margin-bottom:6px">Welcome Back</h2>
           <p style="margin-bottom:0">Sign in to manage your bookings</p>
         </div>
@@ -546,7 +548,7 @@ function renderHeader() {
         <div style="text-align:right;margin-bottom:20px">
           <a href="#" style="font-size:.8rem;color:var(--dark);font-weight:600" onclick="showToast('Password reset link sent to your email','info')">Forgot password?</a>
         </div>
-        <button class="btn-primary" style="width:100%;padding:13px;font-size:.95rem" onclick="showToast('Login successful! Welcome back 🙏','success')">Sign In</button>
+        <button class="btn-primary" style="width:100%;padding:13px;font-size:.95rem" onclick="showToast('Login successful! Welcome back.','success')">Sign In</button>
 
         <p style="font-size:.8rem;color:var(--text3);text-align:center;margin-top:18px">
           By signing in you agree to our <a href="#" style="color:var(--dark);font-weight:600">Terms</a> &amp; <a href="#" style="color:var(--dark);font-weight:600">Privacy Policy</a>
