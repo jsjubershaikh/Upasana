@@ -421,7 +421,7 @@ function showToast(message, type = 'info') {
     box-shadow: 0 8px 32px rgba(0,0,0,.3);
     display: flex; align-items: flex-start; gap: 10px;
     animation: toastSlideIn .4s cubic-bezier(.4,0,.2,1) both;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
   `;
 
   // Inject animation keyframes once
