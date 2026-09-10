@@ -35,15 +35,15 @@
   --trans:       all .3s cubic-bezier(.4,0,.2,1);
 }
 
-html{scroll-behavior:smooth}
-body{font-family:var(--font-body);background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw}
+body{font-family:var(--font-body);background:var(--cream);color:var(--text);line-height:1.6;overflow-x:hidden;max-width:100vw;position:relative}
 a{color:inherit;text-decoration:none}
 button{cursor:pointer;font-family:inherit;border:none}
 ul{list-style:none}
 img{display:block;max-width:100%}
 
 /* ── Container ── */
-.container{width:100%;max-width:1280px;margin:0 auto;padding:0 24px}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 24px;box-sizing:border-box}
 
 /* ── Section Headers ── */
 .section-header{text-align:center;margin-bottom:52px}
@@ -308,8 +308,8 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
  ══════════════════════════════════════════════════ */
 .services-section{padding:80px 0;background:var(--white);overflow-x:hidden}
 /* ── 3D Coverflow Service Carousel ── */
-.svc-3d-section{position:relative;width:100%;padding:60px 0 50px;overflow-x:hidden;overflow-y:visible}
-.svc-3d-stage{position:relative;width:100%;max-width:100%;height:520px;margin:0 auto;perspective:1200px;display:flex;align-items:center;justify-content:center;user-select:none;overflow:visible}
+.svc-3d-section{position:relative;width:100%;padding:60px 0 50px;overflow:hidden}
+.svc-3d-stage{position:relative;width:100%;max-width:100%;height:520px;margin:0 auto;perspective:1200px;display:flex;align-items:center;justify-content:center;user-select:none;overflow:hidden}
 
 /* Outer card: ONLY handles 3D position. NO border, NO shadow, clean curved corners */
 .svc-card-3d{position:absolute;width:320px;height:450px;border-radius:24px;box-shadow:none !important;transition:transform .65s cubic-bezier(.25,1,.5,1),opacity .65s ease;cursor:pointer;text-decoration:none;background:transparent;will-change:transform,opacity;border:none !important;box-sizing:border-box}
@@ -844,17 +844,17 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
   .ql-item span{font-size:.68rem}
 
   /* 3D Carousel mobile */
-  .svc-3d-section{overflow:hidden}
-  .svc-3d-stage{height:320px}
+  .svc-3d-section{overflow:hidden;width:100%;max-width:100vw}
+  .svc-3d-stage{height:320px;overflow:hidden;width:100%;max-width:100vw}
   .svc-card-3d{width:200px;height:280px;border-radius:16px}
 
   /* Team mobile */
-  .team-cards-wrap{grid-template-columns:1fr;max-width:320px}
-  .tm-img-wrap{height:220px}
-  .tm-body{padding:18px 18px 20px}
-  .tm-card-flip{flex-direction:column}
-  .tm-card-flip .tm-body{border-bottom:none}
-  .tm-name{font-size:1.1rem}
+  .team-cards-wrap{flex-direction:column;max-width:100%}
+  .team-card,.team-card-reverse{grid-template-columns:1fr;height:auto}
+  .team-card-reverse .team-card-img-wrap{order:0}
+  .team-card-reverse .team-card-body{order:1}
+  .team-card-img-wrap{min-height:200px}
+  .team-card-body{padding:18px 16px}
 
   /* About story */
   .about-story{grid-template-columns:1fr}
@@ -865,6 +865,10 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
   .svc-page-card-img{height:130px}
   .svc-page-card-body{padding:12px 12px 14px;gap:6px}
   .svc-page-card-title{font-size:1.05rem}
+
+  /* Global overflow clamp — prevents any element from causing horizontal scroll */
+  section,header,footer,main,div,nav,aside,article{max-width:100%;box-sizing:border-box}
+  .container{padding:0 16px}
 
   /* Blog */
   .blog-grid{grid-template-columns:1fr}
