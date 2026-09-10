@@ -34,7 +34,7 @@
         <div class="container">
           <div class="hero-content">
             <h1 class="hero-title">Griha Pravesh Puja</h1>
-            <p class="hero-sub">Begin your new chapter with sacred Vedic rituals – bless your new home with divine energy and prosperity.</p>
+            <p class="hero-sub">Begin your new chapter with sacred Vedic rituals bless your new home with divine energy and prosperity.</p>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
         <div class="slide-overlay"></div>
         <div class="container">
           <div class="hero-content">
-            <h1 class="hero-title">Vivah Sanskar – Sacred Wedding</h1>
+            <h1 class="hero-title">Vivah Sanskar Sacred Wedding</h1>
             <p class="hero-sub">Celebrate your union with authentic Vedic wedding rituals performed by our certified pandits with complete devotion.</p>
           </div>
         </div>
@@ -237,7 +237,7 @@
       <div class="section-header reveal">
         <p class="s-tag"><img src="assets/services-icon.png" alt="Services" class="tag-inline-icon"/> PUJA SERVICES</p>
         <h2 class="s-title">Sacred Ceremonies for Every Occasion</h2>
-        <p class="s-sub">From daily pujas to grand celebrations – we have the perfect pandit for every ceremony</p>
+        <p class="s-sub">From daily pujas to grand celebrations we have the perfect pandit for every ceremony</p>
       </div>
     </div>
     
@@ -550,15 +550,15 @@
       <div class="blog-grid">
         <article class="blog-card reveal d1">
           <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#461a19,#c8922a);color:#fff">RAMAYANA</div></div>
-          <div class="blog-meta"><span class="blog-tag-badge">Epics</span><h3>The Ramayana – The Story and Its Timeless Lessons</h3><p>Discover the deeper lessons of Dharma, loyalty, humility, and personal choices in ancient India's greatest epic...</p><a href="blog.html?id=1" class="blog-read">Read Article →</a></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Epics</span><h3>The Ramayana The Story and Its Timeless Lessons</h3><p>Discover the deeper lessons of Dharma, loyalty, humility, and personal choices in ancient India's greatest epic...</p><a href="blog.html?id=1" class="blog-read">Read Article →</a></div>
         </article>
         <article class="blog-card reveal d2">
           <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#5c2322,#461a19);color:#fff">MAHABHARATA</div></div>
-          <div class="blog-meta"><span class="blog-tag-badge">Epics</span><h3>The Mahabharata – Not Just a War, But a Lesson in Life</h3><p>An exploration of duty, moral complexities, and life wisdom behind the great Kurukshetra war...</p><a href="blog.html?id=2" class="blog-read">Read Article →</a></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Epics</span><h3>The Mahabharata Not Just a War, But a Lesson in Life</h3><p>An exploration of duty, moral complexities, and life wisdom behind the great Kurukshetra war...</p><a href="blog.html?id=2" class="blog-read">Read Article →</a></div>
         </article>
         <article class="blog-card reveal d3">
           <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#c8922a,#461a19);color:#fff">BHAGAVAD GITA</div></div>
-          <div class="blog-meta"><span class="blog-tag-badge">Philosophy</span><h3>Krishna and the Bhagavad Gita – Wisdom for Modern Life</h3><p>700 verses of timeless guidance on karma, duty, resilience, and mastering the mind...</p><a href="blog.html?id=6" class="blog-read">Read Article →</a></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Philosophy</span><h3>Krishna and the Bhagavad Gita Wisdom for Modern Life</h3><p>700 verses of timeless guidance on karma, duty, resilience, and mastering the mind...</p><a href="blog.html?id=6" class="blog-read">Read Article →</a></div>
         </article>
       </div>
     </div>
@@ -645,92 +645,125 @@ We have received your booking request. Our team will confirm your pandit within 
   const RAHU = {0:7,1:1,2:6,3:4,4:5,5:3,6:2};
   const TITHI = ['Pratipada','Dwitiya','Tritiya','Chaturthi','Panchami','Shashthi','Saptami','Ashtami','Navami','Dashami','Ekadashi','Dwadashi','Trayodashi','Chaturdashi','Purnima'];
   const NAKSHATRA = ['Ashwini','Bharani','Krittika','Rohini','Mrigashira','Ardra','Punarvasu','Pushya','Ashlesha','Magha','Purva Phalguni','Uttara Phalguni','Hasta','Chitra','Swati','Vishakha','Anuradha','Jyeshtha','Mula','Purva Ashadha','Uttara Ashadha','Shravana','Dhanishtha','Shatabhisha','Purva Bhadrapada','Uttara Bhadrapada','Revati'];
+  const CHOG_LABELS = {Amrit:'Most Auspicious',Shubh:'Auspicious',Labh:'Good for Business',Char:'Good for Travel',Udveg:'Govt. work only',Kaal:'Avoid',Rog:'Avoid'};
   const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const MONTHS_FULL = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  // Cached DOM refs — look up once
+  const $ = id => document.getElementById(id);
+  const clockEl   = $('live-clock-time');
+  const dateEl    = $('live-clock-date');
+  const chogTitle = $('chog-current-title');
+  const chogTime  = $('chog-current-time');
+  const pills     = document.querySelectorAll('.mp-pill');
 
   function jd(d){ const y=d.getFullYear(),m=d.getMonth()+1,dd=d.getDate(),A=Math.floor((14-m)/12),Y=y+4800-A,M=m+12*A-3; return dd+Math.floor((153*M+2)/5)+365*Y+Math.floor(Y/4)-Math.floor(Y/100)+Math.floor(Y/400)-32045; }
   function sunLon(j){ const n=j-2451545,L=(280.46+0.9856474*n)%360,g=((357.528+0.9856003*n)%360)*Math.PI/180; return (L+1.915*Math.sin(g)+0.02*Math.sin(2*g)+360)%360; }
   function moonLon(j){ const n=j-2451545,L=(218.316+13.176396*n)%360,M=((134.963+13.064993*n)%360)*Math.PI/180,F=((93.272+13.23935*n)%360)*Math.PI/180; return (L+6.289*Math.sin(M)-1.274*Math.sin(2*F-M)+0.658*Math.sin(2*F)+360)%360; }
   function fmt(h,m){ const ap=h<12?'AM':'PM',hh=h%12||12; return hh+':'+(m<10?'0':'')+m+' '+ap; }
-  function slotRange(sh,sm,idx){ const s=sh*60+sm+idx*90,e=s+90; return fmt(Math.floor(s/60)%24,s%60)+' – '+fmt(Math.floor(e/60)%24,e%60); }
+  function slotRange(sh,sm,idx){ const s=sh*60+sm+idx*90,e=s+90; return fmt(Math.floor(s/60)%24,s%60)+' to '+fmt(Math.floor(e/60)%24,e%60); }
 
-  function getCurrentChog(now){
-    const dow=now.getDay(), nm=now.getHours()*60+now.getMinutes();
+  function getChog(dow, nm){
     const dc=DAY_CHOG[dow], nc=NIGHT_CHOG[dow];
     for(let i=0;i<8;i++){ if(nm>=6*60+i*90&&nm<6*60+(i+1)*90) return {name:dc[i],time:slotRange(6,0,i)}; }
     for(let i=0;i<8;i++){ if(nm>=18*60+i*90&&nm<18*60+(i+1)*90) return {name:nc[i],time:slotRange(18,0,i)}; }
     return {name:'Udveg',time:'--'};
   }
 
+  /* ── 1. CLOCK TICK — runs every second, only updates time display ── */
+  function tickClock(){
+    const now = new Date();
+    const h=now.getHours(), m=now.getMinutes(), s=now.getSeconds();
+    const ap=h<12?'AM':'PM', hh=h%12||12;
+    if(clockEl) clockEl.textContent = hh+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+' '+ap;
+  }
+
+  /* ── 2. PANCHANG UPDATE — runs once per minute (heavy calculations) ── */
   function updatePanchang(){
     const now = new Date();
     const dow = now.getDay();
-    const j = jd(now);
+    const nm  = now.getHours()*60 + now.getMinutes();
+
+    // Date string
+    if(dateEl) dateEl.textContent = DAY_NAMES[dow]+', '+now.getDate()+' '+MON[now.getMonth()]+' '+now.getFullYear();
+
+    // Choghadiya
+    const chog = getChog(dow, nm);
+    if(chogTitle) chogTitle.textContent = chog.name+' ('+( CHOG_LABELS[chog.name]||'' )+')';
+    if(chogTime)  chogTime.textContent  = 'Active: '+chog.time;
+
+    // Rahu Kaal
+    const rahuTime = slotRange(6,0,RAHU[dow]);
+    if(pills[0]) pills[0].querySelector('.mp-val').textContent = rahuTime;
+
+    // Abhijit (fixed ~solar noon)
+    if(pills[1]) pills[1].querySelector('.mp-val').textContent = '11:36 AM to 12:24 PM';
+
+    // Tithi & Nakshatra (astronomical approximation — run once/minute is fine)
+    const j  = jd(now);
     const sL = sunLon(j), mL = moonLon(j);
-    const diff = (mL - sL + 360) % 360;
-    const tithi = TITHI[Math.floor(diff/12)%15];
+    const tithi = TITHI[Math.floor(((mL-sL+360)%360)/12)%15];
     const naksh = NAKSHATRA[Math.floor(mL/(360/27))%27];
-    const chog  = getCurrentChog(now);
-    const rahuSlot = RAHU[dow];
-    const rahuTime = slotRange(6,0,rahuSlot);
-    const abhijit  = '11:36 AM – 12:24 PM';
-
-    // Clock
-    const el = id => document.getElementById(id);
-    const h=now.getHours(),m=now.getMinutes(),s=now.getSeconds();
-    const ap=h<12?'AM':'PM',hh=h%12||12;
-    if(el('live-clock-time')) el('live-clock-time').textContent=hh+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+' '+ap;
-    if(el('live-clock-date')) el('live-clock-date').textContent=DAY_NAMES[dow]+', '+now.getDate()+' '+MON[now.getMonth()]+' '+now.getFullYear();
-
-    // Muhurat now
-    if(el('chog-current-title')) el('chog-current-title').textContent=chog.name+' ('+({'Amrit':'Most Auspicious','Shubh':'Auspicious','Labh':'Good for Business','Char':'Good for Travel','Udveg':'Govt. work','Kaal':'Avoid','Rog':'Avoid'}[chog.name]||'')+ ')';
-    if(el('chog-current-time')) el('chog-current-time').textContent='Active Slot: '+chog.time;
-
-    // Pills
-    const rahuEl = document.querySelector('.mp-pill .mp-val[style*="f87171"]');
-    if(rahuEl) rahuEl.textContent=rahuTime;
-    const abhijEl = document.querySelector('.mp-pill .mp-val[style*="4ade80"]');
-    if(abhijEl) abhijEl.textContent=abhijit;
-
-    // Tithi & Nakshatra pills
-    const pills = document.querySelectorAll('.mp-pill');
-    if(pills[2]) pills[2].querySelector('.mp-val').textContent=tithi;
-    if(pills[3]) pills[3].querySelector('.mp-val').textContent=naksh;
+    if(pills[2]) pills[2].querySelector('.mp-val').textContent = tithi;
+    if(pills[3]) pills[3].querySelector('.mp-val').textContent = naksh;
   }
 
-  /* Calendar */
+  /* ── 3. CALENDAR — renders once, nav updates month ── */
   let calYear, calMonth;
-  const AUSPICIOUS_DAYS = [1,3,5]; // Mon,Wed,Fri mostly auspicious
+  const AUSP = [1,3,5]; // Mon, Wed, Fri
 
   function renderCalendar(){
     const now = new Date();
     if(calYear===undefined){ calYear=now.getFullYear(); calMonth=now.getMonth(); }
-    const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
-    const titleEl = document.getElementById('cal-month-title');
-    if(titleEl) titleEl.textContent=months[calMonth]+' '+calYear;
-    const grid = document.getElementById('cal-days-grid');
+    const titleEl = $('cal-month-title');
+    if(titleEl) titleEl.textContent = MONTHS_FULL[calMonth]+' '+calYear;
+    const grid = $('cal-days-grid');
     if(!grid) return;
-    grid.innerHTML='';
+    // Build fragment to avoid repeated reflows
+    const frag = document.createDocumentFragment();
     const first = new Date(calYear,calMonth,1).getDay();
-    const days = new Date(calYear,calMonth+1,0).getDate();
-    for(let i=0;i<first;i++){ const c=document.createElement('div'); c.className='cal-day-cell other-month'; grid.appendChild(c); }
-    for(let d=1;d<=days;d++){
-      const c=document.createElement('div'); c.className='cal-day-cell';
-      const isToday=d===now.getDate()&&calMonth===now.getMonth()&&calYear===now.getFullYear();
-      const dow=new Date(calYear,calMonth,d).getDay();
-      if(isToday) c.classList.add('today');
-      c.innerHTML=d+(AUSPICIOUS_DAYS.includes(dow)?'<div class="cal-day-dot"></div>':'');
-      c.addEventListener('click',()=>{ grid.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected')); c.classList.add('selected'); });
-      grid.appendChild(c);
+    const days  = new Date(calYear,calMonth+1,0).getDate();
+    for(let i=0;i<first;i++){
+      const c = document.createElement('div');
+      c.className='cal-day-cell other-month';
+      frag.appendChild(c);
     }
+    for(let d=1;d<=days;d++){
+      const c = document.createElement('div');
+      c.className='cal-day-cell';
+      const isToday = d===now.getDate()&&calMonth===now.getMonth()&&calYear===now.getFullYear();
+      const dow = new Date(calYear,calMonth,d).getDay();
+      if(isToday) c.classList.add('today');
+      c.textContent = d;
+      if(AUSP.includes(dow)){
+        const dot = document.createElement('div');
+        dot.className='cal-day-dot';
+        c.appendChild(dot);
+      }
+      c.addEventListener('click',function(){
+        grid.querySelectorAll('.cal-day-cell.selected').forEach(x=>x.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+      frag.appendChild(c);
+    }
+    grid.innerHTML=''; // single DOM write
+    grid.appendChild(frag);
   }
 
-  document.getElementById('cal-prev')?.addEventListener('click',()=>{ calMonth--; if(calMonth<0){calMonth=11;calYear--;} renderCalendar(); });
-  document.getElementById('cal-next')?.addEventListener('click',()=>{ calMonth++; if(calMonth>11){calMonth=0;calYear++;} renderCalendar(); });
+  // Calendar navigation
+  $('cal-prev')?.addEventListener('click',()=>{ if(--calMonth<0){calMonth=11;calYear--;} renderCalendar(); });
+  $('cal-next')?.addEventListener('click',()=>{ if(++calMonth>11){calMonth=0;calYear++;} renderCalendar(); });
 
+  // Init
   renderCalendar();
   updatePanchang();
-  setInterval(updatePanchang, 1000);
+  tickClock();
+
+  // Clock: every 1 second (lightweight)
+  setInterval(tickClock, 1000);
+  // Panchang data: every 60 seconds (heavier, but only once a minute)
+  setInterval(updatePanchang, 60000);
 })();
 </script>
 </body>
