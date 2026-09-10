@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/, maximum-scale=5.0>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
   <title>Upasana – Book Pandit Online for Puja, Havan, Rituals & Festivals</title>
   <meta name="description" content="Book experienced pandits online for Puja, Weddings, Havan, Griha Pravesh, Rudrabhishek and more. Authentic Vedic ceremonies at your doorstep."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -416,9 +416,9 @@
         <!-- Interactive Month Calendar -->
         <div class="cal-box reveal d1">
           <div class="cal-header">
-            <button class="cal-nav-btn" id="cal-prev" aria-label="Previous Month">?</button>
+            <button class="cal-nav-btn" id="cal-prev" aria-label="Previous Month">&#10094;</button>
             <div class="cal-month-title" id="cal-month-title">August 2025</div>
-            <button class="cal-nav-btn" id="cal-next" aria-label="Next Month">?</button>
+            <button class="cal-nav-btn" id="cal-next" aria-label="Next Month">&#10095;</button>
           </div>
           <div class="cal-weekdays">
             <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
@@ -462,7 +462,7 @@
             </div>
           </div>
 
-          <a href="muhurat.html" class="btn-gold" style="display:block;text-align:center;padding:12px;margin-top:4px">View Full Shubh Muhurat Table ?</a>
+          <a href="muhurat.html" class="btn-gold" style="display:block;text-align:center;padding:12px;margin-top:4px">View Full Shubh Muhurat Table →</a>
         </div>
       </div>
     </div>
@@ -484,7 +484,7 @@
             <div class="af-item">Gemstone Advice</div>
             <div class="af-item">Vastu Shastra</div>
           </div>
-          <a href="astrology.html" class="btn-gold" style="display:inline-block">Consult an Astrologer ?</a>
+          <a href="astrology.html" class="btn-gold" style="display:inline-block">Consult an Astrologer →</a>
         </div>
         <div class="zodiac-grid reveal">
           <div class="zodiac-card">♈ Aries</div>
@@ -550,15 +550,15 @@
       <div class="blog-grid">
         <article class="blog-card reveal d1">
           <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#461a19,#c8922a);color:#fff">RAMAYANA</div></div>
-          <div class="blog-meta"><span class="blog-tag-badge">Epics</span><h3>The Ramayana – The Story and Its Timeless Lessons</h3><p>Discover the deeper lessons of Dharma, loyalty, humility, and personal choices in ancient India's greatest epic...</p><a href="blog.html?id=1" class="blog-read">Read Article ?</a></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Epics</span><h3>The Ramayana – The Story and Its Timeless Lessons</h3><p>Discover the deeper lessons of Dharma, loyalty, humility, and personal choices in ancient India's greatest epic...</p><a href="blog.html?id=1" class="blog-read">Read Article →</a></div>
         </article>
         <article class="blog-card reveal d2">
           <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#5c2322,#461a19);color:#fff">MAHABHARATA</div></div>
-          <div class="blog-meta"><span class="blog-tag-badge">Epics</span><h3>The Mahabharata – Not Just a War, But a Lesson in Life</h3><p>An exploration of duty, moral complexities, and life wisdom behind the great Kurukshetra war...</p><a href="blog.html?id=2" class="blog-read">Read Article ?</a></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Epics</span><h3>The Mahabharata – Not Just a War, But a Lesson in Life</h3><p>An exploration of duty, moral complexities, and life wisdom behind the great Kurukshetra war...</p><a href="blog.html?id=2" class="blog-read">Read Article →</a></div>
         </article>
         <article class="blog-card reveal d3">
           <div class="blog-img"><div class="blog-img-ph" style="background:linear-gradient(135deg,#c8922a,#461a19);color:#fff">BHAGAVAD GITA</div></div>
-          <div class="blog-meta"><span class="blog-tag-badge">Philosophy</span><h3>Krishna and the Bhagavad Gita – Wisdom for Modern Life</h3><p>700 verses of timeless guidance on karma, duty, resilience, and mastering the mind...</p><a href="blog.html?id=6" class="blog-read">Read Article ?</a></div>
+          <div class="blog-meta"><span class="blog-tag-badge">Philosophy</span><h3>Krishna and the Bhagavad Gita – Wisdom for Modern Life</h3><p>700 verses of timeless guidance on karma, duty, resilience, and mastering the mind...</p><a href="blog.html?id=6" class="blog-read">Read Article →</a></div>
         </article>
       </div>
     </div>
@@ -567,5 +567,171 @@
 
 <div id="footer-root"></div>
 <script src="components.js"></script>
+<script src="script.js"></script>
+<script>
+/* ── Home Quick Booking → WhatsApp ── */
+(function(){
+  const form = document.getElementById('booking-form');
+  if (!form) return;
+  // Set min date
+  const di = document.getElementById('puja-date');
+  if (di) di.min = new Date().toISOString().split('T')[0];
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const puja   = document.getElementById('puja-type')?.value;
+    const date   = document.getElementById('puja-date')?.value;
+    const time   = document.getElementById('puja-time')?.value;
+    const city   = document.getElementById('city')?.value.trim();
+    const name   = document.getElementById('full-name')?.value.trim();
+    const phone  = document.getElementById('phone')?.value.trim();
+    const mode   = document.querySelector('input[name="mode"]:checked')?.value || 'Offline';
+
+    if (!puja)  { showToast('Please select a puja type.','error'); return; }
+    if (!date)  { showToast('Please select a date.','error'); return; }
+    if (!name)  { showToast('Please enter your full name.','error'); return; }
+    if (!phone) { showToast('Please enter your mobile number.','error'); return; }
+
+    const fd = date ? new Date(date).toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}) : 'Not specified';
+
+    const msg =
+`🙏 *Thank you for contacting MyUpasana!*
+
+We have received your booking request. Our team will confirm your pandit within 30 minutes.
+
+━━━━━━━━━━━━━━━━━━━━
+📋 *BOOKING DETAILS*
+━━━━━━━━━━━━━━━━━━━━
+
+👤 *Name:* ${name}
+📞 *Contact:* ${phone}
+🕉️ *Puja / Ceremony:* ${puja}
+📅 *Date:* ${fd}
+⏰ *Preferred Time:* ${time || 'Not specified'}
+📍 *City:* ${city || 'Not specified'}
+🎯 *Puja Mode:* ${mode === 'offline' ? 'Offline (Home Visit)' : 'Online (Live Stream)'}
+
+━━━━━━━━━━━━━━━━━━━━
+
+✅ _Please confirm this booking or share any additional details._
+
+*Upasana* | Book a Pandit Online
+📞 +91 80875 90902`;
+
+    window.open('https://wa.me/918087590902?text=' + encodeURIComponent(msg), '_blank');
+  });
+})();
+
+/* ── Live Panchang Engine (Home Page) ── */
+(function(){
+  const DAY_CHOG = {
+    0:['Udveg','Char','Labh','Amrit','Kaal','Shubh','Rog','Udveg'],
+    1:['Amrit','Kaal','Shubh','Rog','Udveg','Char','Labh','Amrit'],
+    2:['Kaal','Shubh','Rog','Udveg','Char','Labh','Amrit','Kaal'],
+    3:['Labh','Amrit','Kaal','Shubh','Rog','Udveg','Char','Labh'],
+    4:['Shubh','Rog','Udveg','Char','Labh','Amrit','Kaal','Shubh'],
+    5:['Rog','Udveg','Char','Labh','Amrit','Kaal','Shubh','Rog'],
+    6:['Char','Labh','Amrit','Kaal','Shubh','Rog','Udveg','Char']
+  };
+  const NIGHT_CHOG = {
+    0:['Shubh','Amrit','Char','Rog','Kaal','Labh','Udveg','Shubh'],
+    1:['Labh','Udveg','Shubh','Amrit','Char','Rog','Kaal','Labh'],
+    2:['Char','Rog','Kaal','Labh','Udveg','Shubh','Amrit','Char'],
+    3:['Udveg','Shubh','Amrit','Char','Rog','Kaal','Labh','Udveg'],
+    4:['Amrit','Char','Rog','Kaal','Labh','Udveg','Shubh','Amrit'],
+    5:['Kaal','Labh','Udveg','Shubh','Amrit','Char','Rog','Kaal'],
+    6:['Rog','Kaal','Labh','Udveg','Shubh','Amrit','Char','Rog']
+  };
+  const RAHU = {0:7,1:1,2:6,3:4,4:5,5:3,6:2};
+  const TITHI = ['Pratipada','Dwitiya','Tritiya','Chaturthi','Panchami','Shashthi','Saptami','Ashtami','Navami','Dashami','Ekadashi','Dwadashi','Trayodashi','Chaturdashi','Purnima'];
+  const NAKSHATRA = ['Ashwini','Bharani','Krittika','Rohini','Mrigashira','Ardra','Punarvasu','Pushya','Ashlesha','Magha','Purva Phalguni','Uttara Phalguni','Hasta','Chitra','Swati','Vishakha','Anuradha','Jyeshtha','Mula','Purva Ashadha','Uttara Ashadha','Shravana','Dhanishtha','Shatabhisha','Purva Bhadrapada','Uttara Bhadrapada','Revati'];
+  const DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function jd(d){ const y=d.getFullYear(),m=d.getMonth()+1,dd=d.getDate(),A=Math.floor((14-m)/12),Y=y+4800-A,M=m+12*A-3; return dd+Math.floor((153*M+2)/5)+365*Y+Math.floor(Y/4)-Math.floor(Y/100)+Math.floor(Y/400)-32045; }
+  function sunLon(j){ const n=j-2451545,L=(280.46+0.9856474*n)%360,g=((357.528+0.9856003*n)%360)*Math.PI/180; return (L+1.915*Math.sin(g)+0.02*Math.sin(2*g)+360)%360; }
+  function moonLon(j){ const n=j-2451545,L=(218.316+13.176396*n)%360,M=((134.963+13.064993*n)%360)*Math.PI/180,F=((93.272+13.23935*n)%360)*Math.PI/180; return (L+6.289*Math.sin(M)-1.274*Math.sin(2*F-M)+0.658*Math.sin(2*F)+360)%360; }
+  function fmt(h,m){ const ap=h<12?'AM':'PM',hh=h%12||12; return hh+':'+(m<10?'0':'')+m+' '+ap; }
+  function slotRange(sh,sm,idx){ const s=sh*60+sm+idx*90,e=s+90; return fmt(Math.floor(s/60)%24,s%60)+' – '+fmt(Math.floor(e/60)%24,e%60); }
+
+  function getCurrentChog(now){
+    const dow=now.getDay(), nm=now.getHours()*60+now.getMinutes();
+    const dc=DAY_CHOG[dow], nc=NIGHT_CHOG[dow];
+    for(let i=0;i<8;i++){ if(nm>=6*60+i*90&&nm<6*60+(i+1)*90) return {name:dc[i],time:slotRange(6,0,i)}; }
+    for(let i=0;i<8;i++){ if(nm>=18*60+i*90&&nm<18*60+(i+1)*90) return {name:nc[i],time:slotRange(18,0,i)}; }
+    return {name:'Udveg',time:'--'};
+  }
+
+  function updatePanchang(){
+    const now = new Date();
+    const dow = now.getDay();
+    const j = jd(now);
+    const sL = sunLon(j), mL = moonLon(j);
+    const diff = (mL - sL + 360) % 360;
+    const tithi = TITHI[Math.floor(diff/12)%15];
+    const naksh = NAKSHATRA[Math.floor(mL/(360/27))%27];
+    const chog  = getCurrentChog(now);
+    const rahuSlot = RAHU[dow];
+    const rahuTime = slotRange(6,0,rahuSlot);
+    const abhijit  = '11:36 AM – 12:24 PM';
+
+    // Clock
+    const el = id => document.getElementById(id);
+    const h=now.getHours(),m=now.getMinutes(),s=now.getSeconds();
+    const ap=h<12?'AM':'PM',hh=h%12||12;
+    if(el('live-clock-time')) el('live-clock-time').textContent=hh+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+' '+ap;
+    if(el('live-clock-date')) el('live-clock-date').textContent=DAY_NAMES[dow]+', '+now.getDate()+' '+MON[now.getMonth()]+' '+now.getFullYear();
+
+    // Muhurat now
+    if(el('chog-current-title')) el('chog-current-title').textContent=chog.name+' ('+({'Amrit':'Most Auspicious','Shubh':'Auspicious','Labh':'Good for Business','Char':'Good for Travel','Udveg':'Govt. work','Kaal':'Avoid','Rog':'Avoid'}[chog.name]||'')+ ')';
+    if(el('chog-current-time')) el('chog-current-time').textContent='Active Slot: '+chog.time;
+
+    // Pills
+    const rahuEl = document.querySelector('.mp-pill .mp-val[style*="f87171"]');
+    if(rahuEl) rahuEl.textContent=rahuTime;
+    const abhijEl = document.querySelector('.mp-pill .mp-val[style*="4ade80"]');
+    if(abhijEl) abhijEl.textContent=abhijit;
+
+    // Tithi & Nakshatra pills
+    const pills = document.querySelectorAll('.mp-pill');
+    if(pills[2]) pills[2].querySelector('.mp-val').textContent=tithi;
+    if(pills[3]) pills[3].querySelector('.mp-val').textContent=naksh;
+  }
+
+  /* Calendar */
+  let calYear, calMonth;
+  const AUSPICIOUS_DAYS = [1,3,5]; // Mon,Wed,Fri mostly auspicious
+
+  function renderCalendar(){
+    const now = new Date();
+    if(calYear===undefined){ calYear=now.getFullYear(); calMonth=now.getMonth(); }
+    const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const titleEl = document.getElementById('cal-month-title');
+    if(titleEl) titleEl.textContent=months[calMonth]+' '+calYear;
+    const grid = document.getElementById('cal-days-grid');
+    if(!grid) return;
+    grid.innerHTML='';
+    const first = new Date(calYear,calMonth,1).getDay();
+    const days = new Date(calYear,calMonth+1,0).getDate();
+    for(let i=0;i<first;i++){ const c=document.createElement('div'); c.className='cal-day-cell other-month'; grid.appendChild(c); }
+    for(let d=1;d<=days;d++){
+      const c=document.createElement('div'); c.className='cal-day-cell';
+      const isToday=d===now.getDate()&&calMonth===now.getMonth()&&calYear===now.getFullYear();
+      const dow=new Date(calYear,calMonth,d).getDay();
+      if(isToday) c.classList.add('today');
+      c.innerHTML=d+(AUSPICIOUS_DAYS.includes(dow)?'<div class="cal-day-dot"></div>':'');
+      c.addEventListener('click',()=>{ grid.querySelectorAll('.selected').forEach(x=>x.classList.remove('selected')); c.classList.add('selected'); });
+      grid.appendChild(c);
+    }
+  }
+
+  document.getElementById('cal-prev')?.addEventListener('click',()=>{ calMonth--; if(calMonth<0){calMonth=11;calYear--;} renderCalendar(); });
+  document.getElementById('cal-next')?.addEventListener('click',()=>{ calMonth++; if(calMonth>11){calMonth=0;calYear++;} renderCalendar(); });
+
+  renderCalendar();
+  updatePanchang();
+  setInterval(updatePanchang, 1000);
+})();
+</script>
 </body>
 </html>
