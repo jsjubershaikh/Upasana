@@ -514,50 +514,158 @@ function renderHeader() {
       <div class="modal-box" style="max-width:400px">
         <button class="modal-close" id="modal-close">✕</button>
 
-        <!-- Header -->
-        <div style="text-align:center;margin-bottom:28px">
-          <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
+        <!-- Logged OUT state -->
+        <div id="login-signed-out">
+          <div style="text-align:center;margin-bottom:28px">
+            <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
-          <h2 style="margin-bottom:6px">Welcome Back</h2>
-          <p style="margin-bottom:0">Sign in to manage your bookings</p>
+            <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--dark);margin-bottom:6px">Welcome to Upasana</h2>
+            <p style="font-size:.88rem;color:var(--text2);margin-bottom:0">Sign in to manage your bookings &amp; history</p>
+          </div>
+
+          <!-- Google Sign-In Button -->
+          <button id="google-login-btn" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;background:#fff;border:1.5px solid #dadce0;border-radius:10px;font-size:.93rem;font-weight:600;color:#3c4043;cursor:pointer;transition:all .2s;margin-bottom:20px;font-family:inherit;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+            <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            Continue with Google
+          </button>
+
+          <p style="font-size:.78rem;color:var(--text3);text-align:center">
+            By signing in you agree to our <a href="#" style="color:var(--dark);font-weight:600">Terms</a> &amp; <a href="#" style="color:var(--dark);font-weight:600">Privacy Policy</a>
+          </p>
         </div>
 
-        <!-- Google Login -->
-        <button id="google-login-btn" onclick="showToast('Redirecting to Google Sign In...','info')" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 20px;background:#fff;border:1.5px solid #dadce0;border-radius:10px;font-size:.93rem;font-weight:600;color:#3c4043;cursor:pointer;transition:all .2s;margin-bottom:20px;font-family:inherit;box-shadow:0 1px 4px rgba(0,0,0,.08)">
-          <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          Continue with Google
-        </button>
-
-        <!-- Divider -->
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-          <div style="flex:1;height:1px;background:var(--border)"></div>
-          <span style="font-size:.78rem;color:var(--text3);font-weight:600;white-space:nowrap">or sign in with email</span>
-          <div style="flex:1;height:1px;background:var(--border)"></div>
+        <!-- Logged IN state -->
+        <div id="login-signed-in" style="display:none;text-align:center">
+          <img id="user-avatar" src="" alt="Profile" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold2);margin:0 auto 14px;display:block"/>
+          <h3 id="user-name" style="font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:4px">--</h3>
+          <p id="user-email" style="font-size:.85rem;color:var(--text2);margin-bottom:24px">--</p>
+          <div style="background:rgba(70,26,25,.05);border-radius:12px;padding:14px 16px;margin-bottom:20px;text-align:left">
+            <p style="font-size:.8rem;color:var(--text2);margin:0">Signed in with Google. Your bookings and preferences are saved to your account.</p>
+          </div>
+          <button onclick="upasanaSignOut()" style="width:100%;padding:12px;border-radius:var(--pill);background:rgba(70,26,25,.08);color:var(--dark);font-weight:700;font-size:.9rem;border:1.5px solid var(--border);cursor:pointer;font-family:inherit;transition:all .2s" onmouseover="this.style.background='rgba(70,26,25,.15)'" onmouseout="this.style.background='rgba(70,26,25,.08)'">Sign Out</button>
         </div>
-
-        <!-- Email + Password Form -->
-        <div class="form-group" style="margin-bottom:14px">
-          <label style="font-size:.82rem;font-weight:700;color:var(--text);display:block;margin-bottom:6px">Email Address</label>
-          <input type="email" id="login-email" class="form-control" placeholder="your@email.com" style="width:100%">
-        </div>
-        <div class="form-group" style="margin-bottom:6px">
-          <label style="font-size:.82rem;font-weight:700;color:var(--text);display:block;margin-bottom:6px">Password</label>
-          <input type="password" id="login-password" class="form-control" placeholder="Enter your password" style="width:100%">
-        </div>
-        <div style="text-align:right;margin-bottom:20px">
-          <a href="#" style="font-size:.8rem;color:var(--dark);font-weight:600" onclick="showToast('Password reset link sent to your email','info')">Forgot password?</a>
-        </div>
-        <button class="btn-primary" style="width:100%;padding:13px;font-size:.95rem" onclick="showToast('Login successful! Welcome back.','success')">Sign In</button>
-
-        <p style="font-size:.8rem;color:var(--text3);text-align:center;margin-top:18px">
-          By signing in you agree to our <a href="#" style="color:var(--dark);font-weight:600">Terms</a> &amp; <a href="#" style="color:var(--dark);font-weight:600">Privacy Policy</a>
-        </p>
       </div>
     </div>`;
 
   initHeaderScripts();
+  initGoogleAuth();
 }
+
+/* ── Google OAuth 2.0 via Google Identity Services ── */
+function initGoogleAuth() {
+  // ⚠️  Replace this with your actual Google OAuth Client ID
+  // Get it from: https://console.cloud.google.com → APIs & Services → Credentials → OAuth 2.0 Client IDs
+  const CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
+
+  // Load Google Identity Services script
+  if (!document.getElementById('gsi-script')) {
+    const s = document.createElement('script');
+    s.id  = 'gsi-script';
+    s.src = 'https://accounts.google.com/gsi/client';
+    s.async = true;
+    s.defer = true;
+    s.onload = () => setupGoogleAuth(CLIENT_ID);
+    document.head.appendChild(s);
+  } else {
+    setupGoogleAuth(CLIENT_ID);
+  }
+
+  // Restore session from localStorage
+  const saved = localStorage.getItem('upasana_user');
+  if (saved) {
+    try { showUserProfile(JSON.parse(saved)); } catch(e) { localStorage.removeItem('upasana_user'); }
+  }
+}
+
+function setupGoogleAuth(clientId) {
+  if (typeof google === 'undefined' || clientId.includes('YOUR_GOOGLE')) return;
+
+  google.accounts.id.initialize({
+    client_id: clientId,
+    callback: handleGoogleCredential,
+    auto_select: false,
+    cancel_on_tap_outside: true,
+  });
+
+  const btn = document.getElementById('google-login-btn');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      google.accounts.id.prompt((notification) => {
+        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+          // Fallback: render button in a temporary container
+          const tmp = document.createElement('div');
+          tmp.style.cssText = 'position:absolute;opacity:0;pointer-events:none';
+          document.body.appendChild(tmp);
+          google.accounts.id.renderButton(tmp, { theme:'outline', size:'large', width:360 });
+          setTimeout(() => { tmp.querySelector('[role="button"]')?.click(); }, 100);
+          setTimeout(() => tmp.remove(), 3000);
+        }
+      });
+    });
+  }
+}
+
+function handleGoogleCredential(response) {
+  try {
+    // Decode JWT payload (base64)
+    const payload = JSON.parse(atob(response.credential.split('.')[1]));
+    const user = {
+      name:    payload.name  || 'User',
+      email:   payload.email || '',
+      picture: payload.picture || '',
+      sub:     payload.sub,
+    };
+    localStorage.setItem('upasana_user', JSON.stringify(user));
+    showUserProfile(user);
+    // Close modal after short delay
+    setTimeout(() => {
+      document.getElementById('login-modal')?.classList.remove('active');
+      showToast('Welcome, ' + user.name + '! You are signed in.', 'success');
+    }, 800);
+  } catch(e) {
+    showToast('Sign-in failed. Please try again.', 'error');
+  }
+}
+
+function showUserProfile(user) {
+  // Update modal
+  const avatar = document.getElementById('user-avatar');
+  const nameEl = document.getElementById('user-name');
+  const emailEl = document.getElementById('user-email');
+  if (avatar)  avatar.src = user.picture || '';
+  if (nameEl)  nameEl.textContent  = user.name;
+  if (emailEl) emailEl.textContent = user.email;
+
+  document.getElementById('login-signed-out')?.style.setProperty('display','none');
+  document.getElementById('login-signed-in')?.style.setProperty('display','block');
+
+  // Update navbar login button to show user name
+  const loginBtn = document.getElementById('login-btn-hdr');
+  if (loginBtn) {
+    loginBtn.innerHTML = (user.picture
+      ? '<img src="'+user.picture+'" style="width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:6px;vertical-align:middle"/>'
+      : '') + user.name.split(' ')[0];
+    loginBtn.style.background = 'rgba(70,26,25,.1)';
+  }
+}
+
+window.upasanaSignOut = function() {
+  localStorage.removeItem('upasana_user');
+  document.getElementById('login-signed-out')?.style.setProperty('display','block');
+  document.getElementById('login-signed-in')?.style.setProperty('display','none');
+  // Reset navbar button
+  const loginBtn = document.getElementById('login-btn-hdr');
+  if (loginBtn) {
+    loginBtn.textContent = 'Login';
+    loginBtn.style.background = '';
+  }
+  if (typeof google !== 'undefined') {
+    google.accounts.id.disableAutoSelect();
+  }
+  document.getElementById('login-modal')?.classList.remove('active');
+  showToast('You have been signed out.', 'info');
+};
 
 /* ── Build Footer ── */
 function renderFooter() {
