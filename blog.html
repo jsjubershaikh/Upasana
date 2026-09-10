@@ -83,7 +83,7 @@
 <!-- Blog Article Reader Modal -->
 <div class="blog-modal-overlay" id="blogModalOverlay" onclick="closeBlogModal(event)">
   <div class="blog-modal" onclick="event.stopPropagation()">
-    <button class="blog-modal-close" onclick="closeBlogModal()">?</button>
+    <button class="blog-modal-close" onclick="closeBlogModal()">&#x2715;</button>
     <span class="blog-article-tag" id="modalTag">Category</span>
     <h2 class="blog-article-title" id="modalTitle">Article Title</h2>
     <div class="blog-article-body" id="modalBody">
@@ -403,7 +403,7 @@ function renderBlogs(filter = 'all') {
         <h3>${blog.title}</h3>
         <p>${blog.excerpt}</p>
         <div class="blog-card-footer">
-          <button class="blog-read-btn" onclick="openBlogModal(${blog.id})">Read Article ?</button>
+          <button class="blog-read-btn" onclick="openBlogModal(${blog.id})">Read Article &#8594;</button>
           <span class="blog-date">${blog.date}</span>
         </div>
       </div>
