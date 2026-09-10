@@ -59,10 +59,7 @@
               </div>
               <div class="form-group">
                 <label>Phone Number *</label>
-                <div class="otp-row">
-                  <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXX XXXXX"/>
-                  <button type="button" class="btn-otp" onclick="showToast('OTP sent to your mobile!','success')">Send OTP</button>
-                </div>
+                <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXX XXXXX"/>
               </div>
             </div>
 
@@ -245,6 +242,58 @@
         if(sel.options[i].text===tag.dataset.puja){sel.selectedIndex=i;break;}
       }
     });
+  });
+
+  // Book Pandit form → WhatsApp redirect
+  document.getElementById('booking-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name    = document.getElementById('full-name').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const puja    = document.getElementById('puja-type').value;
+    const date    = document.getElementById('puja-date').value;
+    const time    = document.getElementById('puja-time').value;
+    const mode    = document.querySelector('input[name="mode"]:checked')?.value || 'Offline';
+    const samagri = document.querySelector('input[name="samagri"]:checked')?.value || 'Yes';
+    const city    = document.getElementById('city').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const notes   = document.getElementById('notes').value.trim();
+
+    if (!name || !phone || !puja || !date) {
+      showToast('Please fill in Name, Phone, Puja Type and Date.', 'error');
+      return;
+    }
+
+    const formattedDate = date ? new Date(date).toLocaleDateString('en-IN', {day:'2-digit',month:'long',year:'numeric'}) : 'Not specified';
+
+    const msg = `🙏 *Thank you for contacting MyUpasana!*
+
+We have received your booking request. Our team will confirm your pandit within 30 minutes.
+
+━━━━━━━━━━━━━━━━━━━━
+📋 *BOOKING DETAILS*
+━━━━━━━━━━━━━━━━━━━━
+
+👤 *Name:* ${name}
+📞 *Contact:* ${phone}
+🕉️ *Puja / Ceremony:* ${puja}
+📅 *Date:* ${formattedDate}
+⏰ *Preferred Time:* ${time || 'Not specified'}
+📍 *City:* ${city || 'Not specified'}
+🏠 *Address:* ${address || 'Will share separately'}
+🎯 *Puja Mode:* ${mode === 'offline' ? 'Offline (Home Visit)' : 'Online (Live Stream)'}
+📦 *Samagri Delivery:* ${samagri === 'yes' ? 'Yes, required' : 'No, not required'}
+${notes ? `📝 *Special Notes:* ${notes}` : ''}
+
+━━━━━━━━━━━━━━━━━━━━
+
+✅ _Please confirm this booking or share any additional details._
+
+*Upasana* | Book a Pandit Online
+📞 +91 80875 90902`;
+
+    const encodedMsg = encodeURIComponent(msg);
+    window.open(`https://wa.me/918087590902?text=${encodedMsg}`, '_blank');
   });
 </script>
 </body>

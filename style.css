@@ -178,7 +178,7 @@ img{display:block;max-width:100%}
 .slide-prev,.slide-next{position:absolute;top:45%;transform:translateY(-50%);z-index:20;width:50px;height:50px;border-radius:50%;background:rgba(200,146,42,.2);color:var(--cream);font-size:1rem;border:1.5px solid var(--gold2);backdrop-filter:blur(8px);transition:var(--trans);display:flex;align-items:center;justify-content:center}
 .slide-prev{left:24px}.slide-next{right:24px}
 .slide-prev:hover,.slide-next:hover{background:rgba(200,146,42,.45);transform:translateY(-50%) scale(1.08)}
-.slide-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:30;display:flex;gap:10px;justify-content:center}
+.slide-dots{position:absolute;bottom:calc(100% - 72px);left:50%;transform:translateX(-50%);z-index:30;display:flex;gap:10px;justify-content:center}
 .dot{width:10px;height:10px;border-radius:50%;background:rgba(253,246,228,.4);border:none;cursor:pointer;transition:var(--trans)}
 .dot.active{background:var(--gold3);transform:scale(1.4)}
 
@@ -642,7 +642,6 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
   .team-card-body{padding:18px 16px}
   .team-card-name{font-size:1.1rem}
   .team-cards-wrap{gap:14px}
-  .slide-dots{bottom:240px}
   .astro-features{grid-template-columns:1fr}
   .panchang-grid{grid-template-columns:1fr 1fr}
   .team-grid{grid-template-columns:1fr 1fr}
@@ -800,4 +799,97 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
   background:linear-gradient(135deg,var(--dark),var(--dark2));
   color:var(--cream);
   border-color:var(--dark);
+}
+
+/* ══════════════════════════════════════════════════
+   COMING SOON MODAL
+══════════════════════════════════════════════════ */
+.coming-soon-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(8px);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+.coming-soon-overlay.active{display:flex;animation:csIn .3s ease}
+@keyframes csIn{from{opacity:0}to{opacity:1}}
+.coming-soon-box{background:linear-gradient(145deg,var(--dark),#2a0e0d);border-radius:28px;padding:48px 40px;text-align:center;max-width:380px;width:100%;position:relative;border:1px solid rgba(200,146,42,.3);box-shadow:0 24px 64px rgba(0,0,0,.5);animation:csBoxIn .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes csBoxIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.coming-soon-close{position:absolute;top:14px;right:16px;background:rgba(253,246,228,.1);border:none;width:32px;height:32px;border-radius:50%;color:var(--cream);font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.coming-soon-close:hover{background:rgba(253,246,228,.2)}
+.cs-icon{width:72px;height:72px;background:rgba(200,146,42,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;border:1px solid rgba(200,146,42,.3)}
+.cs-title{font-family:var(--font-heading);font-size:2rem;font-weight:700;color:var(--gold3);margin-bottom:10px}
+.cs-sub{font-size:.9rem;color:rgba(253,246,228,.75);line-height:1.65;margin-bottom:24px}
+.cs-dots{display:flex;gap:8px;justify-content:center;margin-bottom:28px}
+.cs-dots span{width:8px;height:8px;border-radius:50%;background:var(--gold2);animation:csDot 1.4s ease-in-out infinite}
+.cs-dots span:nth-child(2){animation-delay:.2s}
+.cs-dots span:nth-child(3){animation-delay:.4s}
+@keyframes csDot{0%,80%,100%{transform:scale(.6);opacity:.4}40%{transform:scale(1);opacity:1}}
+.cs-notify-btn{display:inline-block;padding:11px 28px;background:linear-gradient(135deg,#25D366,#1da851);color:#fff;border-radius:var(--pill);font-size:.875rem;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cs-notify-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.4)}
+
+/* ══════════════════════════════════════════════════
+   VIEW MORE BUTTON (global)
+══════════════════════════════════════════════════ */
+.view-more-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 28px;background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--cream);border:none;border-radius:var(--pill);font-size:.875rem;font-weight:700;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 16px rgba(70,26,25,.2);font-family:inherit}
+.view-more-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(70,26,25,.32)}
+
+/* ══════════════════════════════════════════════════
+   MOBILE HERO FIXES
+══════════════════════════════════════════════════ */
+@media(max-width:767px){
+  /* Hero */
+  .hero{min-height:100dvh}
+  .hero-content{padding:0 4px}
+  .hero-title{font-size:clamp(1.5rem,6.5vw,2.2rem);line-height:1.25}
+  .hero-sub{font-size:.85rem}
+  .slide-dots{bottom:calc(100% - 68px)}
+  .hero-static-search{padding:0 10px 14px}
+  .search-input{font-size:.82rem}
+  .btn-search-go{padding:0 14px;font-size:.8rem}
+  .quick-links{gap:6px;justify-content:center}
+  .ql-icon{width:40px;height:40px}
+  .ql-item span{font-size:.68rem}
+
+  /* 3D Carousel mobile */
+  .svc-3d-section{overflow:hidden}
+  .svc-3d-stage{height:320px}
+  .svc-card-3d{width:200px;height:280px;border-radius:16px}
+
+  /* Team mobile */
+  .team-cards-wrap{grid-template-columns:1fr;max-width:320px}
+  .tm-img-wrap{height:220px}
+  .tm-body{padding:18px 18px 20px}
+  .tm-card-flip{flex-direction:column}
+  .tm-card-flip .tm-body{border-bottom:none}
+  .tm-name{font-size:1.1rem}
+
+  /* About story */
+  .about-story{grid-template-columns:1fr}
+  .about-story-img{height:200px;font-size:3.5rem}
+
+  /* Services page */
+  .svc-page-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .svc-page-card-img{height:130px}
+  .svc-page-card-body{padding:12px 12px 14px;gap:6px}
+  .svc-page-card-title{font-size:1.05rem}
+
+  /* Blog */
+  .blog-grid{grid-template-columns:1fr}
+
+  /* Muhurat / Calendar */
+  .rt-calendar-wrap{grid-template-columns:1fr}
+  .cal-box{padding:18px}
+  .rt-status-box{padding:20px}
+
+  /* Booking form */
+  .full-booking-wrap{grid-template-columns:1fr}
+  .full-booking-form{padding:20px}
+  .booking-right-info{position:static}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:480px){
+  .svc-page-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .puja-tag-grid{grid-template-columns:1fr 1fr}
+  .horoscope-grid{grid-template-columns:repeat(2,1fr) !important}
+  .consult-grid{grid-template-columns:1fr !important}
+  .astro-steps{grid-template-columns:1fr 1fr !important}
 }
