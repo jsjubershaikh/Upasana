@@ -595,7 +595,19 @@ function renderHeader() {
       </div>
       <div class="mob-footer">
         <a href="book-a-pandit.html" class="btn-gold" style="text-align:center;padding:12px" data-i18n="nav.book">Book A Pandit</a>
+        <!-- Shown when logged OUT -->
         <button class="btn-primary" id="mob-login-btn" style="padding:12px" data-i18n="nav.login">Login</button>
+        <!-- Shown when logged IN -->
+        <div id="mob-user-info" style="display:none;background:rgba(70,26,25,.06);border-radius:12px;padding:12px 14px;border:1px solid var(--border)">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+            <img id="mob-user-avatar" src="" alt="" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--gold2);flex-shrink:0"/>
+            <div style="min-width:0">
+              <div id="mob-user-name" style="font-weight:700;font-size:.88rem;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+              <div style="font-size:.68rem;color:var(--text3);margin-top:1px">Signed in with Google</div>
+            </div>
+          </div>
+          <button onclick="upasanaSignOut()" style="width:100%;padding:9px;border-radius:var(--pill);background:transparent;color:#c62828;font-weight:700;font-size:.82rem;border:1.5px solid #f44336;cursor:pointer;font-family:inherit">Sign Out</button>
+        </div>
       </div>
     </aside>
 
@@ -791,6 +803,16 @@ function showUserProfile(user) {
   if (ddName)  ddName.textContent  = user.name;
   if (ddEmail) ddEmail.textContent = user.email;
 
+  // Mobile sidebar — hide Login button, show user info
+  const mobLoginBtn  = document.getElementById('mob-login-btn');
+  const mobUserInfo  = document.getElementById('mob-user-info');
+  const mobAvatar    = document.getElementById('mob-user-avatar');
+  const mobName      = document.getElementById('mob-user-name');
+  if (mobLoginBtn) mobLoginBtn.style.display = 'none';
+  if (mobUserInfo) mobUserInfo.style.display = 'block';
+  if (mobAvatar && user.picture) mobAvatar.src = user.picture;
+  if (mobName)  mobName.textContent = user.name;
+
   // Toggle dropdown on avatar click
   if (avatarBtn && !avatarBtn._dropdownBound) {
     avatarBtn._dropdownBound = true;
@@ -829,6 +851,12 @@ window.upasanaSignOut = function() {
   if (loginBtn)  { loginBtn.style.display  = ''; }
   if (avatarBtn) { avatarBtn.style.display = 'none'; }
   if (dropdown)  { dropdown.style.display  = 'none'; }
+
+  // Mobile sidebar restore
+  const mobLoginBtn = document.getElementById('mob-login-btn');
+  const mobUserInfo = document.getElementById('mob-user-info');
+  if (mobLoginBtn) mobLoginBtn.style.display = '';
+  if (mobUserInfo) mobUserInfo.style.display = 'none';
 
   if (typeof google !== 'undefined') google.accounts.id.disableAutoSelect();
   document.getElementById('login-modal')?.classList.remove('active');
