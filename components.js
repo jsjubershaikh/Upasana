@@ -329,9 +329,21 @@ window.initGoogleTranslate = function() {
           autoDisplay: false
         }, 'google_translate_element');
 
+        // After GT loads, apply saved language ONCE using the combo directly
         const savedLang = localStorage.getItem('upasana_lang') || 'en';
         if (savedLang !== 'en') {
-          setTimeout(() => window.triggerTranslate(savedLang, false), 300);
+          // Wait for combo box to be ready
+          let attempts = 0;
+          const tryApply = setInterval(() => {
+            const sel = document.querySelector('.goog-te-combo');
+            if (sel) {
+              clearInterval(tryApply);
+              sel.value = savedLang;
+              sel.dispatchEvent(new Event('change'));
+            } else if (++attempts > 20) {
+              clearInterval(tryApply);
+            }
+          }, 200);
         }
       } catch(e) {}
     };
@@ -342,53 +354,59 @@ window.initGoogleTranslate = function() {
   }
 };
 
-window.triggerTranslate = function(langCode, isUserClick = false) {
+/* ── Clear ALL googtrans cookies on every possible domain ── */
+function clearGoogTransCookies() {
   const host = window.location.hostname;
+  const exp  = '; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+  document.cookie = 'googtrans=' + exp;
+  document.cookie = 'googtrans=; domain=' + host + exp;
+  document.cookie = 'googtrans=; domain=.' + host + exp;
+  // Also clear on parent domain if subdomain (e.g. www.myupasana.com → myupasana.com)
+  const parts = host.split('.');
+  if (parts.length > 2) {
+    const parent = parts.slice(1).join('.');
+    document.cookie = 'googtrans=; domain=' + parent + exp;
+    document.cookie = 'googtrans=; domain=.' + parent + exp;
+  }
+}
 
+window.triggerTranslate = function(langCode, isUserClick = false) {
   if (langCode === 'en') {
-    // Clear cookie to restore English — Google Translate reads absence of cookie as "show original"
-    const exp = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    document.cookie = 'googtrans=; path=/; ' + exp;
-    if (host) {
-      document.cookie = 'googtrans=; domain=' + host + '; path=/; ' + exp;
-      document.cookie = 'googtrans=; domain=.' + host + '; path=/; ' + exp;
-    }
-    // Try direct GT combo first (avoids reload)
+    // Step 1: clear all cookies
+    clearGoogTransCookies();
+
+    // Step 2: try to use GT combo directly (no reload needed)
     const sel = document.querySelector('.goog-te-combo');
-    if (sel && sel.value !== 'en') {
+    if (sel) {
       sel.value = 'en';
       sel.dispatchEvent(new Event('change'));
+      // Force body back to top (GT sometimes shifts body)
+      setTimeout(() => { document.body.style.top = '0px'; }, 200);
       return;
     }
-    // Only reload if triggered by user click, not on page init
-    if (isUserClick) window.location.reload();
+
+    // Step 3: if GT not loaded, reload (cookies cleared so page loads in English)
+    if (isUserClick) {
+      window.location.reload();
+    }
     return;
   }
 
-  // Non-English: check if cookie already set (post-reload state — GT handles it)
-  const existing = document.cookie.split(';').find(c => c.trim().startsWith('googtrans='));
+  // Non-English — set cookie + use combo or reload
+  const host     = window.location.hostname;
   const cookieVal = '/en/' + langCode;
-
-  if (!isUserClick && existing && existing.includes(langCode)) {
-    // Page just reloaded with this cookie — GT will apply it, don't reload again
-    return;
-  }
-
-  // Set cookie
   document.cookie = 'googtrans=' + cookieVal + '; path=/;';
   if (host) {
     document.cookie = 'googtrans=' + cookieVal + '; domain=' + host + '; path=/;';
     document.cookie = 'googtrans=' + cookieVal + '; domain=.' + host + '; path=/;';
   }
 
-  // Try GT combo
   const sel = document.querySelector('.goog-te-combo');
   if (sel) {
     sel.value = langCode;
     sel.dispatchEvent(new Event('change'));
-  } else {
-    // Only reload on user click to prevent infinite loop
-    if (isUserClick) window.location.reload();
+  } else if (isUserClick) {
+    window.location.reload();
   }
 };
 
