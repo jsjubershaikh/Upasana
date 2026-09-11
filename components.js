@@ -6,7 +6,7 @@ const SITE = {
   name: 'Upasana',
   phone: '+91 80875 90902',
   email: 'connect@myupasana.com',
-  address: 'Surat, Gujarat, India – 395009',
+  address: 'Rose Gardenia, Mumbai-Pune Hwy, Kiwale, Pune – 412101',
   hours: 'Mon – Sun: 9:00 AM – 7:00 PM',
   whatsapp: 'https://wa.me/918087590902?text=Hello,%20I%20Want%20To%20Book%20A%20Pandit',
 };
@@ -346,40 +346,49 @@ window.triggerTranslate = function(langCode, isUserClick = false) {
   const host = window.location.hostname;
 
   if (langCode === 'en') {
-    // Clear the googtrans cookie to revert to original English
-    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    // Clear cookie to restore English — Google Translate reads absence of cookie as "show original"
+    const exp = 'expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    document.cookie = 'googtrans=; path=/; ' + exp;
     if (host) {
-      document.cookie = 'googtrans=; domain=' + host + '; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-      document.cookie = 'googtrans=; domain=.' + host + '; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      document.cookie = 'googtrans=; domain=' + host + '; path=/; ' + exp;
+      document.cookie = 'googtrans=; domain=.' + host + '; path=/; ' + exp;
     }
-    // Try to use Google Translate's restore function first
-    const frame = document.querySelector('iframe.skiptranslate');
-    if (frame) {
-      // GT is loaded — click the "Show original" button if available
-      const restoreEl = document.querySelector('.goog-te-menu-value span');
-      if (restoreEl && restoreEl.textContent !== 'Select Language') {
-        const sel = document.querySelector('.goog-te-combo');
-        if (sel) { sel.value = 'en'; sel.dispatchEvent(new Event('change')); return; }
-      }
+    // Try direct GT combo first (avoids reload)
+    const sel = document.querySelector('.goog-te-combo');
+    if (sel && sel.value !== 'en') {
+      sel.value = 'en';
+      sel.dispatchEvent(new Event('change'));
+      return;
     }
-    window.location.reload();
+    // Only reload if triggered by user click, not on page init
+    if (isUserClick) window.location.reload();
     return;
   }
 
-  // For non-English languages — set cookie then trigger
+  // Non-English: check if cookie already set (post-reload state — GT handles it)
+  const existing = document.cookie.split(';').find(c => c.trim().startsWith('googtrans='));
   const cookieVal = '/en/' + langCode;
+
+  if (!isUserClick && existing && existing.includes(langCode)) {
+    // Page just reloaded with this cookie — GT will apply it, don't reload again
+    return;
+  }
+
+  // Set cookie
   document.cookie = 'googtrans=' + cookieVal + '; path=/;';
   if (host) {
     document.cookie = 'googtrans=' + cookieVal + '; domain=' + host + '; path=/;';
     document.cookie = 'googtrans=' + cookieVal + '; domain=.' + host + '; path=/;';
   }
 
+  // Try GT combo
   const sel = document.querySelector('.goog-te-combo');
   if (sel) {
     sel.value = langCode;
     sel.dispatchEvent(new Event('change'));
   } else {
-    window.location.reload();
+    // Only reload on user click to prevent infinite loop
+    if (isUserClick) window.location.reload();
   }
 };
 
@@ -821,13 +830,13 @@ function renderFooter() {
               ${logoHTMLFooter()}
               <p class="footer-tagline">Connecting devotees with authentic Vedic pandits for every sacred occasion — with love, trust, and tradition.</p>
               <div class="social-links">
-                <a href="#" class="soc-link" aria-label="Facebook">
+                <a href="#" class="soc-link" aria-label="Facebook" onclick="openComingSoon();return false;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
                 </a>
-                <a href="#" class="soc-link" aria-label="Instagram">
+                <a href="https://www.instagram.com/my.upasana" target="_blank" class="soc-link" aria-label="Instagram">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
                 </a>
-                <a href="#" class="soc-link" aria-label="YouTube">
+                <a href="#" class="soc-link" aria-label="YouTube" onclick="openComingSoon();return false;">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-1.96C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.4 19.54C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
                 </a>
               </div>
@@ -856,8 +865,8 @@ function renderFooter() {
                 <p><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.7;margin-right:4px"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg> ${SITE.hours}</p>
               </div>
               <div class="footer-badges">
-                <div class="ftr-badge">▶ Google Play Store</div>
-                <div class="ftr-badge"> Apple App Store</div>
+                <div class="ftr-badge" onclick="openComingSoon()" style="cursor:pointer">&#9654; Google Play Store</div>
+                <div class="ftr-badge" onclick="openComingSoon()" style="cursor:pointer">&#63743; Apple App Store</div>
               </div>
             </div>
           </div>
