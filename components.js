@@ -468,7 +468,47 @@ function renderHeader() {
               </div>
             </div>
             <a href="book-a-pandit.html" class="btn-gold" style="padding:9px 20px;font-size:.85rem" data-i18n="nav.book">Book A Pandit</a>
-            <button class="btn-primary" style="padding:9px 18px;font-size:.85rem" id="login-btn-hdr" data-i18n="nav.login">Login</button>
+            <!-- Login button — becomes avatar dropdown after sign-in -->
+            <div class="user-menu-wrap" id="user-menu-wrap" style="position:relative">
+              <button class="btn-primary" style="padding:9px 18px;font-size:.85rem" id="login-btn-hdr" data-i18n="nav.login">Login</button>
+              <!-- Avatar button (hidden until signed in) -->
+              <button id="user-avatar-btn" style="display:none;width:36px;height:36px;border-radius:50%;padding:0;background:transparent;border:2.5px solid var(--gold2);overflow:hidden;cursor:pointer;transition:border-color .2s;flex-shrink:0" aria-label="Profile menu">
+                <img id="nav-user-avatar" src="" alt="Profile" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:50%"/>
+              </button>
+              <!-- Profile dropdown -->
+              <div id="user-profile-dropdown" style="display:none;position:absolute;top:calc(100% + 10px);right:0;width:230px;background:var(--white);border-radius:16px;box-shadow:0 12px 40px rgba(70,26,25,.18);border:1.5px solid var(--border);z-index:99999;overflow:hidden">
+                <!-- User info -->
+                <div style="padding:16px 16px 12px;border-bottom:1px solid var(--border)">
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <img id="dropdown-avatar" src="" alt="" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--gold2);flex-shrink:0"/>
+                    <div style="min-width:0">
+                      <div id="dropdown-name" style="font-weight:700;font-size:.88rem;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+                      <div id="dropdown-email" style="font-size:.72rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px"></div>
+                    </div>
+                  </div>
+                  <div style="margin-top:8px;display:inline-flex;align-items:center;gap:4px;background:rgba(200,146,42,.1);padding:2px 8px;border-radius:20px">
+                    <span style="font-size:.65rem;font-weight:700;color:var(--gold);letter-spacing:.04em">DEVOTEE</span>
+                  </div>
+                </div>
+                <!-- Menu items -->
+                <div style="padding:6px 0">
+                  <a href="book-a-pandit.html" style="display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:.85rem;font-weight:600;color:var(--text);transition:background .15s" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background='transparent'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                    My Bookings
+                  </a>
+                  <a href="contact.html" style="display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:.85rem;font-weight:600;color:var(--text);transition:background .15s" onmouseover="this.style.background='var(--cream)'" onmouseout="this.style.background='transparent'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Profile
+                  </a>
+                </div>
+                <div style="padding:6px 0;border-top:1px solid var(--border)">
+                  <button onclick="upasanaSignOut()" style="display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:.85rem;font-weight:600;color:#c62828;width:100%;background:transparent;border:none;cursor:pointer;font-family:inherit;transition:background .15s" onmouseover="this.style.background='rgba(198,40,40,.06)'" onmouseout="this.style.background='transparent'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    Sign Out
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
           <button class="hamburger" id="hamburger" aria-label="Open menu">
             <span></span><span></span><span></span>
@@ -676,26 +716,43 @@ function handleGoogleCredential(response) {
 }
 
 function showUserProfile(user) {
-  const avatar = document.getElementById('user-avatar');
-  const nameEl = document.getElementById('user-name');
+  // Update the modal signed-in view
+  const avatar  = document.getElementById('user-avatar');
+  const nameEl  = document.getElementById('user-name');
   const emailEl = document.getElementById('user-email');
-  if (avatar)  { avatar.src = user.picture || ''; avatar.style.display = user.picture ? 'block' : 'none'; }
+  if (avatar)  { avatar.src = user.picture || ''; }
   if (nameEl)  nameEl.textContent  = user.name;
   if (emailEl) emailEl.textContent = user.email;
-
   document.getElementById('login-signed-out')?.style.setProperty('display','none');
   document.getElementById('login-signed-in')?.style.setProperty('display','block');
 
-  // Update navbar login button — show avatar + first name
-  const loginBtn = document.getElementById('login-btn-hdr');
-  if (loginBtn) {
-    loginBtn.innerHTML = (user.picture
-      ? '<img src="'+user.picture+'" style="width:22px;height:22px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:5px"/>'
-      : '') + user.name.split(' ')[0];
-    loginBtn.style.background = 'rgba(70,26,25,.1)';
-    loginBtn.style.border = '1.5px solid var(--border2)';
-    loginBtn.style.borderRadius = '20px';
-    loginBtn.style.padding = '5px 12px';
+  // Navbar — hide Login button, show avatar button + populate dropdown
+  const loginBtn   = document.getElementById('login-btn-hdr');
+  const avatarBtn  = document.getElementById('user-avatar-btn');
+  const navAvatar  = document.getElementById('nav-user-avatar');
+  const ddAvatar   = document.getElementById('dropdown-avatar');
+  const ddName     = document.getElementById('dropdown-name');
+  const ddEmail    = document.getElementById('dropdown-email');
+
+  if (loginBtn)  loginBtn.style.display  = 'none';
+  if (avatarBtn) avatarBtn.style.display = 'flex';
+  if (navAvatar && user.picture)  navAvatar.src = user.picture;
+  if (ddAvatar  && user.picture)  ddAvatar.src  = user.picture;
+  if (ddName)  ddName.textContent  = user.name;
+  if (ddEmail) ddEmail.textContent = user.email;
+
+  // Toggle dropdown on avatar click
+  if (avatarBtn && !avatarBtn._dropdownBound) {
+    avatarBtn._dropdownBound = true;
+    avatarBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const dd = document.getElementById('user-profile-dropdown');
+      if (dd) dd.style.display = dd.style.display === 'none' ? 'block' : 'none';
+    });
+    document.addEventListener('click', () => {
+      const dd = document.getElementById('user-profile-dropdown');
+      if (dd) dd.style.display = 'none';
+    });
   }
 }
 
@@ -714,15 +771,16 @@ window.upasanaSignOut = function() {
   localStorage.removeItem('upasana_user');
   document.getElementById('login-signed-out')?.style.setProperty('display','block');
   document.getElementById('login-signed-in')?.style.setProperty('display','none');
-  // Reset navbar button
-  const loginBtn = document.getElementById('login-btn-hdr');
-  if (loginBtn) {
-    loginBtn.textContent = 'Login';
-    loginBtn.style.background = '';
-  }
-  if (typeof google !== 'undefined') {
-    google.accounts.id.disableAutoSelect();
-  }
+
+  // Restore navbar
+  const loginBtn  = document.getElementById('login-btn-hdr');
+  const avatarBtn = document.getElementById('user-avatar-btn');
+  const dropdown  = document.getElementById('user-profile-dropdown');
+  if (loginBtn)  { loginBtn.style.display  = ''; }
+  if (avatarBtn) { avatarBtn.style.display = 'none'; }
+  if (dropdown)  { dropdown.style.display  = 'none'; }
+
+  if (typeof google !== 'undefined') google.accounts.id.disableAutoSelect();
   document.getElementById('login-modal')?.classList.remove('active');
   showToast('You have been signed out.', 'info');
 };
