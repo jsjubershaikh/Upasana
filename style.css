@@ -185,18 +185,19 @@ img{display:block;max-width:100%}
 /* ── Hero Static Search Bar (outside slides — never refreshes) ── */
 .hero-static-search{position:absolute;bottom:0;left:0;right:0;z-index:40;padding:0 12px 18px}
 .hero-search-bar{width:100%;max-width:860px;margin:0 auto}
-/* No dark box — fully transparent, just the input row floats cleanly */
-.search-box{background:transparent;border:none;border-radius:0;padding:0;box-shadow:none;position:relative;z-index:300}
-.search-input-wrap{position:relative;margin-bottom:12px;display:flex;align-items:center;box-shadow:0 8px 32px rgba(0,0,0,.28);border-radius:var(--pill)}
-.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--dark);z-index:2}
-.search-input{width:100%;padding:14px 120px 14px 48px;border-radius:var(--pill);border:none;font-size:.97rem;font-weight:500;color:var(--text);background:rgba(253,246,228,.97);outline:none;transition:background .2s;font-family:inherit}
-.search-input:focus{background:#fff}
+/* Search box wrapper — frosted glass card */
+.search-box{background:rgba(253,246,228,.15);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1.5px solid rgba(253,246,228,.35);border-radius:24px;padding:16px 16px 14px;box-shadow:0 16px 48px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.2);position:relative;z-index:300}
+/* Input row */
+.search-input-wrap{position:relative;margin-bottom:12px;display:flex;align-items:center;background:rgba(253,246,228,.96);border-radius:60px;box-shadow:0 4px 24px rgba(0,0,0,.18);border:2px solid rgba(253,246,228,.6);overflow:hidden}
+.search-input-wrap:focus-within{border-color:var(--gold2);box-shadow:0 4px 28px rgba(0,0,0,.22),0 0 0 3px rgba(200,146,42,.18)}
+.search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--dark2);z-index:2;opacity:.65}
+.search-input{width:100%;padding:16px 130px 16px 52px;border-radius:60px;border:none;font-size:1rem;font-weight:500;color:var(--text);background:transparent;outline:none;font-family:inherit}
 .search-input::placeholder{color:var(--text3);font-weight:400}
-.btn-search-go{position:absolute;right:5px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--cream);font-weight:700;font-size:.85rem;padding:9px 22px;border-radius:var(--pill);border:none;cursor:pointer;transition:var(--trans);z-index:3}
-.btn-search-go:hover{background:var(--dark3);transform:translateY(-50%) scale(1.04)}
-.quick-links{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
-.ql-item{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;transition:var(--trans);min-width:68px;text-align:center}
-.ql-item:hover{transform:scale(1.05)}
+.btn-search-go{position:absolute;right:5px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--cream);font-weight:700;font-size:.88rem;padding:11px 26px;border-radius:60px;border:none;cursor:pointer;transition:var(--trans);z-index:3;letter-spacing:.02em;box-shadow:0 3px 12px rgba(70,26,25,.35)}
+.btn-search-go:hover{background:linear-gradient(135deg,var(--dark2),var(--dark3));transform:translateY(-50%) scale(1.04);box-shadow:0 6px 18px rgba(70,26,25,.45)}
+.quick-links{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.ql-item{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:var(--trans);min-width:64px;text-align:center}
+.ql-item:hover{transform:translateY(-3px)}
 .ql-icon{width:52px;height:52px;background:var(--cream);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 2px 10px rgba(0,0,0,.15);transition:var(--trans);overflow:hidden;padding:8px}
 .ql-img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 5px rgba(70,26,25,.2));transition:transform .3s ease}
 .ql-item:hover .ql-img{transform:scale(1.18)}
@@ -851,24 +852,12 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
   }
   .hero-search-bar{max-width:100%}
   /* Search input row */
-  .search-input-wrap{
-    border-radius:40px;
-    margin-bottom:10px;
-    box-shadow:0 4px 20px rgba(0,0,0,.25);
-  }
-  .search-icon{left:12px;width:15px;height:15px}
-  .search-input{
-    font-size:.8rem;
-    padding:11px 80px 11px 36px;
-    border-radius:40px;
-  }
-  .btn-search-go{
-    padding:0 14px;
-    font-size:.76rem;
-    height:34px;
-    right:4px;
-    border-radius:34px;
-  }
+  /* Search card on mobile */
+  .search-box{border-radius:18px;padding:12px 12px 10px}
+  .search-input-wrap{margin-bottom:10px}
+  .search-icon{left:14px;width:15px;height:15px}
+  .search-input{font-size:.85rem;padding:13px 100px 13px 42px}
+  .btn-search-go{padding:9px 16px;font-size:.78rem;right:4px}
   /* Quick links — single row, no wrap */
   .quick-links{
     display:flex;
