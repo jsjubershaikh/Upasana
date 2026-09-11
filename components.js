@@ -556,7 +556,7 @@ function renderHeader() {
 function initGoogleAuth() {
   // ⚠️  Replace this with your actual Google OAuth Client ID
   // Get it from: https://console.cloud.google.com → APIs & Services → Credentials → OAuth 2.0 Client IDs
-  const CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com';
+  const CLIENT_ID = '309206834222-vtder0m1dakfiticf4prb3ivg6b4qfsm.apps.googleusercontent.com';
 
   // Load Google Identity Services script
   if (!document.getElementById('gsi-script')) {
@@ -579,7 +579,7 @@ function initGoogleAuth() {
 }
 
 function setupGoogleAuth(clientId) {
-  if (typeof google === 'undefined' || clientId.includes('YOUR_GOOGLE')) return;
+  if (typeof google === 'undefined') return;
 
   google.accounts.id.initialize({
     client_id: clientId,
