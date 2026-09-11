@@ -344,8 +344,30 @@ window.initGoogleTranslate = function() {
 
 window.triggerTranslate = function(langCode, isUserClick = false) {
   const host = window.location.hostname;
+
+  if (langCode === 'en') {
+    // Clear the googtrans cookie to revert to original English
+    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    if (host) {
+      document.cookie = 'googtrans=; domain=' + host + '; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      document.cookie = 'googtrans=; domain=.' + host + '; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    }
+    // Try to use Google Translate's restore function first
+    const frame = document.querySelector('iframe.skiptranslate');
+    if (frame) {
+      // GT is loaded — click the "Show original" button if available
+      const restoreEl = document.querySelector('.goog-te-menu-value span');
+      if (restoreEl && restoreEl.textContent !== 'Select Language') {
+        const sel = document.querySelector('.goog-te-combo');
+        if (sel) { sel.value = 'en'; sel.dispatchEvent(new Event('change')); return; }
+      }
+    }
+    window.location.reload();
+    return;
+  }
+
+  // For non-English languages — set cookie then trigger
   const cookieVal = '/en/' + langCode;
-  // Set cookie on all relevant domains
   document.cookie = 'googtrans=' + cookieVal + '; path=/;';
   if (host) {
     document.cookie = 'googtrans=' + cookieVal + '; domain=' + host + '; path=/;';
@@ -357,8 +379,6 @@ window.triggerTranslate = function(langCode, isUserClick = false) {
     sel.value = langCode;
     sel.dispatchEvent(new Event('change'));
   } else {
-    // Always reload when Google Translate widget isn't loaded yet
-    // Cookie is already set so GT will pick it up automatically on reload
     window.location.reload();
   }
 };
@@ -932,12 +952,6 @@ function initHeaderScripts() {
   const langLabel= document.getElementById('lang-label');
 
   function setLang(lang, label) {
-    const curLang = localStorage.getItem('upasana_lang') || 'en';
-    if(curLang === lang && langLabel && langLabel.textContent === label) {
-      if(langDd) langDd.classList.remove('open');
-      return;
-    }
-
     localStorage.setItem('upasana_lang', lang);
     localStorage.setItem('upasana_lang_label', label);
     if(langLabel) langLabel.textContent = label;
@@ -954,7 +968,7 @@ function initHeaderScripts() {
     if(window.triggerTranslate) window.triggerTranslate(lang, true);
 
     const langNames = { en:'English', hi:'हिंदी', mr:'मराठी', gu:'ગુજરાતી' };
-    showToast(`Language set to ${langNames[lang] || 'English'}`, 'success');
+    showToast(`Language: ${langNames[lang] || 'English'}`, 'success');
   }
 
   // Restore saved language
