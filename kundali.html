@@ -86,5 +86,55 @@
 </main>
 <div id="footer-root"></div>
 <script src="components.js"></script>
-</body>
-</html>
+<script>
+// Override booking-form handler for Kundali page
+(function(){
+  const form = document.getElementById('booking-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name   = document.getElementById('full-name')?.value.trim();
+    const phone  = document.getElementById('phone')?.value.trim();
+    const dob    = document.getElementById('dob')?.value;
+    const tob    = document.getElementById('tob')?.value;
+    const pob    = document.getElementById('pob')?.value.trim();
+    const gender = document.querySelector('input[name="gender"]:checked')?.value || 'Male';
+    const lang   = document.getElementById('puja-type')?.value || 'English';
+
+    // Validation
+    if (!name)  { showToast('Please enter your full name.', 'error'); return; }
+    if (!phone) { showToast('Please enter your mobile number.', 'error'); return; }
+    if (!dob)   { showToast('Please select your date of birth.', 'error'); return; }
+    if (!pob)   { showToast('Please enter your place of birth.', 'error'); return; }
+
+    // Format date nicely
+    const dobFormatted = new Date(dob).toLocaleDateString('en-IN', {day:'2-digit', month:'long', year:'numeric'});
+    const tobFormatted = tob
+      ? new Date('1970-01-01T'+tob).toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit', hour12:true})
+      : 'Not provided';
+
+    // Build WhatsApp message
+    const msg =
+`Namaste! I would like to get my FREE Janam Kundali.
+
+*Birth Details:*
+
+Name: ${name}
+Mobile: ${phone}
+Date of Birth: ${dobFormatted}
+Time of Birth: ${tobFormatted}
+Place of Birth: ${pob}
+Gender: ${gender}
+Report Language: ${lang}
+
+Please generate my free Kundali report.
+
+— via MyUpasana.com`;
+
+    window.open('https://wa.me/918087590902?text=' + encodeURIComponent(msg), '_blank');
+    showToast('Redirecting to WhatsApp with your birth details!', 'success');
+  });
+})();
+</script>
