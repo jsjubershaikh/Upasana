@@ -833,23 +833,62 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
   /* Hero — full viewport height, search bar stays inside */
   .hero{min-height:100svh;margin-top:80px}
   .slides-wrap{height:100svh}
-  .slide{padding-bottom:230px}
-  .hero-content{padding:0 16px;padding-top:40px}
-  .hero-title{font-size:clamp(1.4rem,6vw,2rem);line-height:1.2}
-  .hero-sub{font-size:.8rem;padding:0 4px;margin-bottom:0}
-  .slide-dots{bottom:calc(100% - 60px)}
-  /* Search bar - fixed inside hero, above quick links */
-  .hero-static-search{position:absolute;bottom:0;left:0;right:0;padding:0 10px 12px;z-index:40}
+  .slide{padding-bottom:200px}
+  .hero-content{padding:0 16px;padding-top:30px}
+  .hero-title{font-size:clamp(1.3rem,5.5vw,1.9rem);line-height:1.2}
+  .hero-sub{font-size:.78rem;padding:0 4px;margin-bottom:0}
+  .slide-dots{bottom:calc(100% - 56px)}
+
+  /* Search bar — compact, stays inside hero */
+  .hero-static-search{
+    position:absolute;
+    bottom:0;left:0;right:0;
+    padding:0 10px 14px;
+    z-index:40;
+  }
   .hero-search-bar{max-width:100%}
-  .search-input-wrap{border-radius:40px}
-  .search-input{font-size:.78rem;padding:11px 90px 11px 40px}
-  .search-icon{left:13px}
-  .btn-search-go{padding:0 14px;font-size:.72rem;right:4px}
-  .quick-links{gap:6px;justify-content:center;flex-wrap:nowrap;overflow-x:auto;padding:0 4px;scrollbar-width:none}
-  .quick-links::-webkit-scrollbar{display:none}
-  .ql-item{min-width:52px;flex-shrink:0}
-  .ql-icon{width:36px;height:36px;border-radius:10px}
-  .ql-item span{font-size:.6rem}
+  /* Search input row */
+  .search-input-wrap{
+    border-radius:40px;
+    margin-bottom:10px;
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
+  }
+  .search-icon{left:12px;width:15px;height:15px}
+  .search-input{
+    font-size:.8rem;
+    padding:11px 80px 11px 36px;
+    border-radius:40px;
+  }
+  .btn-search-go{
+    padding:0 14px;
+    font-size:.76rem;
+    height:34px;
+    right:4px;
+    border-radius:34px;
+  }
+  /* Quick links — single row, no wrap */
+  .quick-links{
+    display:flex;
+    gap:0;
+    justify-content:space-between;
+    flex-wrap:nowrap;
+    padding:0 4px;
+  }
+  .ql-item{
+    flex:1;
+    min-width:0;
+    gap:4px;
+  }
+  .ql-icon{
+    width:42px;height:42px;
+    border-radius:12px;
+    margin:0 auto;
+  }
+  .ql-item span{
+    font-size:.62rem;
+    font-weight:700;
+    white-space:nowrap;
+  }
 
   /* 3D Carousel mobile */
   .svc-3d-section{overflow:hidden;width:100%;max-width:100vw}

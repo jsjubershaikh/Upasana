@@ -5,7 +5,7 @@
 const SITE = {
   name: 'Upasana',
   phone: '+91 80875 90902',
-  email: 'support@upasana.in',
+  email: 'connect@myupasana.com',
   address: 'Surat, Gujarat, India – 395009',
   hours: 'Mon – Sun: 9:00 AM – 7:00 PM',
   whatsapp: 'https://wa.me/918087590902?text=Hello,%20I%20Want%20To%20Book%20A%20Pandit',
@@ -344,18 +344,21 @@ window.initGoogleTranslate = function() {
 
 window.triggerTranslate = function(langCode, isUserClick = false) {
   const host = window.location.hostname;
-  const cookieVal = "/en/" + langCode;
-  document.cookie = "googtrans=" + cookieVal + "; path=/;";
-  if (host) document.cookie = "googtrans=" + cookieVal + "; domain=" + host + "; path=/;";
+  const cookieVal = '/en/' + langCode;
+  // Set cookie on all relevant domains
+  document.cookie = 'googtrans=' + cookieVal + '; path=/;';
+  if (host) {
+    document.cookie = 'googtrans=' + cookieVal + '; domain=' + host + '; path=/;';
+    document.cookie = 'googtrans=' + cookieVal + '; domain=.' + host + '; path=/;';
+  }
 
-  let sel = document.querySelector('.goog-te-combo');
+  const sel = document.querySelector('.goog-te-combo');
   if (sel) {
-    if (sel.value !== langCode) {
-      sel.value = langCode;
-      sel.dispatchEvent(new Event('change'));
-    }
-  } else if (isUserClick) {
-    // Only reload ONCE on explicit user click if element isn't in memory yet
+    sel.value = langCode;
+    sel.dispatchEvent(new Event('change'));
+  } else {
+    // Always reload when Google Translate widget isn't loaded yet
+    // Cookie is already set so GT will pick it up automatically on reload
     window.location.reload();
   }
 };
