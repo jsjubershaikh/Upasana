@@ -27,13 +27,13 @@
           <p style="font-size:.88rem;color:var(--text2);margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid var(--border)">We typically respond within 2 – 4 hours during business hours.</p>
           <form id="contact-form" class="form-grid">
             <div class="form-row">
-              <div class="form-group"><label>Full Name *</label><input type="text" class="form-control" placeholder="Your full name" required/></div>
-              <div class="form-group"><label>Phone Number *</label><input type="tel" class="form-control" placeholder="+91 XXXXX XXXXX" required/></div>
+              <div class="form-group"><label>Full Name *</label><input type="text" id="cf-name" class="form-control" placeholder="Your full name" required/></div>
+              <div class="form-group"><label>Phone Number *</label><input type="tel" id="cf-phone" class="form-control" placeholder="+91 XXXXX XXXXX" required/></div>
             </div>
-            <div class="form-group"><label>Email Address</label><input type="email" class="form-control" placeholder="your@email.com"/></div>
+            <div class="form-group"><label>Email Address</label><input type="email" id="cf-email" class="form-control" placeholder="your@email.com"/></div>
             <div class="form-group">
               <label>Subject / Query Type</label>
-              <select class="form-control">
+              <select id="cf-subject" class="form-control">
                 <option value="">Select a topic</option>
                 <option>Book a Pandit</option>
                 <option>Astrology Consultation</option>
@@ -46,7 +46,7 @@
             </div>
             <div class="form-group">
               <label>Your Message *</label>
-              <textarea class="form-control" rows="5" placeholder="Describe your query or requirement in detail..." style="resize:vertical;min-height:120px" required></textarea>
+              <textarea id="cf-message" class="form-control" rows="5" placeholder="Describe your query or requirement in detail..." style="resize:vertical;min-height:120px" required></textarea>
             </div>
             <button type="submit" class="btn-submit">Send Message</button>
           </form>
@@ -131,5 +131,46 @@
 </main>
 <div id="footer-root"></div>
 <script src="components.js"></script>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('cf-name').value.trim();
+  const phone   = document.getElementById('cf-phone').value.trim();
+  const email   = document.getElementById('cf-email').value.trim();
+  const subject = document.getElementById('cf-subject').value;
+  const message = document.getElementById('cf-message').value.trim();
+
+  if (!name)    { showToast('Please enter your full name.', 'error'); return; }
+  if (!phone)   { showToast('Please enter your phone number.', 'error'); return; }
+  if (!message) { showToast('Please enter your message.', 'error'); return; }
+
+  const btn = this.querySelector('.btn-submit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const msg =
+`Hello MyUpasana Team,
+
+I have a query and would like to get in touch.
+
+*Contact Details:*
+Name: ${name}
+Phone: ${phone}${email ? '\nEmail: ' + email : ''}${subject ? '\nSubject: ' + subject : ''}
+
+*Message:*
+${message}
+
+— Sent via myupasana.com Contact Form`;
+
+  setTimeout(() => {
+    window.open('https://wa.me/918087590902?text=' + encodeURIComponent(msg), '_blank');
+    showToast('Message sent! We will respond within 2-4 hours.', 'success');
+    this.reset();
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  }, 600);
+});
+</script>
 </body>
 </html>
