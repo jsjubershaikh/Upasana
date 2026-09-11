@@ -511,39 +511,86 @@ function renderHeader() {
 
     <!-- Login Modal -->
     <div class="modal-overlay" id="login-modal">
-      <div class="modal-box" style="max-width:400px">
+      <div class="modal-box" style="max-width:420px;padding:32px">
         <button class="modal-close" id="modal-close">✕</button>
 
-        <!-- Logged OUT state -->
+        <!-- ── SIGNED OUT ── -->
         <div id="login-signed-out">
-          <div style="text-align:center;margin-bottom:28px">
-            <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <!-- Header -->
+          <div style="text-align:center;margin-bottom:24px">
+            <div style="width:48px;height:48px;background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
-            <h2 style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--dark);margin-bottom:6px">Welcome to Upasana</h2>
-            <p style="font-size:.88rem;color:var(--text2);margin-bottom:0">Sign in to manage your bookings &amp; history</p>
+            <h2 style="font-family:var(--font-heading);font-size:1.4rem;font-weight:700;color:var(--dark);margin-bottom:4px">Welcome to Upasana</h2>
+            <p style="font-size:.83rem;color:var(--text2)">Sign in to manage your bookings</p>
           </div>
 
-          <!-- Google Sign-In Button -->
-          <button id="google-login-btn" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 20px;background:#fff;border:1.5px solid #dadce0;border-radius:10px;font-size:.93rem;font-weight:600;color:#3c4043;cursor:pointer;transition:all .2s;margin-bottom:20px;font-family:inherit;box-shadow:0 1px 4px rgba(0,0,0,.08)">
-            <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+          <!-- Google Button -->
+          <button id="google-login-btn" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;background:#fff;border:1.5px solid #dadce0;border-radius:10px;font-size:.9rem;font-weight:600;color:#3c4043;cursor:pointer;transition:all .2s;margin-bottom:18px;font-family:inherit;box-shadow:0 1px 4px rgba(0,0,0,.08)" onmouseover="this.style.boxShadow='0 3px 12px rgba(0,0,0,.15)'" onmouseout="this.style.boxShadow='0 1px 4px rgba(0,0,0,.08)'">
+            <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
             Continue with Google
           </button>
 
-          <p style="font-size:.78rem;color:var(--text3);text-align:center">
+          <!-- Divider -->
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+            <div style="flex:1;height:1px;background:var(--border)"></div>
+            <span style="font-size:.72rem;color:var(--text3);font-weight:600;white-space:nowrap">or sign in with email</span>
+            <div style="flex:1;height:1px;background:var(--border)"></div>
+          </div>
+
+          <!-- Email + Password -->
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:14px">
+            <div>
+              <label style="font-size:.78rem;font-weight:700;color:var(--text);display:block;margin-bottom:5px">Email Address</label>
+              <input type="email" id="login-email" class="form-control" placeholder="your@email.com" style="width:100%;padding:11px 13px;font-size:.88rem"/>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+                <label style="font-size:.78rem;font-weight:700;color:var(--text)">Password</label>
+                <a href="#" style="font-size:.72rem;color:var(--gold);font-weight:600" onclick="showToast('Password reset link sent to your email','info')">Forgot?</a>
+              </div>
+              <input type="password" id="login-password" class="form-control" placeholder="Enter your password" style="width:100%;padding:11px 13px;font-size:.88rem"/>
+            </div>
+          </div>
+
+          <button class="btn-submit" style="width:100%;padding:13px;font-size:.92rem;margin-bottom:14px" onclick="handleEmailLogin()">Sign In</button>
+
+          <p style="font-size:.72rem;color:var(--text3);text-align:center">
             By signing in you agree to our <a href="#" style="color:var(--dark);font-weight:600">Terms</a> &amp; <a href="#" style="color:var(--dark);font-weight:600">Privacy Policy</a>
           </p>
         </div>
 
-        <!-- Logged IN state -->
-        <div id="login-signed-in" style="display:none;text-align:center">
-          <img id="user-avatar" src="" alt="Profile" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--gold2);margin:0 auto 14px;display:block"/>
-          <h3 id="user-name" style="font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:4px">--</h3>
-          <p id="user-email" style="font-size:.85rem;color:var(--text2);margin-bottom:24px">--</p>
-          <div style="background:rgba(70,26,25,.05);border-radius:12px;padding:14px 16px;margin-bottom:20px;text-align:left">
-            <p style="font-size:.8rem;color:var(--text2);margin:0">Signed in with Google. Your bookings and preferences are saved to your account.</p>
+        <!-- ── SIGNED IN ── -->
+        <div id="login-signed-in" style="display:none">
+          <!-- Profile card -->
+          <div style="display:flex;align-items:center;gap:16px;padding:16px;background:linear-gradient(135deg,var(--cream),var(--cream2));border-radius:16px;border:1.5px solid var(--border);margin-bottom:20px">
+            <img id="user-avatar" src="" alt="Profile" style="width:54px;height:54px;border-radius:50%;object-fit:cover;border:2.5px solid var(--gold2);flex-shrink:0"/>
+            <div style="min-width:0">
+              <div id="user-name" style="font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--dark);white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+              <div id="user-email" style="font-size:.75rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px"></div>
+              <div style="display:inline-flex;align-items:center;gap:4px;margin-top:6px;background:rgba(46,125,50,.1);padding:2px 9px;border-radius:20px">
+                <svg width="10" height="10" viewBox="0 0 48 48" style="flex-shrink:0"><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.29-8.16 2.29-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="#4285F4" d="M46.98 24.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65 0-1.57-.15-3.09-.38-4.55z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/></svg>
+                <span style="font-size:.68rem;font-weight:700;color:#2e7d32">Signed in with Google</span>
+              </div>
+            </div>
           </div>
-          <button onclick="upasanaSignOut()" style="width:100%;padding:12px;border-radius:var(--pill);background:rgba(70,26,25,.08);color:var(--dark);font-weight:700;font-size:.9rem;border:1.5px solid var(--border);cursor:pointer;font-family:inherit;transition:all .2s" onmouseover="this.style.background='rgba(70,26,25,.15)'" onmouseout="this.style.background='rgba(70,26,25,.08)'">Sign Out</button>
+
+          <!-- Quick links -->
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+            <a href="book-a-pandit.html" style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--cream);border-radius:10px;border:1px solid var(--border);font-size:.85rem;font-weight:600;color:var(--dark);transition:background .2s" onmouseover="this.style.background='var(--cream2)'" onmouseout="this.style.background='var(--cream)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              My Bookings
+            </a>
+            <a href="contact.html" style="display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--cream);border-radius:10px;border:1px solid var(--border);font-size:.85rem;font-weight:600;color:var(--dark);transition:background .2s" onmouseover="this.style.background='var(--cream2)'" onmouseout="this.style.background='var(--cream)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.79 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6"/></svg>
+              Support
+            </a>
+          </div>
+
+          <button onclick="upasanaSignOut()" style="width:100%;padding:11px;border-radius:var(--pill);background:transparent;color:var(--text2);font-weight:600;font-size:.85rem;border:1.5px solid var(--border);cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:7px" onmouseover="this.style.background='rgba(198,40,40,.06)';this.style.borderColor='#f44336';this.style.color='#c62828'" onmouseout="this.style.background='transparent';this.style.borderColor='var(--border)';this.style.color='var(--text2)'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign Out
+          </button>
         </div>
       </div>
     </div>`;
@@ -629,26 +676,39 @@ function handleGoogleCredential(response) {
 }
 
 function showUserProfile(user) {
-  // Update modal
   const avatar = document.getElementById('user-avatar');
   const nameEl = document.getElementById('user-name');
   const emailEl = document.getElementById('user-email');
-  if (avatar)  avatar.src = user.picture || '';
+  if (avatar)  { avatar.src = user.picture || ''; avatar.style.display = user.picture ? 'block' : 'none'; }
   if (nameEl)  nameEl.textContent  = user.name;
   if (emailEl) emailEl.textContent = user.email;
 
   document.getElementById('login-signed-out')?.style.setProperty('display','none');
   document.getElementById('login-signed-in')?.style.setProperty('display','block');
 
-  // Update navbar login button to show user name
+  // Update navbar login button — show avatar + first name
   const loginBtn = document.getElementById('login-btn-hdr');
   if (loginBtn) {
     loginBtn.innerHTML = (user.picture
-      ? '<img src="'+user.picture+'" style="width:22px;height:22px;border-radius:50%;object-fit:cover;margin-right:6px;vertical-align:middle"/>'
+      ? '<img src="'+user.picture+'" style="width:22px;height:22px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:5px"/>'
       : '') + user.name.split(' ')[0];
     loginBtn.style.background = 'rgba(70,26,25,.1)';
+    loginBtn.style.border = '1.5px solid var(--border2)';
+    loginBtn.style.borderRadius = '20px';
+    loginBtn.style.padding = '5px 12px';
   }
 }
+
+/* Email/password login (UI demo — wire to backend when ready) */
+window.handleEmailLogin = function() {
+  const email = document.getElementById('login-email')?.value.trim();
+  const pass  = document.getElementById('login-password')?.value.trim();
+  if (!email) { showToast('Please enter your email address.', 'error'); return; }
+  if (!pass)  { showToast('Please enter your password.', 'error'); return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('Please enter a valid email.', 'error'); return; }
+  // For now show a coming-soon message — replace with actual auth when backend is ready
+  showToast('Email login coming soon. Please use Continue with Google.', 'info');
+};
 
 window.upasanaSignOut = function() {
   localStorage.removeItem('upasana_user');
