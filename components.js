@@ -720,10 +720,10 @@ function initGoogleAuth() {
     setupGoogleAuth(CLIENT_ID);
   }
 
-  // Restore session from localStorage
-  const saved = localStorage.getItem('upasana_user');
+  // Restore session from sessionStorage (clears on tab close)
+  const saved = sessionStorage.getItem('upasana_user');
   if (saved) {
-    try { showUserProfile(JSON.parse(saved)); } catch(e) { localStorage.removeItem('upasana_user'); }
+    try { showUserProfile(JSON.parse(saved)); } catch(e) { sessionStorage.removeItem('upasana_user'); }
   }
 }
 
@@ -766,11 +766,19 @@ function handleGoogleCredential(response) {
       sub:     payload.sub,
     };
     localStorage.setItem('upasana_user', JSON.stringify(user));
+    sessionStorage.setItem('upasana_user', JSON.stringify(user));
     showUserProfile(user);
     // Close modal after short delay
     setTimeout(() => {
       document.getElementById('login-modal')?.classList.remove('active');
+      document.body.style.overflow = '';
       showToast('Welcome, ' + user.name + '! You are signed in.', 'success');
+      // Run pending action (e.g. booking form submit)
+      if(window._pendingAfterLogin) {
+        const cb = window._pendingAfterLogin;
+        window._pendingAfterLogin = null;
+        setTimeout(cb, 300);
+      }
     }, 800);
   } catch(e) {
     showToast('Sign-in failed. Please try again.', 'error');
@@ -841,6 +849,7 @@ window.handleEmailLogin = function() {
 
 window.upasanaSignOut = function() {
   localStorage.removeItem('upasana_user');
+  sessionStorage.removeItem('upasana_user');
   document.getElementById('login-signed-out')?.style.setProperty('display','block');
   document.getElementById('login-signed-in')?.style.setProperty('display','none');
 
@@ -949,6 +958,25 @@ function renderFooter() {
         <p class="cs-sub">We're working on something wonderful.<br/>Stay tuned — launching very soon!</p>
         <div class="cs-dots"><span></span><span></span><span></span></div>
         <a href="https://wa.me/918087590902" class="cs-notify-btn" target="_blank">Get Notified on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Booking Success Modal -->
+    <div class="booking-success-overlay" id="booking-success-modal" onclick="closeBookingSuccess(event)">
+      <div class="bs-box" onclick="event.stopPropagation()">
+        <div class="bs-check-wrap">
+          <svg class="bs-check-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="bs-check-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="bs-check-tick" fill="none" d="M14 27l8 8 16-16"/>
+          </svg>
+        </div>
+        <h2 class="bs-title">Booking Request Sent!</h2>
+        <p class="bs-sub">Thank you for choosing <strong>MyUpasana</strong>. Our team will contact you within <strong>30 minutes</strong> to confirm your pandit.</p>
+        <div class="bs-details" id="bs-details"></div>
+        <div class="bs-actions">
+          <a href="index.html" class="bs-btn-home">Back to Home</a>
+          <button class="bs-btn-close" onclick="closeBookingSuccess()">Done</button>
+        </div>
       </div>
     </div>`;
 }
@@ -1070,6 +1098,36 @@ window.closeComingSoon = function(e) {
   if(e && e.target !== document.getElementById('coming-soon-modal') && !e.target.classList.contains('coming-soon-close')) return;
   const m = document.getElementById('coming-soon-modal');
   if(m) { m.classList.remove('active'); document.body.style.overflow=''; }
+};
+
+/* ── Booking Success Modal ── */
+window.showBookingSuccess = function(details) {
+  const m = document.getElementById('booking-success-modal');
+  const d = document.getElementById('bs-details');
+  if(d && details) d.innerHTML = details;
+  if(m) { m.classList.add('active'); document.body.style.overflow='hidden'; }
+};
+window.closeBookingSuccess = function(e) {
+  if(e && e.target !== document.getElementById('booking-success-modal')) return;
+  const m = document.getElementById('booking-success-modal');
+  if(m) { m.classList.remove('active'); document.body.style.overflow=''; }
+};
+
+/* ── Check if user is logged in (for booking gate) ── */
+window.isUserLoggedIn = function() {
+  return !!(sessionStorage.getItem('upasana_user'));
+};
+
+window.requireLogin = function(callback) {
+  if(window.isUserLoggedIn()) {
+    callback();
+  } else {
+    // Open login modal and set a pending action
+    window._pendingAfterLogin = callback;
+    const loginModal = document.getElementById('login-modal');
+    if(loginModal) { loginModal.classList.add('active'); document.body.style.overflow='hidden'; }
+    showToast('Please sign in to complete your booking.', 'info');
+  }
 };
 
 /* ── Toast Notification ── */

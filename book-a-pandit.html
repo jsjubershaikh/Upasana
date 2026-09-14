@@ -246,9 +246,18 @@
     });
   });
 
-  // Book Pandit form ? WhatsApp redirect
+  // Book Pandit form submit
   document.getElementById('booking-form').addEventListener('submit', function(e) {
     e.preventDefault();
+
+    // ── STEP 1: Require login ──
+    if(!window.isUserLoggedIn || !window.isUserLoggedIn()) {
+      window.requireLogin(() => {
+        // After login, auto-submit the form
+        document.getElementById('booking-form').dispatchEvent(new Event('submit', {bubbles:true, cancelable:true}));
+      });
+      return;
+    }
 
     const name    = document.getElementById('full-name').value.trim();
     const phone   = document.getElementById('phone').value.trim();
@@ -261,41 +270,58 @@
     const address = document.getElementById('address').value.trim();
     const notes   = document.getElementById('notes').value.trim();
 
-    if (!name || !phone || !puja || !date) {
-      showToast('Please fill in Name, Phone, Puja Type and Date.', 'error');
-      return;
-    }
+    if (!name)  { showToast('Please enter your full name.', 'error'); return; }
+    if (!phone) { showToast('Please enter your mobile number.', 'error'); return; }
+    if (!puja)  { showToast('Please select a puja type.', 'error'); return; }
+    if (!date)  { showToast('Please select the puja date.', 'error'); return; }
 
-    const formattedDate = date ? new Date(date).toLocaleDateString('en-IN', {day:'2-digit',month:'long',year:'numeric'}) : 'Not specified';
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Sending Request...';
+    btn.disabled = true;
 
-    const msg = `Thank you for contacting MyUpasana!*
+    const fd = new Date(date).toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+    const ft = time ? (function(){ const [h,m]=time.split(':').map(Number); const ap=h<12?'AM':'PM'; const hh=h%12||12; return hh+':'+(m<10?'0':'')+m+' '+ap; })() : 'Not specified';
 
-We have received your booking request. Our team will confirm your pandit within 30 minutes.
+    // ── STEP 2: Send to WhatsApp ──
+    const user = JSON.parse(sessionStorage.getItem('upasana_user') || '{}');
+    const msg =
+`*Thank you for contacting MyUpasana!*
 
-????????????????????
-?? *BOOKING DETAILS*
-????????????????????
+Your booking request has been received. Our team will confirm your pandit within 30 minutes.
 
-?? *Name:* ${name}
-?? *Contact:* ${phone}
-??? *Puja / Ceremony:* ${puja}
-?? *Date:* ${formattedDate}
-? *Preferred Time:* ${time || 'Not specified'}
-?? *City:* ${city || 'Not specified'}
-?? *Address:* ${address || 'Will share separately'}
-?? *Puja Mode:* ${mode === 'offline' ? 'Offline (Home Visit)' : 'Online (Live Stream)'}
-?? *Samagri Delivery:* ${samagri === 'yes' ? 'Yes, required' : 'No, not required'}
-${notes ? `*Special Notes:* ${notes}` : ''}
+*BOOKING DETAILS*
 
-????????????????????
+Name: ${name}
+Contact: ${phone}
+Puja / Ceremony: ${puja}
+Date: ${fd}
+Preferred Time: ${ft}
+City: ${city || 'Not specified'}
+Address: ${address || 'Will share separately'}
+Puja Mode: ${mode === 'offline' ? 'Offline (Home Visit)' : 'Online (Live Stream)'}
+Samagri Delivery: ${samagri === 'yes' ? 'Yes, required' : 'No, not required'}${notes ? '\nSpecial Notes: '+notes : ''}${user.email ? '\nBooked by: '+user.email : ''}
 
-? _Please confirm this booking or share any additional details._
+MyUpasana | +91 80875 90902`;
 
-*Upasana* | Book a Pandit Online
-?? +91 80875 90902`;
+    window.open('https://wa.me/918087590902?text=' + encodeURIComponent(msg), '_blank');
 
-    const encodedMsg = encodeURIComponent(msg);
-    window.open(`https://wa.me/918087590902?text=${encodedMsg}`, '_blank');
+    // ── STEP 3: Show success popup ──
+    const details = `
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:4px 12px">
+        <strong>Name</strong><span>${name}</span>
+        <strong>Puja</strong><span>${puja}</span>
+        <strong>Date</strong><span>${fd}</span>
+        <strong>Time</strong><span>${ft}</span>
+        <strong>Mode</strong><span>${mode === 'offline' ? 'Offline (Home)' : 'Online'}</span>
+        <strong>City</strong><span>${city || 'Not specified'}</span>
+      </div>`;
+
+    setTimeout(() => {
+      window.showBookingSuccess(details);
+      btn.textContent = 'Book Pandit Now';
+      btn.disabled = false;
+      document.getElementById('booking-form').reset();
+    }, 600);
   });
 </script>
 </body>

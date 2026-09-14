@@ -832,6 +832,32 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
 .cs-notify-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.4)}
 
 /* ══════════════════════════════════════════════════
+   BOOKING SUCCESS MODAL
+══════════════════════════════════════════════════ */
+.booking-success-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(10px);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px}
+.booking-success-overlay.active{display:flex;animation:csIn .3s ease}
+.bs-box{background:var(--white);border-radius:28px;padding:44px 36px;text-align:center;max-width:440px;width:100%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.35);animation:bsBoxIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes bsBoxIn{from{transform:scale(.7) translateY(40px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+
+/* Animated checkmark */
+.bs-check-wrap{width:80px;height:80px;margin:0 auto 20px}
+.bs-check-svg{width:80px;height:80px}
+.bs-check-circle{stroke:var(--gold2);stroke-width:2;stroke-dasharray:157;stroke-dashoffset:157;animation:bsCircle .6s ease forwards .1s}
+.bs-check-tick{stroke:var(--dark);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:48;stroke-dashoffset:48;animation:bsTick .4s ease forwards .65s}
+@keyframes bsCircle{to{stroke-dashoffset:0}}
+@keyframes bsTick{to{stroke-dashoffset:0}}
+
+.bs-title{font-family:var(--font-heading);font-size:1.8rem;font-weight:700;color:var(--dark);margin-bottom:10px}
+.bs-sub{font-size:.9rem;color:var(--text2);line-height:1.65;margin-bottom:20px}
+.bs-details{background:var(--cream);border-radius:14px;padding:14px 18px;text-align:left;margin-bottom:24px;border:1px solid var(--border);font-size:.82rem;color:var(--text2);line-height:1.8}
+.bs-details strong{color:var(--dark)}
+.bs-actions{display:flex;gap:12px;justify-content:center}
+.bs-btn-home{padding:11px 24px;background:var(--cream);color:var(--dark);border-radius:var(--pill);font-weight:700;font-size:.85rem;border:1.5px solid var(--border);text-decoration:none;transition:all .2s}
+.bs-btn-home:hover{background:var(--cream2);border-color:var(--border2)}
+.bs-btn-close{padding:11px 28px;background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--cream);border-radius:var(--pill);font-weight:700;font-size:.85rem;border:none;cursor:pointer;font-family:inherit;transition:all .2s;box-shadow:0 4px 14px rgba(70,26,25,.25)}
+.bs-btn-close:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(70,26,25,.35)}
+
+/* ══════════════════════════════════════════════════
    VIEW MORE BUTTON (global)
 ══════════════════════════════════════════════════ */
 .view-more-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 28px;background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--cream);border:none;border-radius:var(--pill);font-size:.875rem;font-weight:700;cursor:pointer;transition:all .3s ease;box-shadow:0 4px 16px rgba(70,26,25,.2);font-family:inherit}
