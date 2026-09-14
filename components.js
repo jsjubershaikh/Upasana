@@ -1122,12 +1122,19 @@ window.requireLogin = function(callback) {
   if(window.isUserLoggedIn()) {
     callback();
   } else {
-    // Open login modal and set a pending action
     window._pendingAfterLogin = callback;
     const loginModal = document.getElementById('login-modal');
     if(loginModal) { loginModal.classList.add('active'); document.body.style.overflow='hidden'; }
     showToast('Please sign in to complete your booking.', 'info');
   }
+};
+
+/* ── All "Book a Pandit" links require login ── */
+window.goBookPandit = function(e) {
+  e.preventDefault();
+  window.requireLogin(() => {
+    window.location.href = 'book-a-pandit.html';
+  });
 };
 
 /* ── Toast Notification ── */

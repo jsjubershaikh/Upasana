@@ -74,7 +74,7 @@
             <a href="astrology.html" class="ql-item"><div class="ql-icon"><img src="assets/astrology-icon.png" alt="Astrology" class="ql-img"/></div><span data-i18n="hero.ql.astrology">Astrology</span></a>
             <a href="muhurat.html"   class="ql-item"><div class="ql-icon"><img src="assets/muhurat.png" alt="Muhurat" class="ql-img"/></div><span data-i18n="hero.ql.muhurat">Muhurat</span></a>
             <a href="kundali.html"   class="ql-item"><div class="ql-icon"><img src="assets/kundali-icon.png" alt="Kundali" class="ql-img"/></div><span data-i18n="hero.ql.kundali">Kundali</span></a>
-            <a href="book-a-pandit.html" class="ql-item"><div class="ql-icon"><img src="assets/pandit-icon.png" alt="Book Pandit" class="ql-img"/></div><span data-i18n="hero.ql.book">Book Pandit</span></a>
+            <a href="book-a-pandit.html" class="ql-item" onclick="goBookPandit(event)"><div class="ql-icon"><img src="assets/pandit-icon.png" alt="Book Pandit" class="ql-img"/></div><span data-i18n="hero.ql.book">Book Pandit</span></a>
           </div>
         </div>
       </div>
@@ -575,12 +575,20 @@
 (function(){
   const form = document.getElementById('booking-form');
   if (!form) return;
-  // Set min date
   const di = document.getElementById('puja-date');
   if (di) di.min = new Date().toISOString().split('T')[0];
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    // Require login first
+    if(!window.isUserLoggedIn || !window.isUserLoggedIn()) {
+      window.requireLogin(() => {
+        form.dispatchEvent(new Event('submit', {bubbles:true, cancelable:true}));
+      });
+      return;
+    }
+
     const puja   = document.getElementById('puja-type')?.value;
     const date   = document.getElementById('puja-date')?.value;
     const time   = document.getElementById('puja-time')?.value;

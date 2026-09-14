@@ -330,7 +330,7 @@ function renderKundali(data, name, dob, tob, pob, gender) {
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
         Print / Save PDF
       </button>
-      <a href="book-a-pandit.html" class="kr-btn kr-btn-wa">
+      <a href="book-a-pandit.html" class="kr-btn kr-btn-wa" onclick="goBookPandit(event)">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         Consult an Astrologer
       </a>
@@ -415,7 +415,7 @@ function renderKundali(data, name, dob, tob, pob, gender) {
 
     <!-- Disclaimer -->
     <div style="background:rgba(70,26,25,.05);border-radius:12px;padding:16px 20px;border:1px solid var(--border);margin-top:8px">
-      <p style="font-size:.75rem;color:var(--text3);line-height:1.6;margin:0"><strong style="color:var(--text2)">Note:</strong> This Kundali is generated using Vedic sidereal (Lahiri Ayanamsa) calculations with your provided birth details. For highly accurate results with precise birth time and location coordinates, and for detailed life predictions, please <a href="book-a-pandit.html" style="color:var(--dark);font-weight:700">consult our expert Vedic astrologer</a>.</p>
+      <p style="font-size:.75rem;color:var(--text3);line-height:1.6;margin:0"><strong style="color:var(--text2)">Note:</strong> This Kundali is generated using Vedic sidereal (Lahiri Ayanamsa) calculations with your provided birth details. For highly accurate results with precise birth time and location coordinates, and for detailed life predictions, please <a href="book-a-pandit.html" style="color:var(--dark);font-weight:700" onclick="goBookPandit(event)">consult our expert Vedic astrologer</a>.</p>
     </div>`;
 
   return html;
