@@ -983,94 +983,14 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
   .steps-row{grid-template-columns:1fr}
   .mv-grid{grid-template-columns:1fr}
 }
-
 /* ══════════════════════════════════════════════════
-   PUJA SERVICE PAGE — Premium Template
+   PUJA SERVICE PAGE — Premium Template (Clean)
 ══════════════════════════════════════════════════ */
-.puja-hero-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:480px;overflow:hidden;border-radius:0}
-.puja-hero-content{padding:60px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--cream);position:relative}
-.puja-hero-image{position:relative;overflow:hidden;min-height:480px}
-.puja-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center}
-.puja-hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(70,26,25,.18),transparent)}
-.puja-hero-badge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.3);padding:4px 14px;border-radius:var(--pill);margin-bottom:18px}
-.puja-hero-title{font-family:var(--font-heading);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:16px}
-.puja-hero-sub{font-size:.96rem;color:var(--text2);line-height:1.7;margin-bottom:28px;max-width:480px}
-.puja-hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.puja-highlights-strip{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:20px 0}
-.puja-highlights-inner{display:flex;gap:0;justify-content:space-around;flex-wrap:wrap}
-.puja-hl-item{display:flex;align-items:center;gap:10px;color:rgba(253,246,228,.85);font-size:.84rem;font-weight:600;padding:8px 20px;border-right:1px solid rgba(253,246,228,.15)}
-.puja-hl-item:last-child{border-right:none}
-.puja-hl-dot{width:8px;height:8px;border-radius:50%;background:var(--gold2);flex-shrink:0}
-.puja-content-grid{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start}
-.puja-about-card{background:var(--white);border-radius:var(--rx);padding:36px;border:1px solid var(--border);margin-bottom:28px}
-.puja-about-card h2{font-family:var(--font-heading);font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:14px}
-.puja-about-card p{font-size:.93rem;color:var(--text2);line-height:1.8;margin-bottom:14px}
-.puja-about-card p:last-child{margin-bottom:0}
-.puja-rituals-title{font-family:var(--font-heading);font-size:1.35rem;font-weight:700;color:var(--dark);margin:28px 0 16px;display:flex;align-items:center;gap:10px}
-.puja-rituals-title::before{content:'';width:4px;height:22px;background:linear-gradient(180deg,var(--gold),var(--gold2));border-radius:2px;flex-shrink:0}
-.ritual-steps{display:flex;flex-direction:column;gap:14px}
-.ritual-step{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--cream);border-radius:var(--r);border-left:3px solid var(--gold2)}
-.ritual-step-num{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--dark),var(--dark2));color:var(--gold3);font-size:.7rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.ritual-step-body strong{display:block;font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:3px}
-.ritual-step-body p{font-size:.81rem;color:var(--text2);line-height:1.55;margin:0}
-.puja-details-box{background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:var(--rx);padding:32px;color:var(--cream);margin-bottom:28px}
-.puja-details-box h3{font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--gold3);margin-bottom:20px}
-.puja-detail-row{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(253,246,228,.1)}
-.puja-detail-row:last-child{border-bottom:none}
-.puja-detail-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gold2);flex-shrink:0;min-width:80px}
-.puja-detail-value{font-size:.85rem;color:rgba(253,246,228,.8);line-height:1.5}
-.puja-coord-card{background:var(--white);border-radius:var(--rx);padding:32px;border:1px solid var(--border);margin-bottom:28px}
-.puja-coord-card h3{font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:16px}
-.coord-list{list-style:none;display:flex;flex-direction:column;gap:10px}
-.coord-list li{display:flex;align-items:flex-start;gap:10px;font-size:.88rem;color:var(--text2);line-height:1.55}
-.coord-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px}
-.puja-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.puja-why-item{background:var(--cream);border-radius:var(--r);padding:14px 16px;border:1px solid var(--border)}
-.puja-why-item strong{display:block;font-size:.84rem;font-weight:700;color:var(--dark);margin-bottom:3px}
-.puja-why-item p{font-size:.78rem;color:var(--text2);line-height:1.5;margin:0}
-.puja-sticky-sidebar{position:sticky;top:110px}
-.puja-book-card{background:linear-gradient(160deg,var(--dark),var(--dark2));border-radius:var(--rx);padding:28px;color:var(--cream);margin-bottom:20px}
-.puja-book-card h3{font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--gold3);margin-bottom:18px}
-.puja-book-row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(253,246,228,.1);font-size:.83rem}
-.puja-book-row:last-of-type{border-bottom:none;margin-bottom:16px}
-.puja-book-row strong{color:var(--gold2);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;min-width:70px}
-.puja-book-row span{color:rgba(253,246,228,.8)}
-.puja-trust-card{background:var(--white);border-radius:var(--rl);padding:20px;border:1px solid var(--border)}
-.puja-trust-card h4{font-size:.85rem;font-weight:700;color:var(--dark);margin-bottom:12px}
-.puja-trust-list{display:flex;flex-direction:column;gap:8px}
-.puja-trust-item{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--text2)}
-.puja-trust-item svg{color:var(--gold);flex-shrink:0}
-.puja-cta-band{background:linear-gradient(135deg,var(--dark),var(--dark2));padding:64px 0;text-align:center}
-.puja-cta-band h2{font-family:var(--font-heading);font-size:2rem;font-weight:700;color:var(--cream);margin-bottom:10px}
-.puja-cta-band p{color:rgba(253,246,228,.7);margin-bottom:28px;font-size:.95rem}
-.puja-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-@media(max-width:991px){
-  .puja-hero-wrap{grid-template-columns:1fr}
-  .puja-hero-image{min-height:300px;order:-1}
-  .puja-hero-content{padding:36px 28px}
-  .puja-content-grid{grid-template-columns:1fr}
-  .puja-sticky-sidebar{position:static}
-  .puja-highlights-inner{gap:0;flex-direction:column}
-  .puja-hl-item{border-right:none;border-bottom:1px solid rgba(253,246,228,.1)}
-  .puja-hl-item:last-child{border-bottom:none}
-}
-@media(max-width:640px){
-  .puja-hero-content{padding:28px 20px}
-  .puja-about-card{padding:24px}
-  .puja-details-box{padding:22px}
-  .puja-coord-card{padding:22px}
-  .puja-book-card{padding:22px}
-  .puja-why-grid{grid-template-columns:1fr}
-}
-
-/* ══════════════════════════════════════════════════
-   PUJA SERVICE PAGE — Premium Template
-══════════════════════════════════════════════════ */
-.puja-hero-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:480px;overflow:hidden}
+.puja-hero-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:520px;overflow:hidden}
 .puja-hero-content{padding:60px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--cream)}
-.puja-hero-image{position:relative;overflow:hidden;min-height:480px}
-.puja-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center}
-.puja-hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(70,26,25,.15),transparent);pointer-events:none}
+.puja-hero-image{position:relative;overflow:hidden;min-height:520px}
+.puja-hero-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.puja-hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(253,246,228,.08),rgba(70,26,25,.12));pointer-events:none}
 .puja-hero-badge{display:inline-block;font-size:.65rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);background:rgba(200,146,42,.1);border:1px solid rgba(200,146,42,.28);padding:4px 14px;border-radius:var(--pill);margin-bottom:16px;align-self:flex-start}
 .puja-hero-title{font-family:var(--font-heading);font-size:clamp(1.8rem,3.8vw,2.8rem);font-weight:700;color:var(--dark);line-height:1.18;margin-bottom:14px}
 .puja-hero-sub{font-size:.93rem;color:var(--text2);line-height:1.72;margin-bottom:28px;max-width:480px}
@@ -1124,21 +1044,27 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
 .puja-cta-band h2{font-family:var(--font-heading);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--cream);margin-bottom:10px}
 .puja-cta-band p{color:rgba(253,246,228,.68);margin-bottom:28px;font-size:.93rem;max-width:520px;margin-left:auto;margin-right:auto}
 .puja-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Puja pages — Tablet (≤991px) */
 @media(max-width:991px){
-  .puja-hero-wrap{grid-template-columns:1fr}
-  .puja-hero-image{min-height:280px;order:-1}
-  .puja-hero-content{padding:36px 28px}
-  .puja-hero-badge{font-size:.6rem}
+  .puja-hero-wrap{grid-template-columns:1fr;min-height:auto}
+  .puja-hero-image{min-height:360px;order:-1;height:360px}
+  .puja-hero-content{padding:32px 28px}
   .puja-content-grid{grid-template-columns:1fr}
   .puja-sticky-sidebar{position:static}
-  .puja-highlights-inner{flex-direction:column;gap:0}
+  .puja-highlights-inner{flex-direction:column}
   .puja-hl-item{border-right:none;border-bottom:1px solid rgba(253,246,228,.1);justify-content:center}
   .puja-hl-item:last-child{border-bottom:none}
 }
+
+/* Puja pages — Mobile (≤640px) */
 @media(max-width:640px){
+  .puja-hero-image{min-height:280px;height:280px}
   .puja-hero-content{padding:24px 18px}
-  .puja-hero-image{min-height:220px}
+  .puja-hero-title{font-size:clamp(1.5rem,6vw,2rem)}
+  .puja-hero-sub{font-size:.85rem}
   .puja-about-card,.puja-details-box,.puja-coord-card,.puja-book-card{padding:20px}
   .puja-why-grid{grid-template-columns:1fr}
-  .puja-content-grid{gap:20px}
+  .puja-content-grid{gap:16px}
+  .puja-cta-band{padding:44px 0}
 }
