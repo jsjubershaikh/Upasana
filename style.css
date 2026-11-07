@@ -274,6 +274,7 @@ img{display:block;max-width:100%}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .form-group{display:flex;flex-direction:column;gap:7px}
 .form-group label{font-size:.82rem;font-weight:700;color:var(--text);letter-spacing:.02em}
+.req{color:#d32f2f;font-weight:700;margin-left:3px}
 .form-control{padding:12px 14px;border-radius:10px;border:2px solid var(--border);font-size:.9rem;font-family:inherit;color:var(--text);background:var(--cream);outline:none;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none}
 .form-control:focus{border-color:var(--gold2);box-shadow:0 0 0 4px rgba(200,146,42,.12);background:var(--white)}
 .form-control::placeholder{color:var(--text3)}

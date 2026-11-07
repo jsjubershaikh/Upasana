@@ -126,8 +126,8 @@
           <form class="form-grid" id="booking-form">
             <div class="form-row">
               <div class="form-group">
-                <label for="puja-type" data-i18n="book.puja.label">Select Puja / Ceremony</label>
-                <select id="puja-type" class="form-control">
+                <label for="puja-type" data-i18n="book.puja.label">Select Puja / Ceremony <span class="req">*</span></label>
+                <select id="puja-type" class="form-control" required>
                   <option value="">-- Choose Puja Type --</option>
                   <option>Rudrabhishek Puja</option>
                   <option>Griha Pravesh Puja</option>
@@ -143,43 +143,43 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="puja-date">Select Date</label>
-                <input type="date" id="puja-date" class="form-control"/>
+                <label for="puja-date">Select Date <span class="req">*</span></label>
+                <input type="date" id="puja-date" class="form-control" required/>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="puja-time">Preferred Time</label>
-                <select id="puja-time" class="form-control">
+                <label for="puja-time">Preferred Time <span class="req">*</span></label>
+                <select id="puja-time" class="form-control" required>
                   <option value="">-- Select Time Slot --</option>
                   <option>Early Morning (5 – 7 AM)</option>
                   <option>Morning (7 – 10 AM)</option>
-                  <option>Late Morning (10 AM�12 PM)</option>
+                  <option>Late Morning (10 AM – 12 PM)</option>
                   <option>Afternoon (12 – 3 PM)</option>
                   <option>Evening (3 – 6 PM)</option>
                   <option>As per Muhurat</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="city">City / Location</label>
-                <input type="text" id="city" class="form-control" placeholder="e.g. Mumbai, Delhi, Surat�"/>
+                <label for="city">City / Location <span class="req">*</span></label>
+                <input type="text" id="city" class="form-control" placeholder="e.g. Mumbai, Delhi, Surat" required/>
               </div>
             </div>
             <div class="form-group">
-              <label>Puja Mode</label>
+              <label>Puja Mode <span class="req">*</span></label>
               <div class="radio-group">
-                <label class="radio-opt checked"><input type="radio" name="mode" value="offline" checked/><div class="radio-dot"><div class="radio-inner"></div></div>Offline (Home)</label>
-                <label class="radio-opt"><input type="radio" name="mode" value="online"/><div class="radio-dot"><div class="radio-inner"></div></div>Online (Live Stream)</label>
+                <label class="radio-opt checked"><input type="radio" name="mode" value="offline" checked required/><div class="radio-dot"><div class="radio-inner"></div></div>Offline (Home)</label>
+                <label class="radio-opt"><input type="radio" name="mode" value="online" required/><div class="radio-dot"><div class="radio-inner"></div></div>Online (Live Stream)</label>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="full-name">Full Name</label>
-                <input type="text" id="full-name" class="form-control" placeholder="Your full name"/>
+                <label for="full-name">Full Name <span class="req">*</span></label>
+                <input type="text" id="full-name" class="form-control" placeholder="Your full name" required/>
               </div>
               <div class="form-group">
-                <label for="phone">Mobile Number</label>
-                <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXX XXXXX"/>
+                <label for="phone">Mobile Number <span class="req">*</span></label>
+                <input type="tel" id="phone" class="form-control" placeholder="+91 XXXXX XXXXX" pattern="[0-9+\s-]{10,15}" required/>
               </div>
             </div>
             <button type="submit" class="btn-submit">Book Pandit Now</button>
@@ -534,15 +534,18 @@
     const puja   = document.getElementById('puja-type')?.value;
     const date   = document.getElementById('puja-date')?.value;
     const time   = document.getElementById('puja-time')?.value;
-    const city   = document.getElementById('city')?.value.trim();
-    const name   = document.getElementById('full-name')?.value.trim();
-    const phone  = document.getElementById('phone')?.value.trim();
-    const mode   = document.querySelector('input[name="mode"]:checked')?.value || 'Offline';
+    const city   = document.getElementById('city')?.value?.trim();
+    const mode   = document.querySelector('input[name="mode"]:checked')?.value;
+    const name   = document.getElementById('full-name')?.value?.trim();
+    const phone  = document.getElementById('phone')?.value?.trim();
 
-    if (!puja)  { showToast('Please select a puja type.','error'); return; }
-    if (!date)  { showToast('Please select a date.','error'); return; }
-    if (!name)  { showToast('Please enter your full name.','error'); return; }
-    if (!phone) { showToast('Please enter your mobile number.','error'); return; }
+    if (!puja)  { showToast('Please select a puja type.', 'error'); document.getElementById('puja-type')?.focus(); return; }
+    if (!date)  { showToast('Please select a date.', 'error'); document.getElementById('puja-date')?.focus(); return; }
+    if (!time)  { showToast('Please select a preferred time slot.', 'error'); document.getElementById('puja-time')?.focus(); return; }
+    if (!city)  { showToast('Please enter your city / location.', 'error'); document.getElementById('city')?.focus(); return; }
+    if (!mode)  { showToast('Please select a puja mode.', 'error'); return; }
+    if (!name)  { showToast('Please enter your full name.', 'error'); document.getElementById('full-name')?.focus(); return; }
+    if (!phone || phone.replace(/\D/g, '').length < 10) { showToast('Please enter a valid 10-digit mobile number.', 'error'); document.getElementById('phone')?.focus(); return; }
 
     const fd = date ? new Date(date).toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}) : 'Not specified';
 

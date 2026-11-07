@@ -295,23 +295,44 @@ function initBookingForm() {
 
     const pujaType = document.getElementById('puja-type')?.value;
     const date     = document.getElementById('puja-date')?.value;
-    const name     = document.getElementById('full-name')?.value;
-    const phone    = document.getElementById('phone')?.value;
+    const time     = document.getElementById('puja-time')?.value;
+    const city     = document.getElementById('city')?.value?.trim();
+    const mode     = form.querySelector('input[name="mode"]:checked')?.value;
+    const name     = document.getElementById('full-name')?.value?.trim();
+    const phone    = document.getElementById('phone')?.value?.trim();
 
     if (!pujaType) {
       showToast('Please select a puja type.', 'error');
+      document.getElementById('puja-type')?.focus();
       return;
     }
     if (!date) {
       showToast('Please select a date.', 'error');
+      document.getElementById('puja-date')?.focus();
       return;
     }
-    if (!name?.trim()) {
+    if (!time) {
+      showToast('Please select a preferred time slot.', 'error');
+      document.getElementById('puja-time')?.focus();
+      return;
+    }
+    if (!city) {
+      showToast('Please enter your city / location.', 'error');
+      document.getElementById('city')?.focus();
+      return;
+    }
+    if (!mode) {
+      showToast('Please select a puja mode.', 'error');
+      return;
+    }
+    if (!name) {
       showToast('Please enter your full name.', 'error');
+      document.getElementById('full-name')?.focus();
       return;
     }
-    if (!phone?.trim() || phone.replace(/\D/g, '').length < 10) {
-      showToast('Please enter a valid 10-digit phone number.', 'error');
+    if (!phone || phone.replace(/\D/g, '').length < 10) {
+      showToast('Please enter a valid 10-digit mobile number.', 'error');
+      document.getElementById('phone')?.focus();
       return;
     }
 
