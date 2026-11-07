@@ -865,100 +865,100 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
    MOBILE HERO FIXES
 ══════════════════════════════════════════════════ */
 @media(max-width:767px){
-  /* Hero container — unified luxury Vedic page section */
+  /* Hero container — wraps content snugly with ZERO EMPTY SPACE */
   .hero{
-    margin-top:72px;
-    min-height:calc(100vh - 72px);
-    min-height:calc(100svh - 72px);
-    min-height:calc(100dvh - 72px);
-    height:auto;
+    margin-top:84px;
+    min-height:auto !important;
+    height:auto !important;
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
     align-items:center;
-    padding:0 0 max(16px,env(safe-area-inset-bottom));
+    padding:0 0 24px !important;
     background:linear-gradient(180deg,#160806 0%,#1c0c09 40%,#140605 75%,#0d0404 100%);
     overflow:hidden;
     position:relative;
     box-sizing:border-box;
   }
 
-  /* Slides wrapper: exact height for 100% full-size poster (53.35vw) + titles (95px) */
+  /* Slides wrapper: auto height driven by active slide content */
   .slides-wrap{
     position:relative;
     width:100%;
-    height:calc(53.35vw + 95px);
+    height:auto;
     overflow:hidden;
     z-index:1;
   }
 
-  /* Slide: 100% FULL-SIZE POSTER (zero zoom, zero crop) + typography below */
+  /* Slide: auto-aligns to device display size */
   .slide{
     position:absolute !important;
     inset:0 !important;
     width:100% !important;
     height:100% !important;
-    /* 100% natural aspect ratio — entire poster from left to right, top to bottom is visible */
-    background-size:100% auto !important;
-    background-position:top center !important;
-    background-repeat:no-repeat !important;
-    background-color:transparent !important;
-    padding:calc(53.35vw + 10px) 16px 0 !important;
-    display:flex !important;
-    flex-direction:column !important;
-    justify-content:flex-start !important;
-    align-items:center !important;
-    box-sizing:border-box !important;
     opacity:0 !important;
     visibility:hidden !important;
-    transition:opacity .65s ease,visibility .65s ease !important;
+    pointer-events:none !important;
+    transition:opacity .45s ease,visibility .45s ease !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    box-sizing:border-box !important;
+    padding:0 !important;
+    background:transparent !important;
   }
+
+  /* Active slide sets the natural height in document flow */
   .slide.active{
+    position:relative !important;
     opacity:1 !important;
     visibility:visible !important;
+    pointer-events:auto !important;
     z-index:2 !important;
   }
 
-  /* Soft vignette transition at bottom of poster artwork into dark background */
+  /* Poster image container inside slide — exact natural aspect ratio matching device display size */
+  .slide::before{
+    content:'';
+    display:block;
+    width:100%;
+    aspect-ratio:1717 / 916;
+    background-image:url('assets/final-poster.png');
+    background-size:100% 100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    flex-shrink:0;
+  }
+
+  /* Remove dark overlay line across the artwork */
   .slide-overlay{
-    display:block !important;
-    position:absolute !important;
-    top:0 !important;
-    left:0 !important;
-    right:0 !important;
-    height:53.35vw !important;
-    background:linear-gradient(180deg,rgba(0,0,0,.08) 0%,rgba(0,0,0,0) 65%,rgba(22,8,6,.75) 90%,#160806 100%) !important;
-    pointer-events:none !important;
-    z-index:1 !important;
+    display:none !important;
   }
 
   /* Slide Title & Subtitle below poster */
   .hero-content{
     position:relative;
     z-index:10;
-    padding:0 8px;
+    padding:14px 16px 0;
     margin:0 auto;
     width:100%;
     max-width:100%;
     text-align:center;
+    box-sizing:border-box;
   }
   .hero-title{
-    font-size:clamp(1.28rem,5.2vw,1.65rem);
-    line-height:1.2;
+    font-size:clamp(1.25rem,5.2vw,1.65rem);
+    line-height:1.22;
     color:#fff;
     text-shadow:0 2px 10px rgba(0,0,0,.85),0 4px 20px rgba(0,0,0,.6);
     margin-bottom:6px;
   }
   .hero-sub{
-    display:-webkit-box;
-    -webkit-line-clamp:2;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-    font-size:clamp(.76rem,2.4vw,.86rem);
-    line-height:1.45;
+    font-size:clamp(.78rem,2.5vw,.88rem);
+    line-height:1.5;
     color:rgba(253,246,228,.92);
     text-shadow:0 1px 6px rgba(0,0,0,.75);
-    max-width:380px;
+    max-width:420px;
     margin:0 auto;
   }
 
@@ -972,7 +972,7 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
     left:auto !important;
     right:auto !important;
     transform:none !important;
-    margin:8px auto 14px !important;
+    margin:12px auto 14px !important;
     display:flex !important;
     justify-content:center !important;
     align-items:center !important;
@@ -994,6 +994,7 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
     padding:0 12px !important;
     background:transparent !important;
     z-index:30 !important;
+    box-sizing:border-box !important;
   }
   .hero-search-bar{max-width:100%}
   .search-box{
