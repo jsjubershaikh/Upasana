@@ -85,7 +85,7 @@ function initMobileSidebar() {
    HERO SLIDER
 ══════════════════════════════════════════════════ */
 function initHeroSlider() {
-  const slides  = document.querySelectorAll('.hero-slide');
+  const slides  = document.querySelectorAll('.hero .slide, .hero-slide');
   const dots    = document.querySelectorAll('.dot');
   const prevBtn = document.getElementById('slide-prev');
   const nextBtn = document.getElementById('slide-next');
