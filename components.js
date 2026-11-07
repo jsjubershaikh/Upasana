@@ -1477,19 +1477,32 @@ function initContactForm() {
 /* ── REAL-TIME CALENDAR & MUHURAT WIDGET ── */
 /* ── FAQ Accordion ── */
 function initFAQ() {
-  document.querySelectorAll('.faq-item').forEach(item => {
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach(item => {
     const q = item.querySelector('.faq-q');
     const a = item.querySelector('.faq-a');
     if(!q || !a) return;
+
+    // Ensure clean initial state — remove any stale inline style
+    a.style.maxHeight = '';
+
     q.addEventListener('click', () => {
-      const open = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => {
+      const isOpen = item.classList.contains('open');
+
+      // Close all open items
+      items.forEach(el => {
         el.classList.remove('open');
-        el.querySelector('.faq-a').style.maxHeight = '0';
+        const elA = el.querySelector('.faq-a');
+        const elQ = el.querySelector('.faq-q');
+        if(elA) elA.style.maxHeight = '';
+        if(elQ) elQ.setAttribute('aria-expanded', 'false');
       });
-      if(!open) {
+
+      // Open clicked item if it was closed
+      if(!isOpen) {
         item.classList.add('open');
         a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded', 'true');
       }
     });
   });

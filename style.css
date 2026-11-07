@@ -411,8 +411,8 @@ select.form-control{background-image:url("data:image/svg+xml,%3Csvg xmlns='http:
 .faq-q:hover,.faq-item.open .faq-q{color:var(--dark)}
 .faq-q svg{flex-shrink:0;transition:transform .3s;color:var(--dark)}
 .faq-item.open .faq-q svg{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),padding .3s}
-.faq-item.open .faq-a{max-height:400px;padding:0 22px 18px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),padding .4s ease}
+.faq-item.open .faq-a{padding:0 22px 18px}
 .faq-a p{font-size:.88rem;color:var(--text2);line-height:1.7}
 
 /* ══════════════════════════════════════════════════

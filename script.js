@@ -150,35 +150,10 @@ function initHeroSlider() {
 }
 
 /* ══════════════════════════════════════════════════
-   FAQ ACCORDION
+   FAQ ACCORDION — handled by components.js initFAQ()
 ══════════════════════════════════════════════════ */
 function initFAQ() {
-  const items = document.querySelectorAll('.faq-item');
-
-  items.forEach(item => {
-    const btn = item.querySelector('.faq-q');
-    if (!btn) return;
-
-    btn.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-
-      // Close all others
-      items.forEach(other => {
-        other.classList.remove('open');
-        const otherBtn = other.querySelector('.faq-q');
-        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-      });
-
-      // Toggle current
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      } else {
-        item.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
+  // Delegated to components.js — do nothing here to avoid double-binding
 }
 
 /* ══════════════════════════════════════════════════
