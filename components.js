@@ -288,7 +288,10 @@ window.applyTranslations = function(lang) {
     if(attr) {
       el.setAttribute(attr, dict[key]);
     } else {
+      // Preserve any child elements (e.g. <span class="req">*</span>) inside label
+      const reqSpan = el.querySelector('.req');
       el.textContent = dict[key];
+      if(reqSpan) el.appendChild(reqSpan);
     }
   });
   document.documentElement.lang = lang;
@@ -477,7 +480,7 @@ function renderHeader() {
       <a href="${n.href}" class="nav-link ${currentPage === n.href ? 'active' : ''}" data-i18n="${n.i18n}">${n.label}</a>
     </li>`).join('');
 
-  const mobSubItems = SERVICES.map(s => `<li><a href="${s.href}">${s.icon} ${s.label}</a></li>`).join('');
+  const mobSubItems = SERVICES.map(s => `<li><a href="${s.href}">${s.label}</a></li>`).join('');
   const mobNavItems = navLinks.map(n => `<li><a href="${n.href}" data-i18n="${n.i18n}" ${currentPage===n.href?'style="color:var(--dark);font-weight:700"':''}>${n.label}</a></li>`).join('');
 
   document.getElementById('header-root').innerHTML = `

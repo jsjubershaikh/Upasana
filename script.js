@@ -153,28 +153,29 @@ function initHeroSlider() {
    FAQ ACCORDION
 ══════════════════════════════════════════════════ */
 function initFAQ() {
-  const questions = document.querySelectorAll('.faq-question');
+  const items = document.querySelectorAll('.faq-item');
 
-  questions.forEach(q => {
-    q.addEventListener('click', () => {
-      const answer  = q.nextElementSibling;
-      const isOpen  = q.getAttribute('aria-expanded') === 'true';
+  items.forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
 
       // Close all others
-      questions.forEach(other => {
-        if (other !== q) {
-          other.setAttribute('aria-expanded', 'false');
-          other.nextElementSibling?.classList.remove('open');
-        }
+      items.forEach(other => {
+        other.classList.remove('open');
+        const otherBtn = other.querySelector('.faq-q');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
       });
 
       // Toggle current
-      if (isOpen) {
-        q.setAttribute('aria-expanded', 'false');
-        answer?.classList.remove('open');
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
       } else {
-        q.setAttribute('aria-expanded', 'true');
-        answer?.classList.add('open');
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
       }
     });
   });
