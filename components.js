@@ -1453,12 +1453,26 @@ function initBookingForm() {
     showToast('Booking submitted! Our team will contact you within 30 minutes.','success');
     setTimeout(()=>{ btn.textContent='Book Pandit Now'; btn.style.background=''; btn.disabled=false; form.reset(); },4000);
   });
-  // Radio toggles
-  document.querySelectorAll('.radio-opt').forEach(opt=>{
-    opt.addEventListener('click',()=>{
-      const name=opt.querySelector('input')?.name;
-      document.querySelectorAll(`.radio-opt input[name="${name}"]`).forEach(r=>{r.closest('.radio-opt')?.classList.remove('checked');});
-      opt.querySelector('input').checked=true; opt.classList.add('checked');
+  // Radio toggles are handled globally by initRadioGroups()
+}
+
+/* ── Global Radio Group Toggle ── */
+function initRadioGroups() {
+  document.querySelectorAll('.radio-opt').forEach(opt => {
+    // Sync initial state: add 'checked' class if input is checked
+    const inp = opt.querySelector('input[type="radio"]');
+    if (inp && inp.checked) opt.classList.add('checked');
+
+    opt.addEventListener('click', () => {
+      const radioName = opt.querySelector('input[type="radio"]')?.name;
+      if (!radioName) return;
+      // Remove 'checked' from ALL opts in the same group
+      document.querySelectorAll(`.radio-opt input[name="${radioName}"]`).forEach(r => {
+        r.closest('.radio-opt')?.classList.remove('checked');
+      });
+      // Mark this one as checked
+      const radio = opt.querySelector('input[type="radio"]');
+      if (radio) { radio.checked = true; opt.classList.add('checked'); }
     });
   });
 }
@@ -1605,6 +1619,7 @@ function initAll() {
   initReveal();
   initCounters();
   initFAQ();
+  initRadioGroups();
   initSearch('puja-search');
   initSearch('puja-search-2');
   initSmoothScroll();
