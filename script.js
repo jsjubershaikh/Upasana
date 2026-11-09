@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileSidebar();
   initHeroSlider();
-  initFAQ();
   initScrollReveal();
   initStatCounters();
   initBackToTop();
@@ -147,13 +146,6 @@ function initHeroSlider() {
   }, { passive: true });
 
   startAuto();
-}
-
-/* ══════════════════════════════════════════════════
-   FAQ ACCORDION — handled by components.js initFAQ()
-══════════════════════════════════════════════════ */
-function initFAQ() {
-  // Delegated to components.js — do nothing here to avoid double-binding
 }
 
 /* ══════════════════════════════════════════════════
