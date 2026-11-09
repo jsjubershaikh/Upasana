@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
@@ -119,8 +119,8 @@
                 <input type="date" id="puja-date" class="form-control"/>
               </div>
               <div class="form-group">
-                <label for="puja-time">Preferred Time</label>
-                <select id="puja-time" class="form-control">
+                <label for="puja-time">Preferred Time <span class="req">*</span></label>
+                <select id="puja-time" class="form-control" required>
                   <option value="">-- Select Time Slot --</option>
                   <option>Early Morning (5 – 7 AM)</option>
                   <option>Morning (7 – 10 AM)</option>
@@ -135,17 +135,17 @@
             <!-- Mode + Samagri -->
             <div class="form-row">
               <div class="form-group">
-                <label>Puja Mode</label>
+                <label>Puja Mode <span class="req">*</span></label>
                 <div class="radio-group">
-                  <label class="radio-opt checked"><input type="radio" name="mode" value="offline" checked/><div class="radio-dot"><div class="radio-inner"></div></div>Offline (Home)</label>
-                  <label class="radio-opt"><input type="radio" name="mode" value="online"/><div class="radio-dot"><div class="radio-inner"></div></div>Online (Live)</label>
+                  <label class="radio-opt checked"><input type="radio" name="mode" value="offline" checked required/><div class="radio-dot"><div class="radio-inner"></div></div>Offline (Home)</label>
+                  <label class="radio-opt"><input type="radio" name="mode" value="online" required/><div class="radio-dot"><div class="radio-inner"></div></div>Online (Live)</label>
                 </div>
               </div>
               <div class="form-group">
-                <label>Need Samagri Delivery?</label>
+                <label>Need Samagri Delivery? <span class="req">*</span></label>
                 <div class="radio-group">
-                  <label class="radio-opt checked"><input type="radio" name="samagri" value="yes" checked/><div class="radio-dot"><div class="radio-inner"></div></div>Yes</label>
-                  <label class="radio-opt"><input type="radio" name="samagri" value="no"/><div class="radio-dot"><div class="radio-inner"></div></div>No</label>
+                  <label class="radio-opt checked"><input type="radio" name="samagri" value="yes" checked required/><div class="radio-dot"><div class="radio-inner"></div></div>Yes</label>
+                  <label class="radio-opt"><input type="radio" name="samagri" value="no" required/><div class="radio-dot"><div class="radio-inner"></div></div>No</label>
                 </div>
               </div>
             </div>
@@ -168,8 +168,8 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="city">City / Location</label>
-                <input type="text" id="city" class="form-control" placeholder="e.g. Mumbai, Delhi, Surat�"/>
+                <label for="city">City / Location <span class="req">*</span></label>
+                <input type="text" id="city" class="form-control" placeholder="e.g. Mumbai, Delhi, Surat" required/>
               </div>
             </div>
 
@@ -264,16 +264,20 @@
     const puja    = document.getElementById('puja-type').value;
     const date    = document.getElementById('puja-date').value;
     const time    = document.getElementById('puja-time').value;
-    const mode    = document.querySelector('input[name="mode"]:checked')?.value || 'Offline';
-    const samagri = document.querySelector('input[name="samagri"]:checked')?.value || 'Yes';
+    const mode    = document.querySelector('input[name="mode"]:checked')?.value;
+    const samagri = document.querySelector('input[name="samagri"]:checked')?.value;
     const city    = document.getElementById('city').value.trim();
     const address = document.getElementById('address').value.trim();
     const notes   = document.getElementById('notes').value.trim();
 
-    if (!name)  { showToast('Please enter your full name.', 'error'); return; }
-    if (!phone) { showToast('Please enter your mobile number.', 'error'); return; }
-    if (!puja)  { showToast('Please select a puja type.', 'error'); return; }
-    if (!date)  { showToast('Please select the puja date.', 'error'); return; }
+    if (!name)  { showToast('Please enter your full name.', 'error'); document.getElementById('full-name')?.focus(); return; }
+    if (!phone || phone.replace(/\D/g,'').length < 10) { showToast('Please enter a valid 10-digit mobile number.', 'error'); document.getElementById('phone')?.focus(); return; }
+    if (!puja)  { showToast('Please select a puja type.', 'error'); document.getElementById('puja-type')?.focus(); return; }
+    if (!date)  { showToast('Please select the puja date.', 'error'); document.getElementById('puja-date')?.focus(); return; }
+    if (!time)  { showToast('Please select a preferred time slot.', 'error'); document.getElementById('puja-time')?.focus(); return; }
+    if (!mode)  { showToast('Please select a puja mode.', 'error'); return; }
+    if (!samagri) { showToast('Please select samagri delivery preference.', 'error'); return; }
+    if (!city)  { showToast('Please enter your city / location.', 'error'); document.getElementById('city')?.focus(); return; }
 
     const btn = this.querySelector('.btn-submit');
     btn.textContent = 'Sending Request...';
